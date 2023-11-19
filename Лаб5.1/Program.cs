@@ -1,0 +1,58 @@
+﻿namespace Лаб5._1
+{
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Задание 1.
+    /// </summary>
+    internal class Program
+    {
+        /// <summary>
+        /// Вызов функции и вывод полученного результата.
+        /// </summary>
+        private static void Main()
+        {
+            string str1 = "активизация привет. " +
+                "свет; " +
+                "Искажение звука";
+            /*string? str2 = Console.ReadLine();*/
+            Console.WriteLine(str1);
+            Console.WriteLine("Вывод слов, начинающихся с гласных букв:");
+            foreach (var i in Vowels(str1))
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        /// <summary>
+        /// Создание списка, состоящего из слов, начинающихся на гласную букву.
+        /// </summary>
+        /// <param name="strg">Входная строка.</param>
+        /// <returns>l.</returns>
+        private static List<string> Vowels(string strg)
+        {
+            // С помощью метода Split разделяем строку на подстроки.
+            // Создаем массив, состоящий из гласных букв.
+            // Создаем пустой список.
+            string[] mystring = strg.Split(new[] { '.', ',', '?', '!', ';', ':', ' ', '-', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+            char[] vowers = { 'ё', 'у', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю', 'Ё', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю' };
+            List<string> l = new List<string>();
+
+            // Итерируемся по подстрокам, находим те слова, первая буква которых соотвествует массиву гласных букв.
+            // В случае обнаружения добавляем данное слово в список.
+            for (int i = 0; i < mystring.Length; i++)
+            {
+                for (int j = 0; j < vowers.Length; j++)
+                {
+                    if (mystring[i][0] == vowers[j])
+                    {
+                        l.Add(mystring[i]);
+                    }
+                }
+            }
+
+            return l;
+        }
+    }
+}
