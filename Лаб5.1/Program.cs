@@ -16,9 +16,12 @@
             string str1 = "активизация привет. " +
                 "свет; " +
                 "Искажение звука";
-            Console.WriteLine(str1);
+            string str2 = "активизация привет. " +
+                "отсвет; " +
+                "Искажение звука";
+            Console.WriteLine(str2);
             Console.WriteLine("Вывод слов, начинающихся с гласных букв:");
-            foreach (var i in Vowels(str1))
+            foreach (var i in Vowels(str2))
             {
                 Console.WriteLine(i);
             }
