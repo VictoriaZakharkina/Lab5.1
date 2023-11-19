@@ -57,5 +57,31 @@
 
             return l;
         }
+
+        private static List<string> Consonants(string str1, string str2)
+        {
+            // С помощью метода Split разделяем строку на подстроки.
+            // Создаем массив, состоящий из гласных букв.
+            // Создаем пустой список.
+            string str3 = str1 + str2;
+            string[] mystring = str3.Split(new[] { '.', ',', '?', '!', ';', ':', ' ', '-', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+            char[] vowers = { 'ё', 'у', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю', 'Ё', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю' };
+            List<string> l = new List<string>();
+
+            // Итерируемся по подстрокам, находим те слова, первая буква которых не соотвествует массиву гласных букв.
+            // В случае обнаружения добавляем данное слово в список.
+            for (int i = 0; i < mystring.Length; i++)
+            {
+                for (int j = 0; j < vowers.Length; j++)
+                {
+                    if (mystring[i][0] != vowers[j])
+                    {
+                        l.Add(mystring[i]);
+                    }
+                }
+            }
+
+            return l;
+        }
     }
 }
