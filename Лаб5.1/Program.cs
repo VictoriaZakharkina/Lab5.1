@@ -21,7 +21,7 @@
                 "Искажение звука";
             Console.WriteLine(str2);
             Console.WriteLine("Вывод слов, начинающихся с гласных букв:");
-            foreach (var i in Vowels(str2))
+            foreach (var i in Vowels(str1, str2))
             {
                 Console.WriteLine(i);
             }
@@ -30,14 +30,15 @@
         /// <summary>
         /// Создание списка, состоящего из слов, начинающихся на гласную букву.
         /// </summary>
-        /// <param name="strg">Входная строка.</param>
+        /// <param name="str1, str2">Входные строки.</param>
         /// <returns>l.</returns>
-        private static List<string> Vowels(string strg)
+        private static List<string> Vowels(string str1, string str2)
         {
             // С помощью метода Split разделяем строку на подстроки.
             // Создаем массив, состоящий из гласных букв.
             // Создаем пустой список.
-            string[] mystring = strg.Split(new[] { '.', ',', '?', '!', ';', ':', ' ', '-', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+            string str3 = str1 + str2;
+            string[] mystring = str3.Split(new[] { '.', ',', '?', '!', ';', ':', ' ', '-', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
             char[] vowers = { 'ё', 'у', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю', 'Ё', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю' };
             List<string> l = new List<string>();
 
