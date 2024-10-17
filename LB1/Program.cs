@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
+//TODO: убрать лишний проект из решения
+//TODO: разделить модель и консольный ввод-вывод
+//TODO: правило одна сущность - один файл
 namespace ConsoleApp9
 {
     /// <summary>
@@ -213,6 +216,8 @@ namespace ConsoleApp9
         /// <returns>Случайный человек.</returns>
         public static Person GetRandomPerson()
         {
+            //TODO: разделить английские и русские имена/фамилии
+            //TODO: определить правила, позволяющие такую генерацию персоны
             string[] maleNames = new string[]
             {
                 "Oliver", "Jack", "Harry", "Jacob", "Oscar",
@@ -264,6 +269,8 @@ namespace ConsoleApp9
         public string Info => $"{Name} {Surname}," +
             $" Age: {Age}, Gender: {Gender}";
     }
+
+    //TODO: XML
     public enum Gender
     {
         /// <summary>
@@ -276,6 +283,8 @@ namespace ConsoleApp9
         /// </summary>
         Female
     }
+
+    //TODO: XML
     public enum Language
     {
         /// <summary>
@@ -288,6 +297,7 @@ namespace ConsoleApp9
         /// </summary>
         English
     }
+
     /// <summary>
     /// Класс списка
     /// </summary>
@@ -399,6 +409,8 @@ namespace ConsoleApp9
             Array.Resize(ref _personList, 0);
         }
     }
+
+    //TODO: XML
     internal class Program
     {
         /// <summary>
