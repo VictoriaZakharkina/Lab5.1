@@ -492,7 +492,7 @@ namespace ConsoleApp9
         /// Добавление через консоль
         /// </summary>
         /// <returns>Новый человек.</returns>
-        /// <exception cref="IndexOutOfRangeException">Индекс вне диапазона.</exception>
+        /// <exception cref="IndexOutOfRangeException">Значение вне диапазона.</exception>
         public static Person InputPersonByConsole()
         {
             var person = new Person();
