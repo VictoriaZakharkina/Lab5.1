@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-//TODO: убрать лишний проект из решения
+//TODO +: убрать лишний проект из решения
 //TODO: разделить модель и консольный ввод-вывод
 //TODO: правило одна сущность - один файл
 namespace ConsoleApp9
@@ -210,56 +210,88 @@ namespace ConsoleApp9
             return value.Substring(0, 1).ToUpper() +
                     value.Substring(1, value.Length - 1).ToLower();
         }
+        private static Random personRnd = new Random();
         /// <summary>
         /// Ввод случайного человека.
         /// </summary>
         /// <returns>Случайный человек.</returns>
         public static Person GetRandomPerson()
         {
+            
             //TODO: разделить английские и русские имена/фамилии
             //TODO: определить правила, позволяющие такую генерацию персоны
-            string[] maleNames = new string[]
+            string[] maleNamesRus = new string[]
             {
-                "Oliver", "Jack", "Harry", "Jacob", "Oscar",
                 "Михаил", "Андрей", "Олег", "Павел", "Юрий"
             };
-
-            string[] femaleNames = new string[]
+            string[] maleNamesEng = new string[]
             {
-                "Emma", "Olivia", "Sophia", "Isabella", "Charlotte",
+                "Oliver", "Jack", "Harry", "Jacob", "Oscar"
+            };
+            string[] femaleNamesRus = new string[]
+            {
                 "Мария", "Майя", "Нина", "Вера", "Октябрина"
             };
-
-            string[] maleSurnames = new string[]
+            string[] femaleNamesEng = new string[]
             {
-                "Adams", "Watson", "Cooper", "Jenkins", "Smith",
+                "Emma", "Olivia", "Sophia", "Isabella", "Charlotte"
+            };
+            string[] maleSurnamesRus = new string[]
+            {
                 "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
             };
-            string[] femaleSurnames = new string[]
+            string[] SurnamesEng = new string[]
             {
-                "Adams", "Watson", "Cooper", "Jenkins", "Smith",
+                "Adams", "Watson", "Cooper", "Jenkins", "Smith"
+            };
+            string[] femaleSurnamesRus = new string[]
+            {
                 "Попова", "Иванова", "Краснова", "Селина", "Калиновская"
             };
 
             var random = new Random();
             string name;
             string surname;
-            var gender = (Gender)random.Next(0, 2);
+            var gender = (Gender)personRnd.Next(0, 2);
+            var language = (Language)personRnd.Next(0, 2);
             switch (gender)
             {
                 case Gender.Male:
-                    name = maleNames[random.Next(maleNames.Length)];
-                    surname = maleSurnames[random.Next(maleSurnames.Length)];
+                    switch (language)
+                    {
+                        case Language.English:
+                            name = maleNamesEng[personRnd.Next(maleNamesEng.Length)];
+                            surname = SurnamesEng[personRnd.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            name = maleNamesRus[personRnd.Next(maleNamesRus.Length)];
+                            surname = maleSurnamesRus[personRnd.Next(maleSurnamesRus.Length)];
+                            break;
+                        default:
+                            return new Person("Default", "Person", 0, Gender.Male);
+                    }
                     break;
+                    
                 case Gender.Female:
-                    name = femaleNames[random.Next(femaleNames.Length)];
-                    surname = femaleSurnames[random.Next(femaleSurnames.Length)];
+                    switch (language)
+                    {
+                        case Language.English:
+                            name = femaleNamesEng[personRnd.Next(femaleNamesEng.Length)];
+                            surname = SurnamesEng[personRnd.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            name = femaleNamesRus[personRnd.Next(femaleNamesRus.Length)];
+                            surname = femaleSurnamesRus[personRnd.Next(femaleSurnamesRus.Length)];
+                            break;
+                        default:
+                            return new Person("Default", "Person", 0, Gender.Female);
+                    }
                     break;
                 default:
                     return new Person("Default", "Person", 0, Gender.Male);
             }
 
-            int age = random.Next(0, 150);
+            int age = personRnd.Next(0, 150);
 
             return new Person(name, surname, age, gender);
         }
@@ -316,18 +348,6 @@ namespace ConsoleApp9
         {
             Array.Resize(ref _personList, _personList.Length + 1);
             _personList[_personList.Length - 1] = person;
-        }
-
-        /// <summary>
-        /// Добавление нескольких человек.
-        /// </summary>
-        /// <param name="persons">Массив людей.</param>
-        public void AddPersons(Person[] persons)
-        {
-            foreach (Person person in persons)
-            {
-                AddPerson(person);
-            }
         }
 
         /// <summary>
@@ -429,23 +449,12 @@ namespace ConsoleApp9
 
             var personList1 = new PersonList();
             var personList2 = new PersonList();
-
-            Person[] personArr1 = new Person[]
+            for (int i = 0; i<3; i++)
             {
-                new Person("William", "Lloyd", 45, Gender.Male),
-                new Person("Петр", "Васильев", 37, Gender.Male),
-                new Person("Анна", "Васильева", 21, Gender.Female)
-            };
+                personList1.AddPerson(Person.GetRandomPerson());
+                personList2.AddPerson(Person.GetRandomPerson());
+            }
 
-            Person[] personArr2 = new Person[]
-            {
-                new Person("Hector", "Elliott", 25, Gender.Male),
-                new Person("Родион", "Соболев", 60, Gender.Male),
-                new Person("Вера", "Иванова", 19, Gender.Female)
-            };
-
-            personList1.AddPersons(personArr1);
-            personList2.AddPersons(personArr2);
             Console.WriteLine("Создано два списка:");
             PrintList(personList1, personList2);
 
