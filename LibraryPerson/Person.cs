@@ -110,6 +110,20 @@ namespace LibraryPerson
         /// Default person.
         /// </summary>
         public Person() { }
+
+        /// <summary>
+        /// Getting information about person.
+        /// </summary>
+        /// <returns>Person's information.</returns>
+        public string GetPersonInfo() =>
+            $"{Name} {Surname}; Age: {Age}; Gender: {Gender}";
+
+        /// <summary>
+        /// Getting name and surname.
+        /// </summary>
+        /// <returns>Name and surname.</returns>
+        public string GetNameSurname() => $"{Name} {Surname}";
+
         /// <summary>
         /// Проверка возраста
         /// </summary>
