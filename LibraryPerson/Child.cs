@@ -7,47 +7,47 @@ using System.Threading.Tasks;
 namespace LibraryPerson
 {
     /// <summary>
-    /// Class Child.
+    /// Класс Child
     /// </summary>
     public class Child : Person
     {
         /// <summary>
-        /// Minimum age.
+        /// Минимальный возраст
         /// </summary>
         private const int _minAge = 0;
 
         /// <summary>
-        /// Maximum age.
+        /// Максимальный возраст
         /// </summary>
         private const int _maxAge = 17;
 
         /// <summary>
-        /// Minimum age.
+        /// Минимальный возраст
         /// </summary>
         protected override int MinAge { get; } = _minAge;
 
         /// <summary>
-        /// Maximum age.
+        /// Максимальный возраст
         /// </summary>
         protected override int MaxAge { get; } = _maxAge;
 
         /// <summary>
-        /// Child's mother.
+        /// Мать ребенка
         /// </summary>
         private Adult _mother;
 
         /// <summary>
-        /// Child's father.
+        /// Отец ребенка
         /// </summary>
         private Adult _father;
 
         /// <summary>
-        /// Child's school.
+        /// Учебное заведение
         /// </summary>
         private string _school;
 
         /// <summary>
-        /// Gets or sets child's mother.
+        /// Get, set Мать
         /// </summary>
         public Adult Mother
         {
@@ -61,7 +61,7 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Gets or sets child's father.
+        /// Get, set Отец
         /// </summary>
         public Adult Father
         {
@@ -75,7 +75,7 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Gets or sets child's school.
+        /// Get, set Учебное заведение
         /// </summary>
         public string School
         {
@@ -87,49 +87,46 @@ namespace LibraryPerson
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="parent">Mother or Father.</param>
-        /// <param name="gender">Male or Female.</param>
-        /// <exception cref="ArgumentException">Incorrent input.</exception>
+        /// <param name="parent">Отец/Мать</param>
+        /// <param name="gender">Мужской/Женский</param>
+        /// <exception cref="ArgumentException">Некорректный пол</exception>
         private void CheckParentGender(Adult parent, Gender gender)
         {
             if (parent != null && parent.Gender != gender)
             {
-                throw new ArgumentException("Change parent's gender!");
+                throw new ArgumentException("Измените возраст родителя!");
             }
         }
 
         /// <summary>
-        /// Info about child.
+        /// Информация о ребенке
         /// </summary>
-        /// <returns>Info.</returns>
+        /// <returns>Информация</returns>
         public override string GetInfo()
         {
-            string motherStatus = "No mother";
-            string fatherStatus = "No father";
+            string motherStatus = "Нет матери";
+            string fatherStatus = "Нет отца";
 
             if (Mother != null)
             {
-                motherStatus = $"Mother is {Mother.GetNameSurname()}";
+                motherStatus = $"Мать - {Mother.GetNameSurname()}";
             }
 
             if (Father != null)
             {
-                fatherStatus = $"Father is {Father.GetNameSurname()}";
+                fatherStatus = $"Отец - {Father.GetNameSurname()}";
             }
 
-            string schoolStatus = "not studing";
+            string schoolStatus = "Не учится";
             if (!string.IsNullOrEmpty(School))
             {
-                schoolStatus = $"Study in {School}";
+                schoolStatus = $"Учится в {School}";
             }
 
             if (Mother == null && Father == null)
             {
-                return Gender == Gender.Female
-                    ? $"{GetPersonInfo()} \n{schoolStatus}" +
-                        $"\nUnfortunately, she is an orphan"
-                    : $"{GetPersonInfo()} \n{schoolStatus}" +
-                        $"\nUnfortunately, he is an orphan";
+                return $"{GetPersonInfo()} \n{schoolStatus}" +
+                        $"\nК сожалению, данный ребенок - сирота";
             }
             else
             {
@@ -141,15 +138,15 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Child's constructor.
+        /// Конструктор
         /// </summary>
-        /// <param name="name">Name.</param>
-        /// <param name="surname">Surname.</param>
-        /// <param name="age">Age.</param>
-        /// <param name="gender">Gender.</param>
-        /// <param name="mother">Mother.</param>
-        /// <param name="father">Father.</param>
-        /// <param name="school">School.</param>
+        /// <param name="name">Имя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="age">Возраст</param>
+        /// <param name="gender">Пол</param>
+        /// <param name="mother">Мать</param>
+        /// <param name="father">Отец</param>
+        /// <param name="school">Учебное заведение</param>
         public Child(string name, string surname, int age, Gender gender,
             Adult mother, Adult father, string school)
             : base(name, surname, age, gender)
@@ -160,59 +157,80 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Entering a random child.
+        /// Ввод случайного ребенка
         /// </summary>
-        /// <returns>Random person.</returns>
+        /// <returns>Случайный ребенок</returns>
         public static Child GetRandomPerson()
         {
-            string[] maleNames = new string[]
+            string[] maleNamesRus = new string[]
             {
-                "Jack", "William", "Davy",
-                "Joshamee", "Hector", "Theodore",
-                "James", "Sao", "Edward"
+                "Михаил", "Андрей", "Олег", "Павел", "Юрий"
             };
-
-            string[] femaleNames = new string[]
+            string[] maleNamesEng = new string[]
             {
-                "Elizabeth", "Tia", "Keira",
-                "Carina", "Kaya", "Angelica",
-                "Penelope", "Naomie", "Anamaria"
+                "Oliver", "Jack", "Harry", "Jacob", "Oscar"
             };
-
-            string[] allSurnames = new string[]
+            string[] femaleNamesRus = new string[]
             {
-                "Sparrow", "Turner", "Jones",
-                "Gibbs", "Barbossa", "Groves",
-                "Norrington", "Feng", "Teague",
-                "Swann", "Dalma", "Smyth"
+                "Мария", "Майя", "Нина", "Вера", "Октябрина"
             };
-
+            string[] femaleNamesEng = new string[]
+            {
+                "Emma", "Olivia", "Sophia", "Isabella", "Charlotte"
+            };
+            string[] maleSurnamesRus = new string[]
+            {
+                "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
+            };
+            string[] SurnamesEng = new string[]
+            {
+                "Adams", "Watson", "Cooper", "Jenkins", "Smith"
+            };
+            string[] femaleSurnamesRus = new string[]
+            {
+                "Попова", "Иванова", "Краснова", "Селина", "Калиновская"
+            };
             string[] schoolNames = new string[]
             {
-                "Imagination", "Flying Spagetti Monster", "Queen of Bubbles",
-                "Scuba-Dubin-Doo", "Cthulhu", "The Kraken", "Unsinkable",
-                "Carpe Diem", "Fantasea", "Aquaholic", "Titanic II",
-                "Little Black Pearl", "Monkeebutt"
+                "Гриффиндор", "Слизерин", "Когтевран",
+                "Пуффендуй", "Школа #34", "Лицей #1"
             };
 
             var random = new Random();
             string name = string.Empty;
+            string surname = string.Empty;
             var gender = (Gender)random.Next(0, 2);
+            var language = (Language)random.Next(0, 2); 
             switch (gender)
             {
                 case Gender.Male:
-                    name = maleNames[random.Next(maleNames.Length)];
+                    switch (language)
+                    {
+                        case Language.English:
+                            name = maleNamesEng[random.Next(maleNamesEng.Length)];
+                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            name = maleNamesRus[random.Next(maleNamesRus.Length)];
+                            surname = maleSurnamesRus[random.Next(maleSurnamesRus.Length)];
+                            break;
+                    }
                     break;
+
                 case Gender.Female:
-                    name = femaleNames[random.Next(femaleNames.Length)];
-                    break;
-                case Gender.Default:
-                    break;
-                default:
+                    switch (language)
+                    {
+                        case Language.English:
+                            name = femaleNamesEng[random.Next(femaleNamesEng.Length)];
+                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            name = femaleNamesRus[random.Next(femaleNamesRus.Length)];
+                            surname = femaleSurnamesRus[random.Next(femaleSurnamesRus.Length)];
+                            break;
+                    }
                     break;
             }
-
-            string surname = allSurnames[random.Next(allSurnames.Length)];
             int age = random.Next(_minAge, _maxAge);
 
             string school = schoolNames[random.Next(schoolNames.Length)];
@@ -225,11 +243,11 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Create random parent for random child.
+        /// Создание случайного родителя для ребенка
         /// </summary>
-        /// <param name="numberParent"> 0 is Male, 1 is Female.</param>
+        /// <param name="numberParent">Мать 1/Отец 0</param>
         /// <returns>Random Parent.</returns>
-        /// <exception cref="ArgumentException">Incorrect input.</exception>
+        /// <exception cref="ArgumentException">Некорректный ввод</exception>
         private static Adult GetRandomParent(int numberParent)
         {
             var random = new Random();
@@ -249,25 +267,25 @@ namespace LibraryPerson
                         return Adult.GetRandomPerson(Gender.Female);
                     default:
                         throw new ArgumentException
-                            ("Number must be in range [0; 1].");
+                            ("Число должно быть равно 0 или 1");
                 }
             }
         }
 
         /// <summary>
-        /// Check correct age.
+        /// Проверка возраста
         /// </summary>
-        /// <param name="age">Age.</param>
-        /// <returns>Correct age.</returns>
+        /// <param name="age">Возраст</param>
+        /// <returns>Корректный возраст</returns>
         /// <exception cref="IndexOutOfRangeException">
-        /// Incorrect input.</exception>
+        /// Некорректный возраст</exception>
         protected override int CheckAge(int age)
         {
             if (age < MinAge || age > MaxAge)
             {
                 throw new IndexOutOfRangeException
-                    ($"\nThe age should be in the " +
-                    $"range from {MinAge} to {MaxAge}");
+                    ($"\nВозраст должен быть в промежутке " +
+                    $"от {MinAge} до {MaxAge}");
             }
             else
             {
@@ -276,24 +294,23 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Special method for class child.
+        /// Метод для ребенка
         /// </summary>
-        /// <returns>Name of ship model.</returns>
-        public string GetShipCollection()
+        /// <returns>Название мультсериала</returns>
+        public string GetFavoriteCartoon()
         {
-            string[] shipModels = new string[]
+            string[] favoriteCartoon = new string[]
             {
-                "Black Pearl", "Flying Dutchman", "Queen Anne's Revenge",
-                "HMS Interceptor", "Empress", "Hai Peng", "Jolly Mon",
-                "Dying Gull", "Wicked Wench", "Misty Lady"
+                "Утиные истории", "Чип и Дейл спешат на помощь", "Лунтик",
+                "Смешарики", "Феи"
             };
             var random = new Random();
-            string model = shipModels[random.Next(shipModels.Length)];
+            string model = favoriteCartoon[random.Next(favoriteCartoon.Length)];
             return model;
         }
 
         /// <summary>
-        /// Child without parameters.
+        /// Неизвестный ребенок
         /// </summary>
         public Child()
         {

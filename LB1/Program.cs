@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using LibraryPerson;
 
-//TODO +: убрать лишний проект из решения
-//TODO +: разделить модель и консольный ввод-вывод
-//TODO +: правило одна сущность - один файл
 namespace LB1
 {
-    //TODO +: XML
     /// <summary>
     /// Основная программа
     /// </summary>
@@ -22,48 +18,61 @@ namespace LB1
         /// </summary>
         public static void Main()
         {
+            var personList = new PersonList();
+            var random = new Random();
 
-            var inputPerson = PersonConsole.InputPersonByConsole();
-            var personList3 = new PersonList();
-            personList3.AddPerson(inputPerson);
-            Console.WriteLine("\nНовый человек");
-            PersonConsole.Info(personList3);
-            _ = Console.ReadKey();
-            Console.WriteLine("");
-
-            var personList1 = new PersonList();
-            var personList2 = new PersonList();
-            for (int i = 0; i<3; i++)
+            for (var i = 0; i < 7; i++)
             {
-                personList1.AddPerson(Person.GetRandomPerson());
-                personList2.AddPerson(Person.GetRandomPerson());
+                Person randomPerson = random.Next(0, 2) == 0
+                    ? Adult.GetRandomPerson()
+                    : Child.GetRandomPerson();
+                personList.AddPerson(randomPerson);
             }
 
-            Console.WriteLine("Создано два списка:");
-            PersonConsole.PrintList(personList1, personList2);
+            _ = Console.ReadKey();
 
-            personList1.AddPerson(
-                new Person("James", "Franco", 33, Gender.Male));
-            Console.WriteLine("Добавлен новый человек в список 1");
-            PersonConsole.PrintList(personList1, personList2);
+            Console.WriteLine("\nИнформация о людях:");
+            PrintList(personList);
 
-            personList2.AddPerson(personList1.SearchPersonByIndex(1));
-            Console.WriteLine("Добавлен человек из списка 1 в список 2");
-            PersonConsole.PrintList(personList1, personList2);
+            _ = Console.ReadKey();
 
-            personList1.RemovePersonByIndex(1);
-            Console.WriteLine("Второй человек удален из 1 списка");
-            PersonConsole.PrintList(personList1, personList2);
+            var person = personList.SearchPersonByIndex(3);
+            switch (person)
+            {
+                case Adult adult:
+                    Console.WriteLine($"\n{adult.GetNameSurname()} " +
+                        $"({adult.Age} лет) {adult.GetSmokingStatus()}");
+                    break;
+                case Child child:
+                    Console.WriteLine($"\n{child.GetNameSurname()}" +
+                        $"({child.Age} лет) любит мультсериал {child.GetFavoriteCartoon()}");
+                    break;
+                default:
+                    break;
+            }
 
-            personList2.ClearPersonList();
-            Console.WriteLine("Второй список очищен");
-            PersonConsole.PrintList(personList1, personList2);
-
-            personList1.AddPerson(Person.GetRandomPerson());
-            Console.WriteLine("Добавлен случайный человек в список 1");
-            PersonConsole.PrintList(personList1, personList2);
-
+            _ = Console.ReadKey();
         }
-
+        /// <summary>
+        /// Вывод информации о каждом человеке в списке.
+        /// </summary>
+        /// <param name="personList">Список людей.</param>
+        /// <exception cref="NullReferenceException">
+        /// Некорректно</exception>
+        public static void PrintList(PersonList personList)
+        {
+            if (personList.Length == 0)
+            {
+                throw new NullReferenceException("Список пуст");
+            }
+            else
+            {
+                for (int i = 0; i < personList.Length; i++)
+                {
+                    var tmpPerson = personList.SearchPersonByIndex(i);
+                    Console.WriteLine($"\n{tmpPerson.GetInfo()}");
+                }
+            }
+        }
     }
 }

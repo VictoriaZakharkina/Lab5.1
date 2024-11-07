@@ -7,57 +7,57 @@ using System.Threading.Tasks;
 namespace LibraryPerson
 {
     /// <summary>
-    /// Class Adult.
+    /// Класс Adult
     /// </summary>
     public class Adult : Person
     {
         /// <summary>
-        /// Passport ID.
+        /// Серия паспорта
         /// </summary>
         private int _passportID;
 
         /// <summary>
-        /// Name of company.
+        /// Место работы
         /// </summary>
         private string _company;
 
         /// <summary>
-        /// Partner.
+        /// Партнер
         /// </summary>
         private Adult _partner;
 
         /// <summary>
-        /// Minimum age.
+        /// Минимальный возраст
         /// </summary>
         private const int _minAge = 18;
 
         /// <summary>
-        /// Maximum age.
+        /// Максимальный возраст
         /// </summary>
         private const int _maxAge = 150;
 
         /// <summary>
-        /// Minimum age.
+        /// Минимальный возраст
         /// </summary>
         protected override int MinAge { get; } = _minAge;
 
         /// <summary>
-        /// Maximum age.
+        /// Максимальный возраст
         /// </summary>
         protected override int MaxAge { get; } = _maxAge;
 
         /// <summary>
-        /// Minimum value of passport ID.
+        /// Минимальное значение серии паспорта
         /// </summary>
         private const int _minPassportID = 1000;
 
         /// <summary>
-        /// Maximum value of passport ID.
+        /// Максимальное значение серии паспорта
         /// </summary>
         private const int _maxPassportID = 9999;
 
         /// <summary>
-        /// passport ID.
+        /// Get, set Номер паспорта
         /// </summary>
         public int PassportID
         {
@@ -67,7 +67,7 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Company.
+        /// Get, set Место работы
         /// </summary>
         public string Company
         {
@@ -77,7 +77,7 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Partner.
+        /// Get, set Партнер
         /// </summary>
         public Adult Partner
         {
@@ -91,23 +91,23 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Information about adult.
+        /// Информация о взрослом
         /// </summary>
-        /// <returns>Information.</returns>
+        /// <returns>Информация</returns>
         public override string GetInfo()
         {
-            string marriegeStatus = "Single";
+            string marriegeStatus = "Нет партнера";
 
             if (Partner != null)
             {
-                marriegeStatus = $"Married to {Partner.GetNameSurname()}";
+                marriegeStatus = $"В браке с {Partner.GetNameSurname()}";
             }
 
-            string companyStatus = "An unemployed pirate";
+            string companyStatus = "Безработный";
 
             if (!string.IsNullOrEmpty(Company))
             {
-                companyStatus = $"Employed in {Company}";
+                companyStatus = $"Работает в {Company}";
             }
 
             return $"{GetPersonInfo()}" +
@@ -115,15 +115,15 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Adult's constructor.
+        /// Конструктор
         /// </summary>
-        /// <param name="name">Name.</param>
-        /// <param name="surname">Surname.</param>
-        /// <param name="age">Age.</param>
-        /// <param name="gender">Gender.</param>
-        /// <param name="passportID">PAssport ID.</param>
-        /// <param name="company">Company.</param>
-        /// <param name="partner">Partner.</param>
+        /// <param name="name">Имя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="age">Возраст</param>
+        /// <param name="gender">Пол</param>
+        /// <param name="passportID">Серия паспорта</param>
+        /// <param name="company">Место работы</param>
+        /// <param name="partner">Партнер</param>
         public Adult(string name, string surname, int age, Gender gender,
             int passportID, string company, Adult partner)
             : base(name, surname, age, gender)
@@ -134,66 +134,79 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Entering a random person.
+        /// Ввод случайного взрослого
         /// </summary>
-        /// <returns>Random person.</returns>
-        public static Adult GetRandomPerson(Gender gender = Gender.Default)
+        /// <returns>Случайный взрослый</returns>
+        public static Adult GetRandomPerson(Gender gender)
         {
-            string[] maleNames = new string[]
+            string[] maleNamesRus = new string[]
             {
-                "Jack", "William", "Davy",
-                "Joshamee", "Hector", "Theodore",
-                "James", "Sao", "Edward"
+                "Михаил", "Андрей", "Олег", "Павел", "Юрий"
             };
-
-            string[] femaleNames = new string[]
+            string[] maleNamesEng = new string[]
             {
-                "Elizabeth", "Tia", "Keira",
-                "Carina", "Kaya", "Angelica",
-                "Penelope", "Naomie", "Anamaria"
+                "Oliver", "Jack", "Harry", "Jacob", "Oscar"
             };
-
-            string[] allSurnames = new string[]
+            string[] femaleNamesRus = new string[]
             {
-                "Sparrow", "Turner", "Jones",
-                "Gibbs", "Barbossa", "Groves",
-                "Norrington", "Feng", "Teague",
-                "Swann", "Dalma", "Smyth"
+                "Мария", "Майя", "Нина", "Вера", "Октябрина"
             };
-
+            string[] femaleNamesEng = new string[]
+            {
+                "Emma", "Olivia", "Sophia", "Isabella", "Charlotte"
+            };
+            string[] maleSurnamesRus = new string[]
+            {
+                "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
+            };
+            string[] SurnamesEng = new string[]
+            {
+                "Adams", "Watson", "Cooper", "Jenkins", "Smith"
+            };
+            string[] femaleSurnamesRus = new string[]
+            {
+                "Попова", "Иванова", "Краснова", "Селина", "Калиновская"
+            };
             string[] companyNames = new string[]
             {
-                "Black Pearl", "Flying Dutchman", "Queen Anne's Revenge",
-                "HMS Interceptor", "Empress", "Hai Peng", "Jolly Mon",
-                "Dying Gull", "Wicked Wench", "Misty Lady"
+                "Пятерочка", "Газпром", "Сибур",
+                "Томский политехнический университет", "Школа #34"
             };
 
             var random = new Random();
             string name = string.Empty;
-
-            if (gender == Gender.Default)
-            {
-                var tmpNumber = random.Next(0, 2);
-                gender = tmpNumber == 0
-                    ? Gender.Male
-                    : Gender.Female;
-            }
-
+            string surname = string.Empty;
+            var language = (Language)random.Next(0, 2);
             switch (gender)
             {
                 case Gender.Male:
-                    name = maleNames[random.Next(maleNames.Length)];
+                    switch (language)
+                    {
+                        case Language.English:
+                            name = maleNamesEng[random.Next(maleNamesEng.Length)];
+                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            name = maleNamesRus[random.Next(maleNamesRus.Length)];
+                            surname = maleSurnamesRus[random.Next(maleSurnamesRus.Length)];
+                            break;
+                    }
                     break;
+
                 case Gender.Female:
-                    name = femaleNames[random.Next(femaleNames.Length)];
-                    break;
-                case Gender.Default:
-                    break;
-                default:
+                    switch (language)
+                    {
+                        case Language.English:
+                            name = femaleNamesEng[random.Next(femaleNamesEng.Length)];
+                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            name = femaleNamesRus[random.Next(femaleNamesRus.Length)];
+                            surname = femaleSurnamesRus[random.Next(femaleSurnamesRus.Length)];
+                            break;
+                    }
                     break;
             }
-
-            string surname = allSurnames[random.Next(allSurnames.Length)];
             int age = random.Next(_minAge, _maxAge);
             int passportID = random.Next(_minPassportID, _maxPassportID);
             string company = companyNames[random.Next(companyNames.Length)];
@@ -206,19 +219,34 @@ namespace LibraryPerson
                 if (gender == Gender.Male)
                 {
                     partner.Gender = Gender.Female;
-                    partner.Name = femaleNames
-                        [random.Next(femaleNames.Length)];
+                    switch (language)
+                    {
+                        case Language.English:
+                            partner.Name = femaleNamesEng[random.Next(femaleNamesEng.Length)];
+                            partner.Surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            partner.Name = femaleNamesRus[random.Next(femaleNamesRus.Length)];
+                            partner.Surname = femaleSurnamesRus[random.Next(femaleSurnamesRus.Length)];
+                            break;
+                    }
 
                 }
                 else
                 {
                     partner.Gender = Gender.Male;
-                    partner.Name = maleNames
-                        [random.Next(maleNames.Length)];
+                    switch (language)
+                    {
+                        case Language.English:
+                            partner.Name = maleNamesEng[random.Next(maleNamesEng.Length)];
+                            partner.Surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            break;
+                        case Language.Russian:
+                            partner.Name = maleNamesRus[random.Next(maleNamesRus.Length)];
+                            partner.Surname = maleSurnamesRus[random.Next(maleSurnamesRus.Length)];
+                            break;
+                    };
                 }
-
-                partner.Surname = allSurnames
-                    [random.Next(allSurnames.Length)];
             }
 
             return new Adult(name, surname, age, gender,
@@ -226,18 +254,18 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Check input age.
+        /// Проверка возраста
         /// </summary>
-        /// <param name="age">Age.</param>
-        /// <returns>Correct age.</returns>
-        /// <exception cref="IndexOutOfRangeException">Incorrect.</exception>
+        /// <param name="age">Возраст</param>
+        /// <returns>Корректный возраст</returns>
+        /// <exception cref="IndexOutOfRangeException">Некорректный возраст</exception>
         protected override int CheckAge(int age)
         {
             if (age < MinAge || age > MaxAge)
             {
                 throw new IndexOutOfRangeException
-                    ($"\nThe age should be in the " +
-                    $"range from {MinAge} to {MaxAge}");
+                    ($"\nВозраст должен быть в промежутке " +
+                    $"от {MinAge} до {MaxAge}");
             }
             else
             {
@@ -246,11 +274,11 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Check input passport ID.
+        /// Проверка серии паспорта
         /// </summary>
-        /// <param name="passportID">Passport ID.</param>
-        /// <returns>Correct passport ID.</returns>
-        /// <exception cref="IndexOutOfRangeException">Incorrect.</exception>
+        /// <param name="passportID">Серия паспорта</param>
+        /// <returns>Корректная серия паспорта</returns>
+        /// <exception cref="IndexOutOfRangeException">Некорректная серия паспорта</exception>
         private int CheckPassportID(int passportID)
         {
             if (passportID < _minPassportID || passportID > _maxPassportID)
@@ -266,37 +294,36 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Check gender of adult's partner.
+        /// Проверка пола партнера
         /// </summary>
-        /// <param name="partner">Partner.</param>
-        /// <exception cref="ArgumentException">Incorrect input.</exception>
+        /// <param name="partner">Партнер</param>
+        /// <exception cref="ArgumentException">Некорректный пол</exception>
         private void CheckPartnerGender(Adult partner)
         {
             if (partner != null && partner.Gender == Gender)
             {
                 throw new ArgumentException
-                    ("Pirates do not approve of same-sex marriage");
+                    ("Однополые браки запрещены");
             }
         }
 
         /// <summary>
-        /// Special method for adult.
+        /// Метод для взрослого
         /// </summary>
-        /// <returns>Name of drink.</returns>
-        public string GetFavoriteDrink()
+        /// <returns>Статус курения</returns>
+        public string GetSmokingStatus()
         {
-            string[] drinkNames = new string[]
+            string[] smokingStatus = new string[]
             {
-                "Beer", "Wine", "Brandy",
-                "Gin", "Rum", "Whiskey"
+                "курит", "не курит"
             };
             var random = new Random();
-            string drink = drinkNames[random.Next(drinkNames.Length)];
+            string drink = smokingStatus[random.Next(smokingStatus.Length)];
             return drink;
         }
 
         /// <summary>
-        /// Adult without parameters.
+        /// Неизвестный взрослый
         /// </summary>
         public Adult()
         {

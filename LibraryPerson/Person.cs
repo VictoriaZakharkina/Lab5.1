@@ -10,7 +10,7 @@ namespace LibraryPerson
     /// <summary>
     /// Класс Person
     /// </summary>
-    public class Person
+    public abstract class Person
     {
         /// <summary>
         /// Имя
@@ -26,6 +26,16 @@ namespace LibraryPerson
         /// Возраст
         /// </summary>
         private int _age;
+
+        /// <summary>
+        /// Минимальный возраст
+        /// </summary>
+        protected abstract int MinAge { get; }
+
+        /// <summary>
+        /// Максимальный возраст
+        /// </summary>
+        protected abstract int MaxAge { get; }
 
         /// <summary>
         /// Пол
@@ -119,9 +129,9 @@ namespace LibraryPerson
             $"{Name} {Surname}; Age: {Age}; Gender: {Gender}";
 
         /// <summary>
-        /// Getting name and surname.
+        /// Получение имени и фамилии
         /// </summary>
-        /// <returns>Name and surname.</returns>
+        /// <returns>Имя и фамилия</returns>
         public string GetNameSurname() => $"{Name} {Surname}";
 
         /// <summary>
@@ -130,12 +140,12 @@ namespace LibraryPerson
         /// <param name="age">Возраст.</param>
         /// <returns>Возраст.</returns>
         /// <exception cref="Exception">Некорректный возраст.</exception>
-        private int CheckAge(int age)
+        protected virtual int CheckAge(int age)
         {
-            if (age < 0 || age > 150)
+            if (age < MinAge || age > MaxAge)
             {
                 throw new IndexOutOfRangeException
-                    ($"\nВозраст может быть в диапазоне от 0 до 150 лет");
+                    ($"\nВозраст может быть в диапазоне от {MinAge} до {MaxAge} лет");
             }
             else
             {
@@ -221,95 +231,23 @@ namespace LibraryPerson
             return value.Substring(0, 1).ToUpper() +
                     value.Substring(1, value.Length - 1).ToLower();
         }
-        private static Random personRnd = new Random();
+
         /// <summary>
-        /// Ввод случайного человека.
+        /// Вывод информации о человеке.
         /// </summary>
-        /// <returns>Случайный человек.</returns>
-        public static Person GetRandomPerson()
+        public abstract string GetInfo();
+
+        protected string CheckValue(string value)
         {
-
-            //TODO +: разделить английские и русские имена/фамилии
-            //TODO +: определить правила, позволяющие такую генерацию персоны
-            string[] maleNamesRus = new string[]
+            if (string.IsNullOrEmpty(value))
             {
-                "Михаил", "Андрей", "Олег", "Павел", "Юрий"
-            };
-            string[] maleNamesEng = new string[]
-            {
-                "Oliver", "Jack", "Harry", "Jacob", "Oscar"
-            };
-            string[] femaleNamesRus = new string[]
-            {
-                "Мария", "Майя", "Нина", "Вера", "Октябрина"
-            };
-            string[] femaleNamesEng = new string[]
-            {
-                "Emma", "Olivia", "Sophia", "Isabella", "Charlotte"
-            };
-            string[] maleSurnamesRus = new string[]
-            {
-                "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
-            };
-            string[] SurnamesEng = new string[]
-            {
-                "Adams", "Watson", "Cooper", "Jenkins", "Smith"
-            };
-            string[] femaleSurnamesRus = new string[]
-            {
-                "Попова", "Иванова", "Краснова", "Селина", "Калиновская"
-            };
-
-            var random = new Random();
-            string name;
-            string surname;
-            var gender = (Gender)personRnd.Next(0, 2);
-            var language = (Language)personRnd.Next(0, 2);
-            switch (gender)
-            {
-                case Gender.Male:
-                    switch (language)
-                    {
-                        case Language.English:
-                            name = maleNamesEng[personRnd.Next(maleNamesEng.Length)];
-                            surname = SurnamesEng[personRnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            name = maleNamesRus[personRnd.Next(maleNamesRus.Length)];
-                            surname = maleSurnamesRus[personRnd.Next(maleSurnamesRus.Length)];
-                            break;
-                        default:
-                            return new Person("Default", "Person", 0, Gender.Male);
-                    }
-                    break;
-
-                case Gender.Female:
-                    switch (language)
-                    {
-                        case Language.English:
-                            name = femaleNamesEng[personRnd.Next(femaleNamesEng.Length)];
-                            surname = SurnamesEng[personRnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            name = femaleNamesRus[personRnd.Next(femaleNamesRus.Length)];
-                            surname = femaleSurnamesRus[personRnd.Next(femaleSurnamesRus.Length)];
-                            break;
-                        default:
-                            return new Person("Default", "Person", 0, Gender.Female);
-                    }
-                    break;
-                default:
-                    return new Person("Default", "Person", 0, Gender.Male);
+                throw new ArgumentException
+                    ("\nInput must not be empty.");
             }
-
-            int age = personRnd.Next(0, 150);
-
-            return new Person(name, surname, age, gender);
+            else
+            {
+                return value;
+            }
         }
-        /// <summary>
-        /// Получение вывода информации
-        /// </summary>
-        public string Info => $"{Name} {Surname}," +
-            $" Age: {Age}, Gender: {Gender}";
     }
 }
