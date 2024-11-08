@@ -56,6 +56,7 @@ namespace LibraryPerson
         /// </summary>
         private const int _maxPassportID = 9999;
 
+        //TODO: XML
         /// <summary>
         /// Get, set Номер паспорта
         /// </summary>
@@ -66,6 +67,7 @@ namespace LibraryPerson
             set => _passportID = CheckPassportID(value);
         }
 
+        //TODO: XML
         /// <summary>
         /// Get, set Место работы
         /// </summary>
@@ -76,6 +78,7 @@ namespace LibraryPerson
             set => _company = CheckValue(value);
         }
 
+        //TODO: XML
         /// <summary>
         /// Get, set Партнер
         /// </summary>
@@ -138,12 +141,14 @@ namespace LibraryPerson
         /// </summary>
         private static Random rnd = new Random();
 
+        //TODO: extract
         /// <summary>
         /// Ввод случайного взрослого
         /// </summary>
         /// <returns>Случайный взрослый</returns>
         public static Adult GetRandomPerson(Gender gender)
         {
+            //TODO: duplication
             string[] maleNamesRus = new string[]
             {
                 "Михаил", "Андрей", "Олег", "Павел", "Юрий"

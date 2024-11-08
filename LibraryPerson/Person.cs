@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryPerson
 {
+    //TODO: RSDN
     /// <summary>
     /// Класс Person
     /// </summary>
@@ -116,6 +117,7 @@ namespace LibraryPerson
             Gender = gender;
         }
 
+        //TODO: remove
         /// <summary>
         /// Default person.
         /// </summary>
@@ -237,10 +239,12 @@ namespace LibraryPerson
         /// </summary>
         public abstract string GetInfo();
 
+        //TODO: XML
         protected string CheckValue(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
+                //TODO: refactor
                 throw new ArgumentException
                     ("\nInput must not be empty.");
             }

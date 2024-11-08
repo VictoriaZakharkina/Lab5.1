@@ -46,6 +46,7 @@ namespace LibraryPerson
         /// </summary>
         private string _school;
 
+        //TODO: XML
         /// <summary>
         /// Get, set Мать
         /// </summary>
@@ -60,6 +61,7 @@ namespace LibraryPerson
             }
         }
 
+        //TODO: XML
         /// <summary>
         /// Get, set Отец
         /// </summary>
@@ -74,6 +76,7 @@ namespace LibraryPerson
             }
         }
 
+        //TODO: XML
         /// <summary>
         /// Get, set Учебное заведение
         /// </summary>
@@ -155,17 +158,21 @@ namespace LibraryPerson
             Father = father;
             School = school;
         }
+
+        //TODO: RSDN
         /// <summary>
         /// Генератор случайных параметров
         /// </summary>
         private static Random rnd = new Random();
 
+        //TODO: extract
         /// <summary>
         /// Ввод случайного ребенка
         /// </summary>
         /// <returns>Случайный ребенок</returns>
         public static Child GetRandomPerson()
         {
+            //TODO: duplication
             string[] maleNamesRus = new string[]
             {
                 "Михаил", "Андрей", "Олег", "Павел", "Юрий"
@@ -186,6 +193,7 @@ namespace LibraryPerson
             {
                 "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
             };
+            //TODO: RSDN
             string[] SurnamesEng = new string[]
             {
                 "Adams", "Watson", "Cooper", "Jenkins", "Smith"
@@ -199,6 +207,56 @@ namespace LibraryPerson
                 "Гриффиндор", "Слизерин", "Когтевран",
                 "Пуффендуй", "Школа #34", "Лицей #1"
             };
+
+            // var randomInfomationDictionaries =
+            //     new Dictionary<Gender, Dictionary<Language, List<string[]>>>()
+            //     {
+            //         { Gender.Male, new Dictionary<Language, List<string[]>>()
+            //         {
+            //             {
+            //                 Language.English,
+            //                 new List<string[]> ()
+            //                 {
+            //                     maleNamesEng, SurnamesEng
+            //                 }
+            //             },
+            //             {
+            //                 Language.Russian,
+            //                 new List<string[]> ()
+            //                 {
+            //                     maleNamesRus, maleSurnamesRus
+            //                 }
+            //             }
+            //         }
+            //         },
+            //         {
+            //             Gender.Female, new Dictionary<Language, List<string[]>>()
+            //             {
+            //                 {
+            //                     Language.English,
+            //                     new List<string[]> ()
+            //                     {
+            //                         femaleNamesEng, SurnamesEng
+            //                     }
+            //                 },
+            //                 {
+            //                     Language.Russian,
+            //                     new List<string[]> ()
+            //                     {
+            //                         femaleNamesRus, femaleSurnamesRus
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     };
+            // 
+            // 
+            // var gender = (Gender)rnd.Next(0, 2);
+            // var language = (Language)rnd.Next(0, 2);
+            // 
+            // var nameSurnameList = randomInfomationDictionaries[gender][language];
+            // string name = nameSurnameList[0][rnd.Next(nameSurnameList[0].Length)];
+            // string surname = nameSurnameList[1][rnd.Next(nameSurnameList[1].Length)];
 
             string name = string.Empty;
             string surname = string.Empty;
@@ -303,13 +361,16 @@ namespace LibraryPerson
         {
             string[] favoriteCartoon = new string[]
             {
-                "Утиные истории", "Чип и Дейл спешат на помощь", "Лунтик",
+                "Утиные истории", 
+                "Чип и Дейл спешат на помощь", 
+                "Лунтик",
                 "Смешарики", "Феи"
             };
             string cartoon = favoriteCartoon[rnd.Next(favoriteCartoon.Length)];
             return cartoon;
         }
 
+        //TODO: remove
         /// <summary>
         /// Неизвестный ребенок
         /// </summary>
