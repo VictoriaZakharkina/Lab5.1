@@ -214,9 +214,6 @@ namespace LibraryPerson
         /// <returns>Случайный человек.</returns>
         public static Person GetRandomPerson()
         {
-
-            //TODO +: разделить английские и русские имена/фамилии
-            //TODO +: определить правила, позволяющие такую генерацию персоны
             string[] maleNamesRus = new string[]
             {
                 "Михаил", "Андрей", "Олег", "Павел", "Юрий"
