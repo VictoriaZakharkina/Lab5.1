@@ -155,6 +155,10 @@ namespace LibraryPerson
             Father = father;
             School = school;
         }
+        /// <summary>
+        /// Генератор случайных параметров
+        /// </summary>
+        private static Random rnd = new Random();
 
         /// <summary>
         /// Ввод случайного ребенка
@@ -196,23 +200,22 @@ namespace LibraryPerson
                 "Пуффендуй", "Школа #34", "Лицей #1"
             };
 
-            var random = new Random();
             string name = string.Empty;
             string surname = string.Empty;
-            var gender = (Gender)random.Next(0, 2);
-            var language = (Language)random.Next(0, 2); 
+            var gender = (Gender)rnd.Next(0, 2);
+            var language = (Language)rnd.Next(0, 2); 
             switch (gender)
             {
                 case Gender.Male:
                     switch (language)
                     {
                         case Language.English:
-                            name = maleNamesEng[random.Next(maleNamesEng.Length)];
-                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            name = maleNamesEng[rnd.Next(maleNamesEng.Length)];
+                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
                             break;
                         case Language.Russian:
-                            name = maleNamesRus[random.Next(maleNamesRus.Length)];
-                            surname = maleSurnamesRus[random.Next(maleSurnamesRus.Length)];
+                            name = maleNamesRus[rnd.Next(maleNamesRus.Length)];
+                            surname = maleSurnamesRus[rnd.Next(maleSurnamesRus.Length)];
                             break;
                     }
                     break;
@@ -221,19 +224,19 @@ namespace LibraryPerson
                     switch (language)
                     {
                         case Language.English:
-                            name = femaleNamesEng[random.Next(femaleNamesEng.Length)];
-                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            name = femaleNamesEng[rnd.Next(femaleNamesEng.Length)];
+                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
                             break;
                         case Language.Russian:
-                            name = femaleNamesRus[random.Next(femaleNamesRus.Length)];
-                            surname = femaleSurnamesRus[random.Next(femaleSurnamesRus.Length)];
+                            name = femaleNamesRus[rnd.Next(femaleNamesRus.Length)];
+                            surname = femaleSurnamesRus[rnd.Next(femaleSurnamesRus.Length)];
                             break;
                     }
                     break;
             }
-            int age = random.Next(_minAge, _maxAge);
+            int age = rnd.Next(_minAge, _maxAge);
 
-            string school = schoolNames[random.Next(schoolNames.Length)];
+            string school = schoolNames[rnd.Next(schoolNames.Length)];
 
             Adult mother = GetRandomParent(1);
             Adult father = GetRandomParent(0);
@@ -250,8 +253,7 @@ namespace LibraryPerson
         /// <exception cref="ArgumentException">Некорректный ввод</exception>
         private static Adult GetRandomParent(int numberParent)
         {
-            var random = new Random();
-            var parentStatus = random.Next(0, 2);
+            var parentStatus = rnd.Next(0, 2);
 
             if (parentStatus == 0)
             {
@@ -304,9 +306,8 @@ namespace LibraryPerson
                 "Утиные истории", "Чип и Дейл спешат на помощь", "Лунтик",
                 "Смешарики", "Феи"
             };
-            var random = new Random();
-            string model = favoriteCartoon[random.Next(favoriteCartoon.Length)];
-            return model;
+            string cartoon = favoriteCartoon[rnd.Next(favoriteCartoon.Length)];
+            return cartoon;
         }
 
         /// <summary>

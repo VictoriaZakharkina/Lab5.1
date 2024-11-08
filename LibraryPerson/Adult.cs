@@ -134,6 +134,11 @@ namespace LibraryPerson
         }
 
         /// <summary>
+        /// Генератор случайных параметров
+        /// </summary>
+        private static Random rnd = new Random();
+
+        /// <summary>
         /// Ввод случайного взрослого
         /// </summary>
         /// <returns>Случайный взрослый</returns>
@@ -173,22 +178,21 @@ namespace LibraryPerson
                 "Томский политехнический университет", "Школа #34"
             };
 
-            var random = new Random();
             string name = string.Empty;
             string surname = string.Empty;
-            var language = (Language)random.Next(0, 2);
+            var language = (Language)rnd.Next(0, 2);
             switch (gender)
             {
                 case Gender.Male:
                     switch (language)
                     {
                         case Language.English:
-                            name = maleNamesEng[random.Next(maleNamesEng.Length)];
-                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            name = maleNamesEng[rnd.Next(maleNamesEng.Length)];
+                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
                             break;
                         case Language.Russian:
-                            name = maleNamesRus[random.Next(maleNamesRus.Length)];
-                            surname = maleSurnamesRus[random.Next(maleSurnamesRus.Length)];
+                            name = maleNamesRus[rnd.Next(maleNamesRus.Length)];
+                            surname = maleSurnamesRus[rnd.Next(maleSurnamesRus.Length)];
                             break;
                     }
                     break;
@@ -197,22 +201,22 @@ namespace LibraryPerson
                     switch (language)
                     {
                         case Language.English:
-                            name = femaleNamesEng[random.Next(femaleNamesEng.Length)];
-                            surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            name = femaleNamesEng[rnd.Next(femaleNamesEng.Length)];
+                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
                             break;
                         case Language.Russian:
-                            name = femaleNamesRus[random.Next(femaleNamesRus.Length)];
-                            surname = femaleSurnamesRus[random.Next(femaleSurnamesRus.Length)];
+                            name = femaleNamesRus[rnd.Next(femaleNamesRus.Length)];
+                            surname = femaleSurnamesRus[rnd.Next(femaleSurnamesRus.Length)];
                             break;
                     }
                     break;
             }
-            int age = random.Next(_minAge, _maxAge);
-            int passportID = random.Next(_minPassportID, _maxPassportID);
-            string company = companyNames[random.Next(companyNames.Length)];
+            int age = rnd.Next(_minAge, _maxAge);
+            int passportID = rnd.Next(_minPassportID, _maxPassportID);
+            string company = companyNames[rnd.Next(companyNames.Length)];
 
             Adult partner = null;
-            int marriegeStatus = random.Next(0, 2);
+            int marriegeStatus = rnd.Next(0, 2);
             if (marriegeStatus == 0)
             {
                 partner = new Adult();
@@ -222,12 +226,12 @@ namespace LibraryPerson
                     switch (language)
                     {
                         case Language.English:
-                            partner.Name = femaleNamesEng[random.Next(femaleNamesEng.Length)];
-                            partner.Surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            partner.Name = femaleNamesEng[rnd.Next(femaleNamesEng.Length)];
+                            partner.Surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
                             break;
                         case Language.Russian:
-                            partner.Name = femaleNamesRus[random.Next(femaleNamesRus.Length)];
-                            partner.Surname = femaleSurnamesRus[random.Next(femaleSurnamesRus.Length)];
+                            partner.Name = femaleNamesRus[rnd.Next(femaleNamesRus.Length)];
+                            partner.Surname = femaleSurnamesRus[rnd.Next(femaleSurnamesRus.Length)];
                             break;
                     }
 
@@ -238,12 +242,12 @@ namespace LibraryPerson
                     switch (language)
                     {
                         case Language.English:
-                            partner.Name = maleNamesEng[random.Next(maleNamesEng.Length)];
-                            partner.Surname = SurnamesEng[random.Next(SurnamesEng.Length)];
+                            partner.Name = maleNamesEng[rnd.Next(maleNamesEng.Length)];
+                            partner.Surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
                             break;
                         case Language.Russian:
-                            partner.Name = maleNamesRus[random.Next(maleNamesRus.Length)];
-                            partner.Surname = maleSurnamesRus[random.Next(maleSurnamesRus.Length)];
+                            partner.Name = maleNamesRus[rnd.Next(maleNamesRus.Length)];
+                            partner.Surname = maleSurnamesRus[rnd.Next(maleSurnamesRus.Length)];
                             break;
                     };
                 }
@@ -317,9 +321,8 @@ namespace LibraryPerson
             {
                 "курит", "не курит"
             };
-            var random = new Random();
-            string drink = smokingStatus[random.Next(smokingStatus.Length)];
-            return drink;
+            string smoking = smokingStatus[rnd.Next(smokingStatus.Length)];
+            return smoking;
         }
 
         /// <summary>

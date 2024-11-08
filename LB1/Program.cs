@@ -13,26 +13,33 @@ namespace LB1
     /// </summary>
     internal class Program
     {
+        private static Random rnd = new Random();
         /// <summary>
         /// Main
         /// </summary>
         public static void Main()
         {
             var personList = new PersonList();
-            var random = new Random();
-
+            Person randomPerson;
+            Gender gender = (Gender)rnd.Next(0, 2);
             for (var i = 0; i < 7; i++)
             {
-                Person randomPerson = random.Next(0, 2) == 0
-                    ? Adult.GetRandomPerson()
-                    : Child.GetRandomPerson();
+                if (rnd.Next(0, 2) == 0)
+                {
+                    randomPerson = Adult.GetRandomPerson(gender);
+                }
+                else
+                {
+                    randomPerson = Child.GetRandomPerson();
+                }
+
                 personList.AddPerson(randomPerson);
             }
 
             _ = Console.ReadKey();
 
             Console.WriteLine("\nИнформация о людях:");
-            PrintList(personList);
+            PersonConsole.PrintList(personList);
 
             _ = Console.ReadKey();
 
@@ -52,27 +59,6 @@ namespace LB1
             }
 
             _ = Console.ReadKey();
-        }
-        /// <summary>
-        /// Вывод информации о каждом человеке в списке.
-        /// </summary>
-        /// <param name="personList">Список людей.</param>
-        /// <exception cref="NullReferenceException">
-        /// Некорректно</exception>
-        public static void PrintList(PersonList personList)
-        {
-            if (personList.Length == 0)
-            {
-                throw new NullReferenceException("Список пуст");
-            }
-            else
-            {
-                for (int i = 0; i < personList.Length; i++)
-                {
-                    var tmpPerson = personList.SearchPersonByIndex(i);
-                    Console.WriteLine($"\n{tmpPerson.GetInfo()}");
-                }
-            }
         }
     }
 }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace LibraryPerson
 {
-    //TODO +: XML
     /// <summary>
     /// Класс Gender
     /// </summary>
@@ -20,6 +19,6 @@ namespace LibraryPerson
         /// <summary>
         /// Женский пол
         /// </summary>
-        Female
+        Female,
     }
 }
