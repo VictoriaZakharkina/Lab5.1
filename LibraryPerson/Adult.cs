@@ -135,17 +135,24 @@ namespace LibraryPerson
             Company = company;
             Partner = partner;
         }
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        /*public Adult() : this("name", "sur", 18, Gender.Male,
+            1110, "Job", null)
+        { }*/
+        public Adult()
+        {
+        }
 
         /// <summary>
         /// Генератор случайных параметров
         /// </summary>
         private static Random _random = new Random();
 
-        //TODO: extract
-
-        //public static Adult GetRandomPerson(Gender gender)
+        //TODO +: extract
         
-            //TODO: duplication
+            //TODO +: duplication
             
         /// <summary>
         /// Проверка возраста
@@ -178,8 +185,8 @@ namespace LibraryPerson
             if (passportID < _minPassportID || passportID > _maxPassportID)
             {
                 throw new IndexOutOfRangeException
-                    ($"\nThe passport should be in the " +
-                    $"range from {_minPassportID} to {_maxPassportID}");
+                    ($"\nСерия паспорта должна быть числом " +
+                    $"от {_minPassportID} до {_maxPassportID}");
             }
             else
             {
@@ -214,14 +221,6 @@ namespace LibraryPerson
             string smoking = smokingStatus[_random.Next(smokingStatus.Length)];
             return smoking;
         }
-
-        /// <summary>
-        /// Неизвестный взрослый
-        /// </summary>
-        public Adult()
-        {
-        }
-
 
     }
 }

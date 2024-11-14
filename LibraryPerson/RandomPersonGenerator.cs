@@ -18,14 +18,12 @@ namespace LibraryPerson
         /// </summary>
         private static Random _random = new Random();
 
-        //TODO: extract
         /// <summary>
-        /// Ввод случайного взрослого
+        /// Генерация случайного человека
         /// </summary>
-        /// <returns>Случайный взрослый</returns>
-        public static void GetRandomPerson(PersonBase person)
+        /// <returns>Случайный человек</returns>
+        public static void GetRandomPerson(PersonBase person, Gender gender)
         {
-            //TODO: duplication
             string[] maleNamesRus = new string[]
             {
                 "Михаил", "Андрей", "Олег", "Павел", "Юрий"
@@ -56,58 +54,72 @@ namespace LibraryPerson
             };
 
             var language = (Language)_random.Next(0, 2);
-            person.Gender = (Gender)_random.Next(0, 2);
-            switch (person.Gender)
-            {
-                case Gender.Male:
-                    switch (language)
+            person.Gender = gender;
+            var randomInfomationDictionaries =
+                new Dictionary<Gender, Dictionary<Language, List<string[]>>>()
+                {
+                    { Gender.Male, new Dictionary<Language, List<string[]>>()
                     {
-                        case Language.English:
-                            person.Name = maleNamesEng[_random.Next(maleNamesEng.Length)];
-                            person.Surname = surnamesEng[_random.Next(surnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            person.Name = maleNamesRus[_random.Next(maleNamesRus.Length)];
-                            person.Surname = maleSurnamesRus[_random.Next(maleSurnamesRus.Length)];
-                            break;
+                        {
+                            Language.English,
+                            new List<string[]> ()
+                            {
+                                maleNamesEng, surnamesEng
+                            }
+                        },
+                        {
+                             Language.Russian,
+                             new List<string[]> ()
+                             {
+                                 maleNamesRus, maleSurnamesRus
+                             }
+                        }
                     }
-                    break;
+                    },
+                    {
+                         Gender.Female, new Dictionary<Language, List<string[]>>()
+                         {
+                             {
+                                 Language.English,
+                                 new List<string[]> ()
+                                 {
+                                     femaleNamesEng, surnamesEng
+                                 }
+                             },
+                             {
+                                 Language.Russian,
+                                 new List<string[]> ()
+                                 {
+                                     femaleNamesRus, femaleSurnamesRus
+                                 }
+                             }
+                         }
+                    }
+                };
 
-                case Gender.Female:
-                    switch (language)
-                    {
-                        case Language.English:
-                            person.Name = femaleNamesEng[_random.Next(femaleNamesEng.Length)];
-                            person.Surname = surnamesEng[_random.Next(surnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            person.Name = femaleNamesRus[_random.Next(femaleNamesRus.Length)];
-                            person.Surname = femaleSurnamesRus[_random.Next(femaleSurnamesRus.Length)];
-                            break;
-                    }
-                    break;
-            }
+            var nameSurnameList = randomInfomationDictionaries[gender][language];
+            person.Name = nameSurnameList[0][_random.Next(nameSurnameList[0].Length)];
+            person.Surname = nameSurnameList[1][_random.Next(nameSurnameList[1].Length)];
             person.Age = _random.Next(person.MinAge, person.MaxAge);
+
         }
         /// <summary>
         /// Метод: установка данных полей класса Adult.
         /// </summary>
         /// <param name="adult">Объект класса Adult.</param>
-        public static void AdultRandom(Adult adult, Gender gender)
+        public static void AdultRandom(Adult adult)
         {
             string[] companyNames = new string[]
             {
                 "Пятерочка", "Газпром", "Сибур",
                 "Томский политехнический университет", "Школа #34"
             };
-            adult.Age = _random.Next(adult.MinAge, adult.MaxAge);
             adult.PassportID = _random.Next(Adult._minPassportID, Adult._maxPassportID);
             adult.Company = companyNames[_random.Next(companyNames.Length)];
             
             int marriegeStatus = _random.Next(0, 2);
             if (marriegeStatus == 0)
             {
-                adult.Partner = new Adult();
                 switch (adult.Gender)
                 {
                     case Gender.Male:
@@ -124,14 +136,6 @@ namespace LibraryPerson
             }
         }
         /// <summary>
-        /// Метод: генерация случайного пола персоны.
-        /// </summary>
-        /// <param name="person">Объект класса PersonBase.</param>
-        public static void SetGenderRandom(PersonBase person)
-        {
-            person.Gender = (Gender)_random.Next(2);
-        }
-        /// <summary>
         /// Перегруженный метод: получение объекта класса Adult.
         /// </summary>
         /// <param name="gender">Пол.</param>
@@ -139,9 +143,8 @@ namespace LibraryPerson
         public static Adult GetRandomAdult(Gender gender)
         {
             Adult adult = new Adult();
-            SetGenderRandom(adult);
-            GetRandomPerson(adult);
-            AdultRandom(adult, gender);
+            GetRandomPerson(adult, gender);
+            AdultRandom(adult);
             return adult;
         }
 
@@ -156,7 +159,6 @@ namespace LibraryPerson
                 "Гриффиндор", "Слизерин", "Когтевран",
                 "Пуффендуй", "Школа #34", "Лицей #1"
             };
-            child.Age = _random.Next(child.MinAge, child.MaxAge);
             child.School = schoolNames[_random.Next(schoolNames.Length)];
             child.Father = GetRandomParent(0);
             child.Mother = GetRandomParent(1);
@@ -193,11 +195,10 @@ namespace LibraryPerson
         /// Метод получения рандомного объекта класса Child.
         /// </summary>
         /// <returns></returns>
-        public static Child GetRandomChild()
+        public static Child GetRandomChild(Gender gender)
         {
             Child child = new Child();
-            SetGenderRandom(child);
-            GetRandomPerson(child);
+            GetRandomPerson(child, gender);
             ChildRandom(child);
             return child;
         }

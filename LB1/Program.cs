@@ -13,7 +13,11 @@ namespace LB1
     /// </summary>
     internal class Program
     {
-        private static Random rnd = new Random();
+        /// <summary>
+        /// Генератор случайных параметров
+        /// </summary>
+        private static Random _random = new Random();
+
         /// <summary>
         /// Main
         /// </summary>
@@ -21,16 +25,16 @@ namespace LB1
         {
             var personList = new PersonList();
             PersonBase randomPerson;
-            Gender gender = (Gender)rnd.Next(0, 2);
             for (var i = 0; i < 7; i++)
             {
-                if (rnd.Next(0, 2) == 0)
+                Gender gender = (Gender)_random.Next(0, 2);
+                if (_random.Next(0, 2) == 0)
                 {
                     randomPerson = RandomPersonGenerator.GetRandomAdult(gender);
                 }
                 else
                 {
-                    randomPerson = RandomPersonGenerator.GetRandomChild();
+                    randomPerson = RandomPersonGenerator.GetRandomChild(gender);
                 }
 
                 personList.AddPerson(randomPerson);

@@ -44,7 +44,7 @@ namespace LibraryPerson
         private Gender _gender;
 
         /// <summary>
-        /// Get,set Имя
+        /// Имя
         /// </summary>
         public string Name
         {
@@ -62,7 +62,7 @@ namespace LibraryPerson
             }
         }
         /// <summary>
-        /// Get,set Фамилия
+        /// Фамилия
         /// </summary>
         public string Surname
         {
@@ -81,7 +81,7 @@ namespace LibraryPerson
             }
         }
         /// <summary>
-        /// Get,set Возраст
+        /// Возраст
         /// </summary>
         public int Age
         {
@@ -94,7 +94,7 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Get,set Пол
+        /// Пол
         /// </summary>
         public Gender Gender
         {
@@ -116,6 +116,13 @@ namespace LibraryPerson
             Age = age;
             Gender = gender;
         }
+
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        //public PersonBase() : this("Фамилия", "Имя", 19, Gender.Female)
+        //{
+        //}
 
         //TODO +: remove
         public PersonBase() { }
@@ -231,9 +238,10 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Вывод информации о человеке.
+        /// Вывод информации о человеке
         /// </summary>
         public abstract string GetInfo();
+
         //TODO +: XML
         /// <summary>
         /// Проверка значения

@@ -159,6 +159,16 @@ namespace LibraryPerson
             School = school;
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        /*public Child() : this("name", "sur", 10, Gender.Male,
+            null, null, "School")
+        { }*/
+        public Child()
+        {
+        }
+
         //TODO +: RSDN
         /// <summary>
         /// Генератор случайных параметров
@@ -167,63 +177,10 @@ namespace LibraryPerson
 
         //TODO +: extract
 
-        //public static Child GetRandomPerson()
             //TODO +: duplication
 
             //TODO +: RSDN
             //string[] surnamesEng = new string[]
-
-            // var randomInfomationDictionaries =
-            //     new Dictionary<Gender, Dictionary<Language, List<string[]>>>()
-            //     {
-            //         { Gender.Male, new Dictionary<Language, List<string[]>>()
-            //         {
-            //             {
-            //                 Language.English,
-            //                 new List<string[]> ()
-            //                 {
-            //                     maleNamesEng, SurnamesEng
-            //                 }
-            //             },
-            //             {
-            //                 Language.Russian,
-            //                 new List<string[]> ()
-            //                 {
-            //                     maleNamesRus, maleSurnamesRus
-            //                 }
-            //             }
-            //         }
-            //         },
-            //         {
-            //             Gender.Female, new Dictionary<Language, List<string[]>>()
-            //             {
-            //                 {
-            //                     Language.English,
-            //                     new List<string[]> ()
-            //                     {
-            //                         femaleNamesEng, SurnamesEng
-            //                     }
-            //                 },
-            //                 {
-            //                     Language.Russian,
-            //                     new List<string[]> ()
-            //                     {
-            //                         femaleNamesRus, femaleSurnamesRus
-            //                     }
-            //                 }
-            //             }
-            //         }
-            //     };
-            // 
-            // 
-            // var gender = (Gender)rnd.Next(0, 2);
-            // var language = (Language)rnd.Next(0, 2);
-            // 
-            // var nameSurnameList = randomInfomationDictionaries[gender][language];
-            // string name = nameSurnameList[0][rnd.Next(nameSurnameList[0].Length)];
-            // string surname = nameSurnameList[1][rnd.Next(nameSurnameList[1].Length)];
-
-
 
         /// <summary>
         /// Проверка возраста
@@ -264,8 +221,5 @@ namespace LibraryPerson
         }
 
         //TODO +: remove
-        public Child()
-        {
-        }
     }
 }
