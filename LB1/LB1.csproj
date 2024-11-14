@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PersonConsole.cs" />
+    <Compile Include="Console.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryPerson\LibraryPerson.csproj">
+    <ProjectReference Include="..\LibraryPerson\Library.csproj">
       <Project>{e64a7283-8dbb-40b9-b250-72393947ba5a}</Project>
-      <Name>LibraryPerson</Name>
+      <Name>Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,65 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using LibraryPerson;
+using Library;
 
 namespace LB1
 {
     /// <summary>
     /// Основная программа
     /// </summary>
-    internal class Program
+	internal class Program
     {
         /// <summary>
-        /// Генератор случайных параметров
-        /// </summary>
-        private static Random _random = new Random();
-
-        /// <summary>
-        /// Main
+        /// Метод Main
         /// </summary>
         public static void Main()
         {
-            var personList = new PersonList();
-            PersonBase randomPerson;
-            for (var i = 0; i < 7; i++)
+            while (true)
             {
-                Gender gender = (Gender)_random.Next(0, 2);
-                if (_random.Next(0, 2) == 0)
+                Console.WriteLine("Для начала работы нажмите 1\nДля выхода нажмите 2");
+                ConsoleKeyInfo number = Console.ReadKey(true);
+
+                switch (number.KeyChar)
                 {
-                    randomPerson = RandomPersonGenerator.GetRandomAdult(gender);
+                    case '1':
+                        {
+                            break;
+                        }
+                    case '2':
+                        {
+                            return;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Ошибка! Введите цифру 1 или 2\n");
+                            continue;
+                        }
                 }
-                else
-                {
-                    randomPerson = RandomPersonGenerator.GetRandomChild(gender);
-                }
 
-                personList.AddPerson(randomPerson);
+                FigureBase volume = ReaderFromConcole.GetVolumeFigure();
+                Console.WriteLine($"Объем выбранной фигуры: " +
+                    $"{Math.Round(volume.Volume(), 2)}\n");
             }
-
-            _ = Console.ReadKey();
-
-            Console.WriteLine("\nИнформация о людях:");
-            PersonConsole.PrintList(personList);
-
-            _ = Console.ReadKey();
-
-            var person = personList.SearchPersonByIndex(3);
-            switch (person)
-            {
-                case Adult adult:
-                    Console.WriteLine($"\n{adult.GetNameSurname()} " +
-                        $"({adult.Age} лет) {adult.GetSmokingStatus()}");
-                    break;
-                case Child child:
-                    Console.WriteLine($"\n{child.GetNameSurname()}" +
-                        $"({child.Age} лет) любит мультсериал {child.GetFavoriteCartoon()}");
-                    break;
-                default:
-                    break;
-            }
-
-            _ = Console.ReadKey();
         }
     }
 }
