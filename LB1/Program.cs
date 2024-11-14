@@ -20,17 +20,17 @@ namespace LB1
         public static void Main()
         {
             var personList = new PersonList();
-            Person randomPerson;
+            PersonBase randomPerson;
             Gender gender = (Gender)rnd.Next(0, 2);
             for (var i = 0; i < 7; i++)
             {
                 if (rnd.Next(0, 2) == 0)
                 {
-                    randomPerson = Adult.GetRandomPerson(gender);
+                    randomPerson = RandomPersonGenerator.GetRandomAdult(gender);
                 }
                 else
                 {
-                    randomPerson = Child.GetRandomPerson();
+                    randomPerson = RandomPersonGenerator.GetRandomChild();
                 }
 
                 personList.AddPerson(randomPerson);

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace LibraryPerson
 {
-    //TODO: RSDN
+    //TODO +: RSDN
     /// <summary>
-    /// Класс Person
+    /// Класс PersonBase
     /// </summary>
-    public abstract class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя
@@ -31,12 +31,12 @@ namespace LibraryPerson
         /// <summary>
         /// Минимальный возраст
         /// </summary>
-        protected abstract int MinAge { get; }
+        public virtual int MinAge { get; } = 0;
 
         /// <summary>
         /// Максимальный возраст
         /// </summary>
-        protected abstract int MaxAge { get; }
+        public virtual int MaxAge { get; } = 150;
 
         /// <summary>
         /// Пол
@@ -109,7 +109,7 @@ namespace LibraryPerson
         /// <param name="surname">Фамилия человека.</param>
         /// <param name="age">Возраст человека.</param>
         /// <param name="gender">Пол человека.</param>
-        public Person(string name, string surname, int age, Gender gender)
+        public PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -117,16 +117,12 @@ namespace LibraryPerson
             Gender = gender;
         }
 
-        //TODO: remove
+        //TODO +: remove
+        public PersonBase() { }
         /// <summary>
-        /// Default person.
+        /// Получение информации о человеке
         /// </summary>
-        public Person() { }
-
-        /// <summary>
-        /// Getting information about person.
-        /// </summary>
-        /// <returns>Person's information.</returns>
+        /// <returns>Информация о человеке</returns>
         public string GetPersonInfo() =>
             $"{Name} {Surname}; Age: {Age}; Gender: {Gender}";
 
@@ -238,15 +234,20 @@ namespace LibraryPerson
         /// Вывод информации о человеке.
         /// </summary>
         public abstract string GetInfo();
-
-        //TODO: XML
+        //TODO +: XML
+        /// <summary>
+        /// Проверка значения
+        /// </summary>
+        /// <param name="value">Информация о человеке</param>
+        /// <returns>Информация о человеке</returns>
+        /// <exception cref="ArgumentException">Пустая строка</exception>
         protected string CheckValue(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
-                //TODO: refactor
+                //TODO +: refactor
                 throw new ArgumentException
-                    ("\nInput must not be empty.");
+                    ("\nЗначение не должно быть пустым");
             }
             else
             {

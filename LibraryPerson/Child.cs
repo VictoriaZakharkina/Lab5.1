@@ -9,7 +9,7 @@ namespace LibraryPerson
     /// <summary>
     /// Класс Child
     /// </summary>
-    public class Child : Person
+    public class Child : PersonBase
     {
         /// <summary>
         /// Минимальный возраст
@@ -24,12 +24,12 @@ namespace LibraryPerson
         /// <summary>
         /// Минимальный возраст
         /// </summary>
-        protected override int MinAge { get; } = _minAge;
+        public override int MinAge { get; } = _minAge;
 
         /// <summary>
         /// Максимальный возраст
         /// </summary>
-        protected override int MaxAge { get; } = _maxAge;
+        public override int MaxAge { get; } = _maxAge;
 
         /// <summary>
         /// Мать ребенка
@@ -46,9 +46,9 @@ namespace LibraryPerson
         /// </summary>
         private string _school;
 
-        //TODO: XML
+        //TODO +: XML
         /// <summary>
-        /// Get, set Мать
+        /// Мать
         /// </summary>
         public Adult Mother
         {
@@ -61,9 +61,9 @@ namespace LibraryPerson
             }
         }
 
-        //TODO: XML
+        //TODO +: XML
         /// <summary>
-        /// Get, set Отец
+        /// Отец
         /// </summary>
         public Adult Father
         {
@@ -76,9 +76,9 @@ namespace LibraryPerson
             }
         }
 
-        //TODO: XML
+        //TODO +: XML
         /// <summary>
-        /// Get, set Учебное заведение
+        /// Учебное заведение
         /// </summary>
         public string School
         {
@@ -88,7 +88,7 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// 
+        /// Проверка пола
         /// </summary>
         /// <param name="parent">Отец/Мать</param>
         /// <param name="gender">Мужской/Женский</param>
@@ -97,7 +97,7 @@ namespace LibraryPerson
         {
             if (parent != null && parent.Gender != gender)
             {
-                throw new ArgumentException("Измените возраст родителя!");
+                throw new ArgumentException("Измените пол родителя!");
             }
         }
 
@@ -159,54 +159,19 @@ namespace LibraryPerson
             School = school;
         }
 
-        //TODO: RSDN
+        //TODO +: RSDN
         /// <summary>
         /// Генератор случайных параметров
         /// </summary>
-        private static Random rnd = new Random();
+        private static Random _random = new Random();
 
-        //TODO: extract
-        /// <summary>
-        /// Ввод случайного ребенка
-        /// </summary>
-        /// <returns>Случайный ребенок</returns>
-        public static Child GetRandomPerson()
-        {
-            //TODO: duplication
-            string[] maleNamesRus = new string[]
-            {
-                "Михаил", "Андрей", "Олег", "Павел", "Юрий"
-            };
-            string[] maleNamesEng = new string[]
-            {
-                "Oliver", "Jack", "Harry", "Jacob", "Oscar"
-            };
-            string[] femaleNamesRus = new string[]
-            {
-                "Мария", "Майя", "Нина", "Вера", "Октябрина"
-            };
-            string[] femaleNamesEng = new string[]
-            {
-                "Emma", "Olivia", "Sophia", "Isabella", "Charlotte"
-            };
-            string[] maleSurnamesRus = new string[]
-            {
-                "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
-            };
-            //TODO: RSDN
-            string[] SurnamesEng = new string[]
-            {
-                "Adams", "Watson", "Cooper", "Jenkins", "Smith"
-            };
-            string[] femaleSurnamesRus = new string[]
-            {
-                "Попова", "Иванова", "Краснова", "Селина", "Калиновская"
-            };
-            string[] schoolNames = new string[]
-            {
-                "Гриффиндор", "Слизерин", "Когтевран",
-                "Пуффендуй", "Школа #34", "Лицей #1"
-            };
+        //TODO +: extract
+
+        //public static Child GetRandomPerson()
+            //TODO +: duplication
+
+            //TODO +: RSDN
+            //string[] surnamesEng = new string[]
 
             // var randomInfomationDictionaries =
             //     new Dictionary<Gender, Dictionary<Language, List<string[]>>>()
@@ -258,79 +223,7 @@ namespace LibraryPerson
             // string name = nameSurnameList[0][rnd.Next(nameSurnameList[0].Length)];
             // string surname = nameSurnameList[1][rnd.Next(nameSurnameList[1].Length)];
 
-            string name = string.Empty;
-            string surname = string.Empty;
-            var gender = (Gender)rnd.Next(0, 2);
-            var language = (Language)rnd.Next(0, 2); 
-            switch (gender)
-            {
-                case Gender.Male:
-                    switch (language)
-                    {
-                        case Language.English:
-                            name = maleNamesEng[rnd.Next(maleNamesEng.Length)];
-                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            name = maleNamesRus[rnd.Next(maleNamesRus.Length)];
-                            surname = maleSurnamesRus[rnd.Next(maleSurnamesRus.Length)];
-                            break;
-                    }
-                    break;
 
-                case Gender.Female:
-                    switch (language)
-                    {
-                        case Language.English:
-                            name = femaleNamesEng[rnd.Next(femaleNamesEng.Length)];
-                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            name = femaleNamesRus[rnd.Next(femaleNamesRus.Length)];
-                            surname = femaleSurnamesRus[rnd.Next(femaleSurnamesRus.Length)];
-                            break;
-                    }
-                    break;
-            }
-            int age = rnd.Next(_minAge, _maxAge);
-
-            string school = schoolNames[rnd.Next(schoolNames.Length)];
-
-            Adult mother = GetRandomParent(1);
-            Adult father = GetRandomParent(0);
-
-            return new Child(name, surname, age, gender,
-                            mother, father, school);
-        }
-
-        /// <summary>
-        /// Создание случайного родителя для ребенка
-        /// </summary>
-        /// <param name="numberParent">Мать 1/Отец 0</param>
-        /// <returns>Random Parent.</returns>
-        /// <exception cref="ArgumentException">Некорректный ввод</exception>
-        private static Adult GetRandomParent(int numberParent)
-        {
-            var parentStatus = rnd.Next(0, 2);
-
-            if (parentStatus == 0)
-            {
-                return null;
-            }
-            else
-            {
-                switch (numberParent)
-                {
-                    case 0:
-                        return Adult.GetRandomPerson(Gender.Male);
-                    case 1:
-                        return Adult.GetRandomPerson(Gender.Female);
-                    default:
-                        throw new ArgumentException
-                            ("Число должно быть равно 0 или 1");
-                }
-            }
-        }
 
         /// <summary>
         /// Проверка возраста
@@ -366,14 +259,11 @@ namespace LibraryPerson
                 "Лунтик",
                 "Смешарики", "Феи"
             };
-            string cartoon = favoriteCartoon[rnd.Next(favoriteCartoon.Length)];
+            string cartoon = favoriteCartoon[_random.Next(favoriteCartoon.Length)];
             return cartoon;
         }
 
-        //TODO: remove
-        /// <summary>
-        /// Неизвестный ребенок
-        /// </summary>
+        //TODO +: remove
         public Child()
         {
         }

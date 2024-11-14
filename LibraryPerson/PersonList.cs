@@ -14,13 +14,13 @@ namespace LibraryPerson
         /// <summary>
         /// Создание массива из людей
         /// </summary>
-        private Person[] _personList = new Person[0];
+        private PersonBase[] _personList = new PersonBase[0];
 
         /// <summary>
         /// Добавление человека в конец списка
         /// </summary>
         /// <param name="person">Человек.</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             Array.Resize(ref _personList, _personList.Length + 1);
             _personList[_personList.Length - 1] = person;
@@ -32,7 +32,7 @@ namespace LibraryPerson
         /// <param name="person">Человек.</param>
         /// <returns>Индекс человека.</returns>
         /// <exception cref="Exception">Человек не существует.</exception>
-        public int GetIndexPerson(Person person)
+        public int GetIndexPerson(PersonBase person)
         {
             for (int index = 0; index < _personList.Length; index++)
             {
@@ -76,7 +76,7 @@ namespace LibraryPerson
         /// Удаление без индекса
         /// </summary>
         /// <param name="person">Человек.</param>
-        public void DeletePersonByName(Person person)
+        public void DeletePersonByName(PersonBase person)
         {
             RemovePersonByIndex(GetIndexPerson(person));
         }
@@ -86,7 +86,7 @@ namespace LibraryPerson
         /// </summary>
         /// <param name="index">Индекс человека.</param>
         /// <returns>Человек.</returns>
-        public Person SearchPersonByIndex(int index)
+        public PersonBase SearchPersonByIndex(int index)
         {
             IsIndexExist(index);
             return _personList[index];

@@ -9,7 +9,7 @@ namespace LibraryPerson
     /// <summary>
     /// Класс Adult
     /// </summary>
-    public class Adult : Person
+    public class Adult : PersonBase
     {
         /// <summary>
         /// Серия паспорта
@@ -39,26 +39,26 @@ namespace LibraryPerson
         /// <summary>
         /// Минимальный возраст
         /// </summary>
-        protected override int MinAge { get; } = _minAge;
+        public override int MinAge { get; } = _minAge;
 
         /// <summary>
         /// Максимальный возраст
         /// </summary>
-        protected override int MaxAge { get; } = _maxAge;
+        public override int MaxAge { get; } = _maxAge;
 
         /// <summary>
         /// Минимальное значение серии паспорта
         /// </summary>
-        private const int _minPassportID = 1000;
+        public const int _minPassportID = 1000;
 
         /// <summary>
         /// Максимальное значение серии паспорта
         /// </summary>
-        private const int _maxPassportID = 9999;
+        public const int _maxPassportID = 9999;
 
-        //TODO: XML
+        //TODO +: XML
         /// <summary>
-        /// Get, set Номер паспорта
+        /// Номер паспорта
         /// </summary>
         public int PassportID
         {
@@ -67,9 +67,9 @@ namespace LibraryPerson
             set => _passportID = CheckPassportID(value);
         }
 
-        //TODO: XML
+        //TODO +: XML
         /// <summary>
-        /// Get, set Место работы
+        /// Место работы
         /// </summary>
         public string Company
         {
@@ -78,9 +78,9 @@ namespace LibraryPerson
             set => _company = CheckValue(value);
         }
 
-        //TODO: XML
+        //TODO +: XML
         /// <summary>
-        /// Get, set Партнер
+        /// Партнер
         /// </summary>
         public Adult Partner
         {
@@ -139,129 +139,14 @@ namespace LibraryPerson
         /// <summary>
         /// Генератор случайных параметров
         /// </summary>
-        private static Random rnd = new Random();
+        private static Random _random = new Random();
 
         //TODO: extract
-        /// <summary>
-        /// Ввод случайного взрослого
-        /// </summary>
-        /// <returns>Случайный взрослый</returns>
-        public static Adult GetRandomPerson(Gender gender)
-        {
+
+        //public static Adult GetRandomPerson(Gender gender)
+        
             //TODO: duplication
-            string[] maleNamesRus = new string[]
-            {
-                "Михаил", "Андрей", "Олег", "Павел", "Юрий"
-            };
-            string[] maleNamesEng = new string[]
-            {
-                "Oliver", "Jack", "Harry", "Jacob", "Oscar"
-            };
-            string[] femaleNamesRus = new string[]
-            {
-                "Мария", "Майя", "Нина", "Вера", "Октябрина"
-            };
-            string[] femaleNamesEng = new string[]
-            {
-                "Emma", "Olivia", "Sophia", "Isabella", "Charlotte"
-            };
-            string[] maleSurnamesRus = new string[]
-            {
-                "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
-            };
-            string[] SurnamesEng = new string[]
-            {
-                "Adams", "Watson", "Cooper", "Jenkins", "Smith"
-            };
-            string[] femaleSurnamesRus = new string[]
-            {
-                "Попова", "Иванова", "Краснова", "Селина", "Калиновская"
-            };
-            string[] companyNames = new string[]
-            {
-                "Пятерочка", "Газпром", "Сибур",
-                "Томский политехнический университет", "Школа #34"
-            };
-
-            string name = string.Empty;
-            string surname = string.Empty;
-            var language = (Language)rnd.Next(0, 2);
-            switch (gender)
-            {
-                case Gender.Male:
-                    switch (language)
-                    {
-                        case Language.English:
-                            name = maleNamesEng[rnd.Next(maleNamesEng.Length)];
-                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            name = maleNamesRus[rnd.Next(maleNamesRus.Length)];
-                            surname = maleSurnamesRus[rnd.Next(maleSurnamesRus.Length)];
-                            break;
-                    }
-                    break;
-
-                case Gender.Female:
-                    switch (language)
-                    {
-                        case Language.English:
-                            name = femaleNamesEng[rnd.Next(femaleNamesEng.Length)];
-                            surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            name = femaleNamesRus[rnd.Next(femaleNamesRus.Length)];
-                            surname = femaleSurnamesRus[rnd.Next(femaleSurnamesRus.Length)];
-                            break;
-                    }
-                    break;
-            }
-            int age = rnd.Next(_minAge, _maxAge);
-            int passportID = rnd.Next(_minPassportID, _maxPassportID);
-            string company = companyNames[rnd.Next(companyNames.Length)];
-
-            Adult partner = null;
-            int marriegeStatus = rnd.Next(0, 2);
-            if (marriegeStatus == 0)
-            {
-                partner = new Adult();
-                if (gender == Gender.Male)
-                {
-                    partner.Gender = Gender.Female;
-                    switch (language)
-                    {
-                        case Language.English:
-                            partner.Name = femaleNamesEng[rnd.Next(femaleNamesEng.Length)];
-                            partner.Surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            partner.Name = femaleNamesRus[rnd.Next(femaleNamesRus.Length)];
-                            partner.Surname = femaleSurnamesRus[rnd.Next(femaleSurnamesRus.Length)];
-                            break;
-                    }
-
-                }
-                else
-                {
-                    partner.Gender = Gender.Male;
-                    switch (language)
-                    {
-                        case Language.English:
-                            partner.Name = maleNamesEng[rnd.Next(maleNamesEng.Length)];
-                            partner.Surname = SurnamesEng[rnd.Next(SurnamesEng.Length)];
-                            break;
-                        case Language.Russian:
-                            partner.Name = maleNamesRus[rnd.Next(maleNamesRus.Length)];
-                            partner.Surname = maleSurnamesRus[rnd.Next(maleSurnamesRus.Length)];
-                            break;
-                    };
-                }
-            }
-
-            return new Adult(name, surname, age, gender,
-                            passportID, company, partner);
-        }
-
+            
         /// <summary>
         /// Проверка возраста
         /// </summary>
@@ -326,7 +211,7 @@ namespace LibraryPerson
             {
                 "курит", "не курит"
             };
-            string smoking = smokingStatus[rnd.Next(smokingStatus.Length)];
+            string smoking = smokingStatus[_random.Next(smokingStatus.Length)];
             return smoking;
         }
 
