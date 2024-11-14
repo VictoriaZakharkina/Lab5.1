@@ -54,11 +54,6 @@ namespace LibraryPerson
             {
                 _ = CheckLanguage(value);
                 _name = CorrectRegister(value);
-
-                if (_name != null)
-                {
-                    CheckNameSurname();
-                }
             }
         }
         /// <summary>
@@ -72,11 +67,7 @@ namespace LibraryPerson
             {
                 _ = CheckLanguage(value);
                 _surname = CorrectRegister(value);
-
-                if (_surname != null)
-                {
-                    CheckNameSurname();
-                }
+                CheckNameSurname();
 
             }
         }
@@ -120,18 +111,17 @@ namespace LibraryPerson
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        //public PersonBase() : this("Фамилия", "Имя", 19, Gender.Female)
-        //{
-        //}
+        public PersonBase() : this("Name", "Surname", 15, Gender.Male)
+        { }
 
         //TODO +: remove
-        public PersonBase() { }
+
         /// <summary>
         /// Получение информации о человеке
         /// </summary>
         /// <returns>Информация о человеке</returns>
         public string GetPersonInfo() =>
-            $"{Name} {Surname}; Age: {Age}; Gender: {Gender}";
+           $"{Name} {Surname}; Age: {Age}; Gender: {Gender}";
 
         /// <summary>
         /// Получение имени и фамилии
@@ -199,7 +189,7 @@ namespace LibraryPerson
         private void CheckNameSurname()
         {
             if ((!string.IsNullOrEmpty(Name))
-                && (!string.IsNullOrEmpty(Surname)))
+                & (!string.IsNullOrEmpty(Surname)))
             {
                 var nameLanguage = CheckLanguage(Name);
                 var surnameLanguage = CheckLanguage(Surname);

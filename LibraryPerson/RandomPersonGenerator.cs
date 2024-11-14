@@ -44,6 +44,7 @@ namespace LibraryPerson
             {
                 "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
             };
+            //TODO +: RSDN
             string[] surnamesEng = new string[]
             {
                 "Adams", "Watson", "Cooper", "Jenkins", "Smith"
@@ -104,9 +105,9 @@ namespace LibraryPerson
 
         }
         /// <summary>
-        /// Метод: установка данных полей класса Adult.
+        /// Установка данных для класса Adult
         /// </summary>
-        /// <param name="adult">Объект класса Adult.</param>
+        /// <param name="adult">Объект класса Adult</param>
         public static void AdultRandom(Adult adult)
         {
             string[] companyNames = new string[]
@@ -136,10 +137,10 @@ namespace LibraryPerson
             }
         }
         /// <summary>
-        /// Перегруженный метод: получение объекта класса Adult.
+        /// Получение случайного объекта класса Adult
         /// </summary>
-        /// <param name="gender">Пол.</param>
-        /// <returns>Объекта класса Adult</returns>
+        /// <param name="gender">Пол</param>
+        /// <returns>Объект класса Adult</returns>
         public static Adult GetRandomAdult(Gender gender)
         {
             Adult adult = new Adult();
@@ -149,9 +150,9 @@ namespace LibraryPerson
         }
 
         /// <summary>
-        /// Метод: установка данных полей класса Child.
+        /// Установка данных для класса Child
         /// </summary>
-        /// <param name="child">Объект класса Child.</param>
+        /// <param name="child">Объект класса Child</param>
         public static void ChildRandom(Child child)
         {
             string[] schoolNames = new string[]
@@ -192,9 +193,10 @@ namespace LibraryPerson
             }
         }
         /// <summary>
-        /// Метод получения рандомного объекта класса Child.
+        /// Получение случайного объекта класса Child
         /// </summary>
-        /// <returns></returns>
+        /// <param name="gender">Пол</param>
+        /// <returns>Объект класса Child</returns>
         public static Child GetRandomChild(Gender gender)
         {
             Child child = new Child();

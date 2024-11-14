@@ -162,12 +162,9 @@ namespace LibraryPerson
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        /*public Child() : this("name", "sur", 10, Gender.Male,
+        public Child() : this("Name", "Surname", 10, Gender.Male,
             null, null, "School")
-        { }*/
-        public Child()
-        {
-        }
+        { }
 
         //TODO +: RSDN
         /// <summary>
@@ -179,8 +176,6 @@ namespace LibraryPerson
 
             //TODO +: duplication
 
-            //TODO +: RSDN
-            //string[] surnamesEng = new string[]
 
         /// <summary>
         /// Проверка возраста

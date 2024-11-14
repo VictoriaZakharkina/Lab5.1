@@ -138,12 +138,9 @@ namespace LibraryPerson
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        /*public Adult() : this("name", "sur", 18, Gender.Male,
+        public Adult() : this("Name", "Surname", 21, Gender.Male,
             1110, "Job", null)
-        { }*/
-        public Adult()
-        {
-        }
+        { }
 
         /// <summary>
         /// Генератор случайных параметров
