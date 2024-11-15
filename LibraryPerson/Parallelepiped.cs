@@ -50,6 +50,7 @@ namespace Library
         /// <param name="height">Высота</param>
         /// <param name="angleLengthWidth">Угол длина/ширина</param>
         /// <param name="angleBaseHeight">Угол основание/высота</param>
+        /// //TODO: RSDN
         public Parallelepiped(double length, double width, double height, double angleLengthWidth, double angleBaseHeight)
         {
             _length = length;

@@ -11,6 +11,7 @@ namespace Library
     /// </summary>
     public abstract class FigureBase
     {
+        //TODO: refactor as property
         /// <summary>
         /// Объем фигуры
         /// </summary>
