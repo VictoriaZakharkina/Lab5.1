@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace LibraryPerson
 {
-    //TODO +: RSDN
     /// <summary>
     /// Класс PersonBase
     /// </summary>
@@ -113,8 +112,6 @@ namespace LibraryPerson
         /// </summary>
         public PersonBase() : this("Name", "Surname", 15, Gender.Male)
         { }
-
-        //TODO +: remove
 
         /// <summary>
         /// Получение информации о человеке
@@ -232,7 +229,6 @@ namespace LibraryPerson
         /// </summary>
         public abstract string GetInfo();
 
-        //TODO +: XML
         /// <summary>
         /// Проверка значения
         /// </summary>
@@ -243,7 +239,6 @@ namespace LibraryPerson
         {
             if (string.IsNullOrEmpty(value))
             {
-                //TODO +: refactor
                 throw new ArgumentException
                     ("\nЗначение не должно быть пустым");
             }

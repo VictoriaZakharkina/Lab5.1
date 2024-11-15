@@ -56,7 +56,6 @@ namespace LibraryPerson
         /// </summary>
         public const int _maxPassportID = 9999;
 
-        //TODO +: XML
         /// <summary>
         /// Номер паспорта
         /// </summary>
@@ -67,7 +66,6 @@ namespace LibraryPerson
             set => _passportID = CheckPassportID(value);
         }
 
-        //TODO +: XML
         /// <summary>
         /// Место работы
         /// </summary>
@@ -78,7 +76,6 @@ namespace LibraryPerson
             set => _company = CheckValue(value);
         }
 
-        //TODO +: XML
         /// <summary>
         /// Партнер
         /// </summary>
@@ -147,10 +144,6 @@ namespace LibraryPerson
         /// </summary>
         private static Random _random = new Random();
 
-        //TODO +: extract
-        
-            //TODO +: duplication
-            
         /// <summary>
         /// Проверка возраста
         /// </summary>
@@ -218,6 +211,5 @@ namespace LibraryPerson
             string smoking = smokingStatus[_random.Next(smokingStatus.Length)];
             return smoking;
         }
-
     }
 }

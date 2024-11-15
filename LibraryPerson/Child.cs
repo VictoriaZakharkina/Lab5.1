@@ -46,7 +46,6 @@ namespace LibraryPerson
         /// </summary>
         private string _school;
 
-        //TODO +: XML
         /// <summary>
         /// Мать
         /// </summary>
@@ -61,7 +60,6 @@ namespace LibraryPerson
             }
         }
 
-        //TODO +: XML
         /// <summary>
         /// Отец
         /// </summary>
@@ -76,7 +74,6 @@ namespace LibraryPerson
             }
         }
 
-        //TODO +: XML
         /// <summary>
         /// Учебное заведение
         /// </summary>
@@ -166,16 +163,10 @@ namespace LibraryPerson
             null, null, "School")
         { }
 
-        //TODO +: RSDN
         /// <summary>
         /// Генератор случайных параметров
         /// </summary>
         private static Random _random = new Random();
-
-        //TODO +: extract
-
-            //TODO +: duplication
-
 
         /// <summary>
         /// Проверка возраста
@@ -214,7 +205,5 @@ namespace LibraryPerson
             string cartoon = favoriteCartoon[_random.Next(favoriteCartoon.Length)];
             return cartoon;
         }
-
-        //TODO +: remove
     }
 }

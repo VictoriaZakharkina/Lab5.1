@@ -44,7 +44,6 @@ namespace LibraryPerson
             {
                 "Попов", "Иванов", "Краснов", "Селин", "Калиновский"
             };
-            //TODO +: RSDN
             string[] surnamesEng = new string[]
             {
                 "Adams", "Watson", "Cooper", "Jenkins", "Smith"
@@ -121,19 +120,11 @@ namespace LibraryPerson
             int marriegeStatus = _random.Next(0, 2);
             if (marriegeStatus == 0)
             {
-                switch (adult.Gender)
-                {
-                    case Gender.Male:
-                        {
-                            adult.Partner = GetRandomAdult(Gender.Female);
-                            break;
-                        }
-                    case Gender.Female:
-                        {
-                            adult.Partner = GetRandomAdult(Gender.Male);
-                            break;
-                        }
-                }
+                var newGender = 
+                    adult.Gender == Gender.Male
+                    ? Gender.Female
+                    : Gender.Male;
+                adult.Partner = GetRandomAdult(newGender);                
             }
         }
         /// <summary>

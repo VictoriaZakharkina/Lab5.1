@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace LB1
 {
+    //TODO: XML
     internal class PersonConsole
     {
-
-        /// <summary>
+                /// <summary>
         /// Вывод информации о каждом человеке в списке.
         /// </summary>
         /// <param name="personList">Список людей.</param>
