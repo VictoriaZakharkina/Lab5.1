@@ -22,12 +22,12 @@ namespace View
         /// <summary>
         /// Список объемов фигур.
         /// </summary>
-        private BindingList<FigureBase> _volumeFigureList = new BindingList<FigureBase>();
+        private BindingList<FigureBase> _figureList = new BindingList<FigureBase>();
 
         /// <summary>
         /// Список отфильтрованных объемов фигур.
         /// </summary>
-        private BindingList<FigureBase> _filterVolumeFigureList = new BindingList<FigureBase>();
+        private BindingList<FigureBase> _filterFigureList = new BindingList<FigureBase>();
 
         /// <summary>
         /// Для файлов.
@@ -38,7 +38,7 @@ namespace View
         /// <summary>
         /// Поле для хранения состояния фильтрации.
         /// </summary>
-        private bool _isFilter = false;
+        private bool _filter = false;
 
         /// <summary>
         /// Конструктор MainForm.
@@ -46,35 +46,35 @@ namespace View
         public MainForm()
         {
             InitializeComponent();
-            BackColor = Color.Honeydew;
-            dataGridView.BackgroundColor = Color.AliceBlue;
-            StartPosition = FormStartPosition.CenterScreen;
+            //BackColor = Color.LightPink;
+            //dataGridViewSpace.BackgroundColor = Color.LightSeaGreen;
+            //StartPosition = FormStartPosition.CenterScreen;
         }
 
         /// <summary>
-        /// Создание таблицы DataGrid.
+        /// Создание таблицы.
         /// </summary>
         /// <param name="figure">Список фигур.</param>
         /// <param name="dataGridView">Сетка.</param>
         public static void CreateTable(BindingList<FigureBase> figure,
-              DataGridView dataGridView)
+              DataGridView dataGridViewSpace)
         {
-            dataGridView.RowHeadersVisible = false;
+            dataGridViewSpace.RowHeadersVisible = false;
             var source = new BindingSource(figure, null);
-            dataGridView.DataSource = source;
+            dataGridViewSpace.DataSource = source;
 
-            dataGridView.DefaultCellStyle.Alignment =
+            dataGridViewSpace.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
-            dataGridView.AllowUserToResizeColumns = false;
-            dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
+            dataGridViewSpace.AllowUserToResizeColumns = false;
+            dataGridViewSpace.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
-            dataGridView.AutoSizeRowsMode =
+            dataGridViewSpace.AutoSizeRowsMode =
                 DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView.AutoSizeColumnsMode =
+            dataGridViewSpace.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView.DefaultCellStyle.WrapMode =
+            dataGridViewSpace.DefaultCellStyle.WrapMode =
                 DataGridViewTriState.True;
-            dataGridView.SelectionMode =
+            dataGridViewSpace.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
         }
 
@@ -85,188 +85,176 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void LoadMainForm(object sender, EventArgs e)
         {
-            _volumeFigureList = new BindingList<FigureBase>();
-            CreateTable(_volumeFigureList, dataGridView);
+            _figureList = new BindingList<FigureBase>();
+            CreateTable(_figureList, dataGridViewSpace);
         }
 
         /// <summary>
-        /// Метод для работы кнопки Добавить фигуру.
+        /// Добавление фигуры.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonAddClick(object sender, EventArgs e)
+        /// <param name="sender">Данные.</param>
+        /// <param name="e">Данные о событие.</param>
+        private void AddButton(object sender, EventArgs e)
         {
             AddForm addFigure = new AddForm();
-            addFigure.FigureAdded += AddedFigure;
+            addFigure.FigureAdded += AddFigure;
             addFigure.Show();
         }
 
         /// <summary>
-        /// Метод добавления данных в лист.
+        /// Добавление данных в лист.
         /// </summary>
         /// <param name="sender">Данные.</param>
-        /// <param name="salaryBase">Объект класса FigureBase.</param>
-        private void AddedFigure(object sender, EventArgs salaryBase)
+        /// <param name="figureBase">Объект класса FigureBase.</param>
+        private void AddFigure(object sender, EventArgs figureBase)
         {
-            VolumeAddedEvent addedEventArgs =
-                salaryBase as VolumeAddedEvent;
-            _volumeFigureList.Add(addedEventArgs?.FigureBase);
+            AddVolume addEventArgs =
+                figureBase as AddVolume;
+            _figureList.Add(addEventArgs?.FigureBase);
         }
 
         /// <summary>
-        /// Метод для работы кнопки Удалить фигуру.
+        /// Удаление фигуры.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void ButtonDeleteClick(object sender, EventArgs e)
+        private void DeleteButton(object sender, EventArgs e)
         {
-            if (dataGridView.SelectedCells.Count != 0)
+            if (dataGridViewSpace.SelectedCells.Count != 0)
             {
                 foreach (DataGridViewRow row in
-                    dataGridView.SelectedRows)
+                    dataGridViewSpace.SelectedRows)
                 {
                     if (row.DataBoundItem is FigureBase figure)
                     {
-                        _volumeFigureList.Remove(figure);
+                        _figureList.Remove(figure);
                     }
                 }
             }
         }
 
         /// <summary>
-        /// Метод для работы кнопки Фильтр.
+        /// Фильтрация фигур.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void ButtonFilterClick(object sender, EventArgs e)
+        private void FilterButton(object sender, EventArgs e)
         {
-            FilterForm filterFigure = new FilterForm(_volumeFigureList);
+            FilterForm filterFigure = new FilterForm(_figureList);
             filterFigure.FigureFiltered += FilteredFigure;
             filterFigure.Show();
         }
 
         /// <summary>
-        /// Обработчик фильтрации данных.
+        /// Фильтрация.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="figureList">Список фифгур в таблице.</param>
         private void FilteredFigure(object sender, EventArgs figureList)
         {
-            FigureFilteredEvent filterEventArgs =
-                 figureList as FigureFilteredEvent;
-            _filterVolumeFigureList = filterEventArgs?.FilteredValueList;
-            CreateTable(_filterVolumeFigureList, dataGridView);
+            FilterFigure filterEventArgs =
+                 figureList as FilterFigure;
+            _filterFigureList = filterEventArgs?.FigureFilter;
+            CreateTable(_filterFigureList, dataGridViewSpace);
         }
 
         /// <summary>
-        /// Метод для работы кнопки Очистить список.
+        /// Очистка списка.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void ButtonDeleteListClick(object sender, EventArgs e)
+        private void ClearButton(object sender, EventArgs e)
         {
-            dataGridView.ClearSelection();
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            dataGridViewSpace.ClearSelection();
+            foreach (DataGridViewRow row in dataGridViewSpace.Rows)
             {
                 row.Selected = true;
             }
         }
 
         /// <summary>
-        /// Добавление расчета по случайной фигуре.
+        /// Расчет через рандомайзер.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void ButtonRandomListClick(object sender, EventArgs e)
+        private void RandomButton(object sender, EventArgs e)
         {
-            _volumeFigureList.Add(RandomFigure.GetRandomFigure());
+            _figureList.Add(RandomFigure.GetRandomFigure());
         }
 
         /// <summary>
-        /// Метод для сброса наcтроек фильтра.
+        /// Сброс фильтра.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void ButtonResertFilterClick(object sender, EventArgs e)
+        private void ResetFilterButton(object sender, EventArgs e)
         {
-            CreateTable(_volumeFigureList, dataGridView);
-            _isFilter = false;
+            CreateTable(_figureList, dataGridViewSpace);
+            _filter = false;
         }
 
         /// <summary>
-        /// Метод для сохранения результатов в сторонний файл.
+        /// Сохранение результатов в файл.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void SaveToolStripMenuItem1(object sender, EventArgs e)
+        private void SaveToolStripMenuItem(object sender, EventArgs e)
         {
-            if (_volumeFigureList.Count == 0)
+            if (!_figureList.Any() || _figureList is null)
             {
-                MessageBox.Show("Отсутствуют данные для сохранения.",
-                    "Данные не сохранены",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Список пуст!", "Предупреждение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var saveFileDialog = new SaveFileDialog
             {
-                Filter = "Файлы (*.vf)|*.vf|Все файлы (*.*)|*.*"
+                Filter = "Файлы (*.figvol)|*.figvol|Все файлы (*.*)|*.*"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                var path = saveFileDialog.FileName.ToString();
-                using (FileStream file = File.Create(path))
+                string filePath = saveFileDialog.FileName.ToString();
+
+                using (var file = File.Create(filePath))
                 {
-                    _serializer.Serialize(file, _volumeFigureList);
+                    _serializer.Serialize(file, _figureList);
                 }
-                MessageBox.Show("Файл успешно сохранён.",
-                    "Сохранение завершено",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         /// <summary>
-        /// Метод для загрузки файла в рабочую область.
+        /// Загрузка файла.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void OpenToolStripMenuItem2(object sender, EventArgs e)
+        private void OpenToolStripMenuItem(object sender, EventArgs e)
         {
-            var openFileDialog = new OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "Файлы (*.vf)|*.vf|Все файлы (*.*)|*.*"
+                Filter = "Файлы (*.figvol)|*.figvol|Все файлы (*.*)|*.*"
             };
 
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
-            var path = openFileDialog.FileName.ToString();
+            string filePath = openFileDialog.FileName.ToString();
+
             try
             {
-                using (var file = new StreamReader(path))
+                using (var file = new StreamReader(filePath))
                 {
-                    _volumeFigureList = (BindingList<FigureBase>)
-                    _serializer.Deserialize(file);
+                    _figureList = (BindingList<FigureBase>)
+                        _serializer.Deserialize(file);
                 }
 
-                dataGridView.DataSource = _volumeFigureList;
-                dataGridView.CurrentCell = null;
-                MessageBox.Show("Файл успешно загружен.",
-                    "Загрузка завершена",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridViewSpace.DataSource = _figureList;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Не удалось загрузить файл.\n" +
-                    "Файл повреждён или не соответствует формату.",
-                    $"Ошибка:  {ex.Message}",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Файл поврежден!",
+                    "Предупреждение", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

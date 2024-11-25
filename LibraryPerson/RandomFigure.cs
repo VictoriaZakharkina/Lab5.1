@@ -18,16 +18,26 @@ namespace Library
         private static Random _random = new Random();
 
         /// <summary>
-        /// Генерация случайного числа double через int.
+        /// Генерация случайного расчета объема.
         /// </summary>
-        /// <param name="minValue">Минимальное значение.</param>
-        /// <param name="maxValue">Максимальное значение.</param>
-        /// <returns>Сгенерированное число типа double.</returns>
-        public static double GetRandomDouble(int minValue, int maxValue)
+        /// <returns></returns>
+        public static FigureBase GetRandomFigure()
         {
-            var randomValue = Convert.ToDouble(
-                _random.Next(minValue, maxValue));
-            return randomValue;
+            switch (_random.Next(0, 3))
+            {
+                case 0:
+                    {
+                        return RandomSphere();
+                    }
+                case 1:
+                    {
+                        return RandomParallelepiped();
+                    }
+                default:
+                    {
+                        return RandomPyramid();
+                    }
+            }
         }
 
         /// <summary>
@@ -38,7 +48,7 @@ namespace Library
         {
             Sphere sphere = new Sphere
             {
-                Radius = GetRandomDouble(1, 100),
+                Radius = ConvertToDouble(1, 150),
             };
             return sphere;
         }
@@ -51,11 +61,11 @@ namespace Library
         {
             Parallelepiped parallelepiped = new Parallelepiped
             {
-                Length = GetRandomDouble(1, 300),
-                Width = GetRandomDouble(1, 200),
-                Height = GetRandomDouble(1, 150),
-                AngleLengthWidth = GetRandomDouble(0, 180),
-                AngleBaseHeight = GetRandomDouble(0, 180)
+                Length = ConvertToDouble(1, 200),
+                Height = ConvertToDouble(1, 350),
+                Width = ConvertToDouble(1, 150),
+                AngleLengthWidth = ConvertToDouble(0, 180),
+                AngleBaseHeight = ConvertToDouble(0, 180)
             };
             return parallelepiped;
         }
@@ -68,33 +78,23 @@ namespace Library
         {
             Pyramid pyramid = new Pyramid
             {
-                AreaOfBase = GetRandomDouble(1, 30),
-                Height = GetRandomDouble(1, 200)
+                AreaOfBase = ConvertToDouble(1, 100),
+                Height = ConvertToDouble(1, 150)
             };
             return pyramid;
         }
 
         /// <summary>
-        /// Генерация случайного расчета объема.
+        /// Генерация случайного числа double через int.
         /// </summary>
-        /// <returns></returns>
-        public static FigureBase GetRandomFigure()
+        /// <param name="minValue">Минимальное значение.</param>
+        /// <param name="maxValue">Максимальное значение.</param>
+        /// <returns>Сгенерированное число типа double.</returns>
+        public static double ConvertToDouble(int minValue, int maxValue)
         {
-            switch (_random.Next(0, 3))
-            {
-                case 0:
-                {
-                    return RandomSphere();
-                }
-                case 1:
-                {
-                    return RandomParallelepiped();
-                }
-                default:
-                {
-                    return RandomPyramid();
-                }
-            }
+            var randomValue = Convert.ToDouble(
+                _random.Next(minValue, maxValue));
+            return randomValue;
         }
     }
 }

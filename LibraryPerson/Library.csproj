@@ -45,7 +45,7 @@
     <Compile Include="Parallelepiped.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pyramid.cs" />
-    <Compile Include="Random.cs" />
+    <Compile Include="RandomFigure.cs" />
     <Compile Include="Sphere.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

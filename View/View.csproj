@@ -52,6 +52,8 @@
     <Compile Include="AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddVolume.cs" />
+    <Compile Include="FilterFigure.cs" />
     <Compile Include="FilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
