@@ -1,21 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Library
 {
     /// <summary>
     /// Класс FigureBase
     /// </summary>
+    [XmlInclude(typeof(Sphere))]
+    [XmlInclude(typeof(Parallelepiped))]
+    [XmlInclude(typeof(Pyramid))]
     public abstract class FigureBase
     {
-        //TODO +: refactor as property
         /// <summary>
         /// Объем фигуры
         /// </summary>
+        [DisplayName("Объем, см^3")]
         public abstract double Volume{ get; }
+        /// <summary>
+        /// Параметры
+        /// </summary>
+        [DisplayName("Параметры")]
+        public abstract string Parameters { get; }
+        /// <summary>
+        /// Вид фигуры
+        /// </summary>
+        [DisplayName("Вид")]
+        public abstract string TypeFigure { get; }
 
         /// <summary>
         /// Проверка введенного значения

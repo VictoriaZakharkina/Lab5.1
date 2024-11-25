@@ -75,5 +75,25 @@ namespace Library
                 return (AreaOfBase * Height) / 3;
             }
         }
+        /// <summary>
+        /// Параметры
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Площадь основания = {AreaOfBase}, высота = {Height}";
+            }
+        }
+        /// <summary>
+        /// Вид фигуры
+        /// </summary>
+        public override string TypeFigure
+        {
+            get
+            {
+                return "Пирамида";
+            }
+        }
     }
 }

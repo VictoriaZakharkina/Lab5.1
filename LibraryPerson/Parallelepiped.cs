@@ -50,7 +50,6 @@ namespace Library
         /// <param name="height">Высота</param>
         /// <param name="angleLengthWidth">Угол длина/ширина</param>
         /// <param name="angleBaseHeight">Угол основание/высота</param>
-        /// //TODO +: RSDN
         public Parallelepiped(double length, double width, double height, 
                 double angleLengthWidth, double angleBaseHeight)
         {
@@ -138,5 +137,27 @@ namespace Library
                 * Math.Sin(AngleBaseHeight * (Math.PI / 180));
             }
         }
+        /// <summary>
+        /// Параметры
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Длина = {Length}, ширина = {Width}, высота = {Height}," +
+                    $"угол м/у длиной и шириной = {AngleLengthWidth}, угол м/у основанием и высотой = {AngleBaseHeight}";
+            }
+        }
+        /// <summary>
+        /// Вид фигуры
+        /// </summary>
+        public override string TypeFigure
+        {
+            get
+            {
+                return "Параллелепипед";
+            }
+        }
+
     }
 }

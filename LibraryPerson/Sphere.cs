@@ -54,5 +54,25 @@ namespace Library
                 return (4 * Math.PI * Math.Pow(Radius, 3)) / 3;
             }
         }
+        /// <summary>
+        /// Параметры
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Радиус = {Radius}";
+            }
+        }
+        /// <summary>
+        /// Вид фигуры
+        /// </summary>
+        public override string TypeFigure
+        {
+            get
+            {
+                return "Шар";
+            }
+        }
     }
 }
