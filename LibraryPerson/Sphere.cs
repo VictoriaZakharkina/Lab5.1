@@ -47,9 +47,12 @@ namespace Library
         /// <summary>
         /// Расчет объёма шара
         /// </summary>
-        public override double Volume()
+        public override double Volume
         {
-            return (4 * Math.PI * Math.Pow(Radius, 3)) / 3;
+            get
+            {
+                return (4 * Math.PI * Math.Pow(Radius, 3)) / 3;
+            }
         }
     }
 }

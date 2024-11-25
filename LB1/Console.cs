@@ -23,7 +23,7 @@ namespace LB1
             {
                 () =>
                 {
-                    Console.Write("Введите радиус шара: ");
+                    Console.Write("Введите радиус шара (см): ");
                     sphere.Radius = Convert.ToDouble(Console.ReadLine());
                 },
             };
@@ -43,13 +43,13 @@ namespace LB1
             {
                 () =>
                 {
-                    Console.Write("Введите площадь основания пирамиды: ");
+                    Console.Write("Введите площадь основания пирамиды (см^2): ");
                     pyramid.AreaOfBase = Convert.ToDouble(Console.ReadLine());
                 },
 
                 () =>
                 {
-                    Console.Write("Введите высоту пирамиды: ");
+                    Console.Write("Введите высоту пирамиды (см): ");
                     pyramid.Height = Convert.ToDouble(Console.ReadLine());
                 },
             };
@@ -69,31 +69,31 @@ namespace LB1
             {
                 () =>
                 {
-                    Console.Write("Введите длину параллелепипеда: ");
+                    Console.Write("Введите длину параллелепипеда (см): ");
                     parallelepiped.Length = Convert.ToDouble(Console.ReadLine());
                 },
 
                 () =>
                 {
-                    Console.Write("Введите ширину параллелепипеда: ");
+                    Console.Write("Введите ширину параллелепипеда (см): ");
                     parallelepiped.Width = Convert.ToDouble(Console.ReadLine());
                 },
 
                 () =>
                 {
-                    Console.Write("Введите высоту параллелепипеда: ");
+                    Console.Write("Введите высоту параллелепипеда (см): ");
                     parallelepiped.Height = Convert.ToDouble(Console.ReadLine());
                 },
 
                 () =>
                 {
-                    Console.Write("Введите угол между длиной и шириной параллелепипеда: ");
+                    Console.Write("Введите угол между длиной и шириной параллелепипеда (град): ");
                     parallelepiped.AngleLengthWidth = Convert.ToDouble(Console.ReadLine());
                 },
 
                 () =>
                 {
-                    Console.Write("Введите угол между длиной и высотой параллелепипеда: ");
+                    Console.Write("Введите угол между длиной и высотой параллелепипеда (град): ");
                     parallelepiped.AngleBaseHeight = Convert.ToDouble(Console.ReadLine());
                 },
             };

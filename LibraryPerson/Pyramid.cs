@@ -68,10 +68,12 @@ namespace Library
         /// <summary>
         /// Расчет объёма пирамиды
         /// </summary>
-        public override double Volume()
-
+        public override double Volume
         {
-            return (AreaOfBase * Height) / 3;
+            get
+            {
+                return (AreaOfBase * Height) / 3;
+            }
         }
     }
 }

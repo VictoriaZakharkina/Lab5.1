@@ -11,11 +11,11 @@ namespace Library
     /// </summary>
     public abstract class FigureBase
     {
-        //TODO: refactor as property
+        //TODO +: refactor as property
         /// <summary>
         /// Объем фигуры
         /// </summary>
-        public abstract double Volume();
+        public abstract double Volume{ get; }
 
         /// <summary>
         /// Проверка введенного значения
@@ -44,7 +44,7 @@ namespace Library
         {
             if (number <= 0 || number >= 180)
             {
-                throw new ArgumentException("Угол должен быть от 0 до 180");
+                throw new ArgumentException("Угол должен быть от 0 до 180 град");
             }
             else
             {

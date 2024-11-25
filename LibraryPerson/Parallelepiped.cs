@@ -50,8 +50,9 @@ namespace Library
         /// <param name="height">Высота</param>
         /// <param name="angleLengthWidth">Угол длина/ширина</param>
         /// <param name="angleBaseHeight">Угол основание/высота</param>
-        /// //TODO: RSDN
-        public Parallelepiped(double length, double width, double height, double angleLengthWidth, double angleBaseHeight)
+        /// //TODO +: RSDN
+        public Parallelepiped(double length, double width, double height, 
+                double angleLengthWidth, double angleBaseHeight)
         {
             _length = length;
             _width = width;
@@ -128,11 +129,14 @@ namespace Library
         /// <summary>
         /// Расчет объёма параллелепипеда
         /// </summary>
-        public override double Volume()
+        public override double Volume
         {
-            return (Length * Width * Height
+            get
+            {
+                return Length * Width * Height
                 * Math.Sin(AngleLengthWidth * (Math.PI / 180))
-                * Math.Sin(AngleBaseHeight * (Math.PI / 180)));
+                * Math.Sin(AngleBaseHeight * (Math.PI / 180));
+            }
         }
     }
 }

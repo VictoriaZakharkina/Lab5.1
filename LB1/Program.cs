@@ -25,25 +25,25 @@ namespace LB1
 
                 switch (number.KeyChar)
                 {
-                    //TODO: RSDN
+                    //TODO +: RSDN
                     case '1':
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                     case '2':
-                        {
-                            return;
-                        }
+                    {
+                        return;
+                    }
                     default:
-                        {
-                            Console.WriteLine("Ошибка! Введите цифру 1 или 2\n");
-                            continue;
-                        }
+                    {
+                        Console.WriteLine("Ошибка! Введите цифру 1 или 2\n");
+                        continue;
+                    }
                 }
 
                 FigureBase volume = ReaderFromConcole.GetVolumeFigure();
                 Console.WriteLine($"Объем выбранной фигуры: " +
-                    $"{Math.Round(volume.Volume(), 2)}\n");
+                    $"{Math.Round(volume.Volume, 2)} см^3\n");
             }
         }
     }
