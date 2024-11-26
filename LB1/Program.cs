@@ -25,7 +25,6 @@ namespace LB1
 
                 switch (number.KeyChar)
                 {
-                    //TODO +: RSDN
                     case '1':
                     {
                         break;
