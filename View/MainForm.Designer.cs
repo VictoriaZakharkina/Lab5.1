@@ -76,14 +76,14 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.saveToolStripMenuItem.Text = "Сохранить";
-            this.filterButton.Click += new System.EventHandler(this.SaveToolStripMenuItem);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.openToolStripMenuItem.Text = "Загрузить";
-            this.filterButton.Click += new System.EventHandler(this.OpenToolStripMenuItem);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem);
             // 
             // randomButton
             // 
@@ -93,7 +93,7 @@
             this.randomButton.TabIndex = 1;
             this.randomButton.Text = "Рандомайзер";
             this.randomButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.RandomButton);
+            this.randomButton.Click += new System.EventHandler(this.RandomButton);
             // 
             // groupBoxCalculation
             // 
@@ -137,7 +137,7 @@
             this.clearButton.TabIndex = 6;
             this.clearButton.Text = "Очистить";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.ClearButton);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton);
             // 
             // deleteButton
             // 
@@ -147,7 +147,7 @@
             this.deleteButton.TabIndex = 5;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.DeleteButton);
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton);
             // 
             // resetFilterButton
             // 
@@ -157,7 +157,7 @@
             this.resetFilterButton.TabIndex = 4;
             this.resetFilterButton.Text = "Сбросить фильтр";
             this.resetFilterButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.ResetFilterButton);
+            this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton);
             // 
             // filterButton
             // 
@@ -177,7 +177,7 @@
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Добавить фигуру";
             this.addButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.AddButton);
+            this.addButton.Click += new System.EventHandler(this.AddButton);
             // 
             // MainForm
             // 
@@ -187,6 +187,7 @@
             this.Controls.Add(this.randomButton);
             this.Controls.Add(this.toolStrip);
             this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.LoadMainForm);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.groupBoxCalculation.ResumeLayout(false);
@@ -194,7 +195,6 @@
             this.groupBoxEdit.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class userControlBall : UserControl
+    public partial class UserControlSphere : UserControl
     {
-        public userControlBall()
+        public UserControlSphere()
         {
             InitializeComponent();
-        }
-
-        private void labelRadius_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

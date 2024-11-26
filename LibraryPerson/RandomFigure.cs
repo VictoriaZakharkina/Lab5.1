@@ -26,17 +26,17 @@ namespace Library
             switch (_random.Next(0, 3))
             {
                 case 0:
-                    {
-                        return RandomSphere();
-                    }
+                {
+                    return RandomSphere();
+                }
                 case 1:
-                    {
-                        return RandomParallelepiped();
-                    }
+                {
+                    return RandomParallelepiped();
+                }
                 default:
-                    {
-                        return RandomPyramid();
-                    }
+                {
+                    return RandomPyramid();
+                }
             }
         }
 

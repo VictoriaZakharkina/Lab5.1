@@ -45,9 +45,6 @@ namespace View
         public MainForm()
         {
             InitializeComponent();
-            //BackColor = Color.LightPink;
-            //dataGridViewSpace.BackgroundColor = Color.LightSeaGreen;
-            //StartPosition = FormStartPosition.CenterScreen;
         }
 
         /// <summary>
@@ -139,22 +136,7 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void FilterButton(object sender, EventArgs e)
         {
-            FilterForm filterFigure = new FilterForm(_figureList);
-            filterFigure.FigureFiltered += FilteredFigure;
-            filterFigure.Show();
-        }
 
-        /// <summary>
-        /// Фильтрация.
-        /// </summary>
-        /// <param name="sender">Данные.</param>
-        /// <param name="figureList">Список фифгур в таблице.</param>
-        private void FilteredFigure(object sender, EventArgs figureList)
-        {
-            FilterFigure filterEventArgs =
-                 figureList as FilterFigure;
-            _filterFigureList = filterEventArgs?.FigureFilter;
-            CreateTable(_filterFigureList, dataGridViewSpace);
         }
 
         /// <summary>
@@ -188,8 +170,7 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void ResetFilterButton(object sender, EventArgs e)
         {
-            CreateTable(_figureList, dataGridViewSpace);
-            _filter = false;
+
         }
 
         /// <summary>

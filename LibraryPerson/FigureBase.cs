@@ -17,20 +17,22 @@ namespace Library
     public abstract class FigureBase
     {
         /// <summary>
-        /// Объем фигуры
+        /// Вид фигуры
         /// </summary>
-        [DisplayName("Объем, см^3")]
-        public abstract double Volume{ get; }
+        [DisplayName("Вид")]
+        public abstract string TypeFigure { get; }
+
         /// <summary>
         /// Параметры
         /// </summary>
         [DisplayName("Параметры")]
         public abstract string Parameters { get; }
+
         /// <summary>
-        /// Вид фигуры
+        /// Объем фигуры
         /// </summary>
-        [DisplayName("Вид")]
-        public abstract string TypeFigure { get; }
+        [DisplayName("Объем, см^3")]
+        public abstract double Volume { get; }
 
         /// <summary>
         /// Проверка введенного значения

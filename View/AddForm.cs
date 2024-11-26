@@ -24,71 +24,16 @@ namespace View
         public AddForm()
         {
             InitializeComponent();
-            BackColor = Color.Honeydew;
-            StartPosition = FormStartPosition.CenterScreen;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         /// <summary>
-        /// Кнопка Добавить объём фигуры.
+        /// Добавление фигуры.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonFigureAdd(object sender, EventArgs e)
         {
-            try
-            {
-                FigureBase figureBase = null;
 
-                if (ballUserControl.Visible)
-                {
-                    figureBase = new Ball()
-                    {
-                        Radius = Convert.ToDouble(
-                            ballUserControl.textBoxRadius.Text),
-                    };
-                }
-
-                if (parallelepipedUserControl.Visible)
-                {
-                    figureBase = new Parallelepiped()
-                    {
-                        Length = Convert.ToDouble(
-                            parallelepipedUserControl.textBoxLength.Text),
-                        Width = Convert.ToDouble(
-                            parallelepipedUserControl.textBoxWidth.Text),
-                        Height = Convert.ToDouble(
-                            parallelepipedUserControl.textBoxHeight.Text),
-                        AngleLengthWidth = Convert.ToDouble(
-                            parallelepipedUserControl.textBoxAngleLengthWidth.Text),
-                        AngleLengthHeight = Convert.ToDouble(
-                            parallelepipedUserControl.textBoxAngleLengthHeight.Text),
-                    };
-                }
-
-                if (pyramidUserControl.Visible)
-                {
-                    figureBase = new Pyramid()
-                    {
-                        AreaOfBase = Convert.ToDouble(
-                            pyramidUserControl.textBoxAreaOfBase.Text),
-                        Height = Convert.ToInt32(
-                            pyramidUserControl.textBoxPyramidHeight.Text),
-                    };
-                }
-
-                FigureAdded?.Invoke(this, new VolumeAddedEvent(figureBase));
-            }
-            catch (ArgumentOutOfRangeException exeption)
-            {
-                MessageBox.Show($"{exeption.Message}", "Предупреждение",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch
-            {
-                MessageBox.Show("Введите данные.", "Предупреждение",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
         /// <summary>
@@ -96,11 +41,9 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void RadioButtonCheckedChanged(object sender, EventArgs e)
+        private void CheckBoxSphereChanged(object sender, EventArgs e)
         {
-            ballUserControl.Visible = true;
-            parallelepipedUserControl.Visible = false;
-            pyramidUserControl.Visible = false;
+
         }
 
         /// <summary>
@@ -108,11 +51,9 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void RadioButtonParallelepipedCheckedChanged(object sender, EventArgs e)
+        private void CheckBoxParallelepipedChanged(object sender, EventArgs e)
         {
-            ballUserControl.Visible = false;
-            parallelepipedUserControl.Visible = true;
-            pyramidUserControl.Visible = false;
+
         }
 
         /// <summary>
@@ -120,11 +61,11 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void RadioButtonPyramidaCheckedChanged(object sender, EventArgs e)
+        private void CheckBoxPyramidChanged(object sender, EventArgs e)
         {
-            ballUserControl.Visible = false;
-            parallelepipedUserControl.Visible = false;
-            pyramidUserControl.Visible = true;
+
         }
+
+
     }
 }

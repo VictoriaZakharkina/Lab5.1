@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class UserControlParallelepiped : UserControl
+    public partial class UserControlPyramid : UserControl
     {
-        public UserControlParallelepiped()
+        public UserControlPyramid()
         {
             InitializeComponent();
-        }
-
-        private void labelLength_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

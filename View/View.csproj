@@ -53,7 +53,6 @@
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddVolume.cs" />
-    <Compile Include="FilterFigure.cs" />
     <Compile Include="FilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +73,17 @@
     <Compile Include="UserControlParallelepiped.Designer.cs">
       <DependentUpon>UserControlParallelepiped.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlBall.cs">
+    <Compile Include="UserControlPyramid.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlBall.Designer.cs">
-      <DependentUpon>UserControlBall.cs</DependentUpon>
+    <Compile Include="UserControlPyramid.Designer.cs">
+      <DependentUpon>UserControlPyramid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSphere.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSphere.Designer.cs">
+      <DependentUpon>UserControlSphere.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
@@ -95,11 +100,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControlBall.resx">
-      <DependentUpon>UserControlBall.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControlParallelepiped.resx">
       <DependentUpon>UserControlParallelepiped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlPyramid.resx">
+      <DependentUpon>UserControlPyramid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSphere.resx">
+      <DependentUpon>UserControlSphere.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
