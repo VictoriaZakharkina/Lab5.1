@@ -127,7 +127,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Расчет объёма параллелепипеда в см^3
+        /// Расчет объёма параллелепипеда
         /// </summary>
         public override double Volume
         {
