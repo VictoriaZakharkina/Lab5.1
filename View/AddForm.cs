@@ -27,30 +27,6 @@ namespace View
             BackColor = Color.Honeydew;
             StartPosition = FormStartPosition.CenterScreen;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-            ballUserControl.textBoxRadius.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
-
-            parallelepipedUserControl.textBoxLength.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
-
-            parallelepipedUserControl.textBoxWidth.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
-
-            parallelepipedUserControl.textBoxHeight.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
-
-            parallelepipedUserControl.textBoxAngleLengthWidth.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
-
-            parallelepipedUserControl.textBoxAngleLengthHeight.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
-
-            pyramidUserControl.textBoxAreaOfBase.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
-
-            pyramidUserControl.textBoxPyramidHeight.KeyPress += new
-                KeyPressEventHandler(CheckTextBox.TextBoxCheck);
         }
 
         /// <summary>

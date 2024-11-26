@@ -13,9 +13,8 @@ using Library;
 
 namespace View
 {
-    //TODO+: XML
     /// <summary>
-    /// Класс программы для расчета объема фигур.
+    /// Класс основной программы.
     /// </summary>
     public partial class MainForm : Form
     {
