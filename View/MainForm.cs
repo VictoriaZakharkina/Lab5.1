@@ -284,6 +284,8 @@ namespace View
                 {
                     _serializer.Serialize(file, _figureList);
                 }
+                MessageBox.Show("Файл сохранён.", "Сохранение завершено",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

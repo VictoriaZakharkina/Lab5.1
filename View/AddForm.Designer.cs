@@ -68,39 +68,39 @@
             // 
             // _radioButtonPyramid
             // 
+            this._radioButtonPyramid.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
             this._radioButtonPyramid.AutoSize = true;
             this._radioButtonPyramid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this._radioButtonPyramid.Location = new System.Drawing.Point(321, 24);
+            this._radioButtonPyramid.Location = new System.Drawing.Point(325, 24);
             this._radioButtonPyramid.Name = "_radioButtonPyramid";
             this._radioButtonPyramid.Size = new System.Drawing.Size(100, 22);
             this._radioButtonPyramid.TabIndex = 2;
-            this._radioButtonPyramid.TabStop = true;
             this._radioButtonPyramid.Text = "Пирамида";
             this._radioButtonPyramid.UseVisualStyleBackColor = true;
             this._radioButtonPyramid.CheckedChanged += new System.EventHandler(this.PyramidButtonAdd);
             // 
             // _radioButtonParallelepiped
             // 
+            this._radioButtonParallelepiped.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
             this._radioButtonParallelepiped.AutoSize = true;
             this._radioButtonParallelepiped.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this._radioButtonParallelepiped.Location = new System.Drawing.Point(126, 24);
+            this._radioButtonParallelepiped.Location = new System.Drawing.Point(132, 24);
             this._radioButtonParallelepiped.Name = "_radioButtonParallelepiped";
             this._radioButtonParallelepiped.Size = new System.Drawing.Size(148, 22);
             this._radioButtonParallelepiped.TabIndex = 1;
-            this._radioButtonParallelepiped.TabStop = true;
             this._radioButtonParallelepiped.Text = "Параллелепипед";
             this._radioButtonParallelepiped.UseVisualStyleBackColor = true;
             this._radioButtonParallelepiped.CheckedChanged += new System.EventHandler(this.ParallelepipedButtonAdd);
             // 
             // _radioButtonSphere
             // 
+            this._radioButtonSphere.AccessibleRole = System.Windows.Forms.AccessibleRole.RadioButton;
             this._radioButtonSphere.AutoSize = true;
             this._radioButtonSphere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._radioButtonSphere.Location = new System.Drawing.Point(24, 24);
             this._radioButtonSphere.Name = "_radioButtonSphere";
             this._radioButtonSphere.Size = new System.Drawing.Size(58, 22);
             this._radioButtonSphere.TabIndex = 0;
-            this._radioButtonSphere.TabStop = true;
             this._radioButtonSphere.Text = "Шар";
             this._radioButtonSphere.UseVisualStyleBackColor = true;
             this._radioButtonSphere.CheckedChanged += new System.EventHandler(this.SphereButtonAdd);

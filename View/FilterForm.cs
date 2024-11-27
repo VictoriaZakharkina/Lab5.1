@@ -112,19 +112,22 @@ namespace View
 
             if (_checkBoxSphere.Checked)
             {
-                FoundByType(_filterFigureList, tempFilteredList,
+                FoundByType(_originalFigureList,
+                    tempFilteredList,
                     typeof(Sphere));
             }
 
             if (_checkBoxParallelepiped.Checked)
             {
-                FoundByType(_filterFigureList, tempFilteredList,
+                FoundByType(_originalFigureList,
+                    tempFilteredList,
                     typeof(Parallelepiped));
             }
 
             if (_checkBoxPyramid.Checked)
             {
-                FoundByType(_filterFigureList, tempFilteredList,
+                FoundByType(_originalFigureList,
+                    tempFilteredList,
                     typeof(Pyramid));
             }
 
@@ -132,26 +135,28 @@ namespace View
             {
                 if (!string.IsNullOrEmpty(_textBoxValue.Text))
                 {
-                    tempFilteredList = FoundByValue(tempFilteredList,
+                    tempFilteredList =
+                        FoundByValue(tempFilteredList,
                         Convert.ToDouble(_textBoxValue.Text));
                 }
                 else
                 {
-                    MessageBox.Show("Не задан объём фигуры.", "Предупреждение",
+                    MessageBox.Show("Введите значение объёма фигуры, см^3.", "Предупреждение",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
 
-            foreach (var figure in _filterFigureList)
+            foreach (var salary in _originalFigureList)
             {
-                if (tempFilteredList.Contains(figure))
+                if (tempFilteredList.Contains(salary))
                 {
-                    _filterFigureList.Add(figure);
+                    _filterFigureList.Add(salary);
                 }
             }
 
-            if (_filterFigureList.Count == 0 || _filterFigureList is null)
+            if (_filterFigureList.Count == 0
+                || _filterFigureList is null)
             {
                 MessageBox.Show("Совпадений не найдено.", "Информация",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
