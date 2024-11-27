@@ -84,6 +84,7 @@
         }
 
         #endregion
+        
         internal System.Windows.Forms.Label _labelAreaOfBase;
         internal System.Windows.Forms.Label _labelHeight;
         internal System.Windows.Forms.TextBox _textBoxAreaOfBase;

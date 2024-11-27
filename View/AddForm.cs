@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace View
 {
@@ -29,15 +30,6 @@ namespace View
         public AddForm()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Добавление фигуры.
-        /// </summary>
-        /// <param name="sender">Данные.</param>
-        /// <param name="e">Данные о событие.</param>
-        private void ButtonFigureAdd(object sender, EventArgs e)
-        {
             StartPosition = FormStartPosition.CenterScreen;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
@@ -54,7 +46,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void CheckBoxSphereChanged(object sender, EventArgs e)
+        private void SphereButtonAdd(object sender, EventArgs e)
         {
             _userControlSphere.Visible = true;
             _userControlParallelepiped.Visible = false;
@@ -66,7 +58,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void CheckBoxParallelepipedChanged(object sender, EventArgs e)
+        private void ParallelepipedButtonAdd(object sender, EventArgs e)
         {
             _userControlSphere.Visible = false;
             _userControlParallelepiped.Visible = true;
@@ -78,14 +70,14 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void CheckBoxPyramidChanged(object sender, EventArgs e)
+        private void PyramidButtonAdd(object sender, EventArgs e)
         {
             _userControlSphere.Visible = false;
             _userControlParallelepiped.Visible = false;
             _userControlPyramid.Visible = true;
         }
 
-        private void ButtonClick(object sender, EventArgs e)
+        private void ButtonAdd(object sender, EventArgs e)
         {
             try
             {
@@ -111,6 +103,16 @@ namespace View
                 MessageBox.Show("Введите данные.", "Предупреждение",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        /// <summary>
+        /// Метод нажатия на кнопку "Закрыть".
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект, содержащий данные о событии.</param>
+        private void CloseButton(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

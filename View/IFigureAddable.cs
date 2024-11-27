@@ -10,7 +10,7 @@ namespace View
     /// <summary>
     /// Интерфейся для UserControls
     /// </summary>
-    internal interface IFigureAddable
+    public interface IFigureAddable
     {
         FigureBase Figure { get; }
     }

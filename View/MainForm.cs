@@ -45,6 +45,7 @@ namespace View
         public MainForm()
         {
             InitializeComponent();
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         /// <summary>
