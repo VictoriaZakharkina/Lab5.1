@@ -32,7 +32,7 @@ namespace View
 		public EventHandler FilterFigure;
 
         /// <summary>
-        /// Конструктор FilterFigure.
+        /// Конструктор FilterForm.
         /// </summary>
         /// <param name="figureList">Список объемов фигур для фильтрации.</param>
         public FilterForm(BindingList<FigureBase> figureList)
@@ -52,7 +52,7 @@ namespace View
         }
 
         /// <summary>
-        /// Определяет активен ли элемент.
+        /// Определение активеного элемента.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -67,7 +67,7 @@ namespace View
         }
 
         /// <summary>
-        /// Активация поля ввода значения.
+        /// Активация поля.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -143,11 +143,11 @@ namespace View
                 }
             }
 
-            foreach (var salary in _filterFigureList)
+            foreach (var figure in _filterFigureList)
             {
-                if (tempFilteredList.Contains(salary))
+                if (tempFilteredList.Contains(figure))
                 {
-                    _filterFigureList.Add(salary);
+                    _filterFigureList.Add(figure);
                 }
             }
 

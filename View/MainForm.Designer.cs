@@ -187,6 +187,7 @@
             this.Controls.Add(this._groupBoxCalculation);
             this.Controls.Add(this._randomButton);
             this.Controls.Add(this._toolStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.LoadMainForm);
             this._toolStrip.ResumeLayout(false);

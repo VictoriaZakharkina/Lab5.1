@@ -27,6 +27,9 @@ namespace View
 		/// </summary>
 		private List<IFigureAddable> _figureAddableControls;
 
+        /// <summary>
+        /// Конструктор класса AddForm.
+        /// </summary>
         public AddForm()
         {
             InitializeComponent();
@@ -42,7 +45,7 @@ namespace View
         }
 
         /// <summary>
-        /// Загрузка формы данных Шар.
+        /// Загрузка формы данных шар.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -54,7 +57,7 @@ namespace View
         }
 
         /// <summary>
-        /// Загрузка формы данных Параллелепипед.
+        /// Загрузка формы данных параллелепипед.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -66,7 +69,7 @@ namespace View
         }
 
         /// <summary>
-        /// Загрузка формы данных Пирамида.
+        /// Загрузка формы данных пирамида.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -77,6 +80,11 @@ namespace View
             _userControlPyramid.Visible = true;
         }
 
+        /// <summary>
+        /// Метод нажатия на кнопку "Добавить".
+        /// </summary>
+        /// <param name="sender">Данные.</param>
+        /// <param name="e">Данные и событие.</param>
         private void ButtonAdd(object sender, EventArgs e)
         {
             try
@@ -96,12 +104,12 @@ namespace View
             catch (ArgumentException exeption)
             {
                 MessageBox.Show($"{exeption.Message}", "Ошибка ввода",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch
             {
                 MessageBox.Show("Введите данные.", "Предупреждение",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

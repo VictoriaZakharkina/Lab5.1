@@ -40,12 +40,22 @@ namespace View
         private bool _filter = false;
 
         /// <summary>
+		/// Поле для хранения состояния формы добавления.
+		/// </summary>
+		private bool _addFormOpen = false;
+
+        /// <summary>
+        /// Поле для хранения состояния формы фильтра.
+        /// </summary>
+        private bool _filterFormOpen = false;
+
+        /// <summary>
         /// Конструктор MainForm.
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         /// <summary>
@@ -87,7 +97,7 @@ namespace View
         }
 
         /// <summary>
-        /// Добавление фигуры.
+        /// Метод нажатия на кнопку "Добавить".
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -95,6 +105,12 @@ namespace View
         {
             AddForm addFigure = new AddForm();
             addFigure.FigureAdded += AddFigure;
+            ActiveButtons();
+            addFigure.FormClosed += (s, args) =>
+            {
+                _addFormOpen = false;
+                ActiveButtons();
+            };
             addFigure.Show();
         }
 
@@ -111,7 +127,7 @@ namespace View
         }
 
         /// <summary>
-        /// Удаление фигуры.
+        /// Метод нажатия на кнопку "Удалить".
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -125,23 +141,52 @@ namespace View
                     if (row.DataBoundItem is FigureBase figure)
                     {
                         _figureList.Remove(figure);
+                        if (_filterFigureList != null
+                            && _filterFigureList.Count > 0)
+                        {
+                            _filterFigureList.Remove(figure);
+                        }
                     }
                 }
             }
         }
 
         /// <summary>
-        /// Фильтрация фигур.
+        /// Метод нажатия на кнопку "Фильтр".
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
         private void FilterButton(object sender, EventArgs e)
         {
-
+            FilterForm filter = new FilterForm(_figureList);
+            filter.FilterFigure += Filtered;
+            _filterFormOpen = true;
+            ActiveButtons();
+            filter.FormClosed += (s, args) =>
+            {
+                _filterFormOpen = false;
+                ActiveButtons();
+            };
+            filter.Show();
         }
 
         /// <summary>
-        /// Очистка списка.
+		/// Обработчик фильтрации данных.
+		/// </summary>
+		/// <param name="sender">Данные.</param>
+		/// <param name="figureList">Список фифгур в таблице.</param>
+		private void Filtered(object sender, EventArgs figureList)
+        {
+            FilterFigure filterEventArgs =
+                 figureList as FilterFigure;
+            _filterFigureList = filterEventArgs?.FilterFigureList;
+            _filter = true;
+            ActiveButtons();
+            CreateTable(_filterFigureList, _dataGridViewSpace);
+        }
+
+        /// <summary>
+        /// Метод нажатия на кнопку "Очистить".
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -152,10 +197,29 @@ namespace View
             {
                 row.Selected = true;
             }
+
+            _dataGridViewSpace.ClearSelection();
+            foreach (DataGridViewRow row in _dataGridViewSpace.Rows)
+            {
+                row.Selected = true;
+            }
+            foreach (DataGridViewRow row in
+                    _dataGridViewSpace.SelectedRows)
+            {
+                if (row.DataBoundItem is FigureBase figure)
+                {
+                    _figureList.Remove(figure);
+                    if (_filterFigureList != null
+                        && _filterFigureList.Count > 0)
+                    {
+                        _filterFigureList.Remove(figure);
+                    }
+                }
+            }
         }
 
         /// <summary>
-        /// Расчет через рандомайзер.
+        /// Метод нажатия на кнопку "Рандомайзер".
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
@@ -165,13 +229,32 @@ namespace View
         }
 
         /// <summary>
-        /// Сброс фильтра.
+        /// Метод нажатия на кнопку "Сброс фильтра".
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
         private void ResetFilterButton(object sender, EventArgs e)
         {
+            CreateTable(_figureList, _dataGridViewSpace);
+            _filter = false;
+            ActiveButtons();
+        }
 
+        /// <summary>
+		/// Метод обновления состояний кнопок.
+		/// </summary>
+		private void ActiveButtons()
+        {
+            _addButton.Enabled = !_filterFormOpen &&
+                !_filter && !_addFormOpen;
+
+            _filterButton.Enabled = !_addFormOpen &&
+                !_filterFormOpen;
+
+            _toolStripDropDownButton.Enabled = !_filter;
+
+            _randomButton.Enabled = !_filterFormOpen &&
+                _toolStripDropDownButton.Enabled;
         }
 
         /// <summary>

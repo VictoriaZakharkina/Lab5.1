@@ -101,6 +101,7 @@
             this._textBoxLength.Name = "_textBoxLength";
             this._textBoxLength.Size = new System.Drawing.Size(100, 22);
             this._textBoxLength.TabIndex = 5;
+            this._textBoxLength.MaxLength = 5;
             // 
             // _textBoxWidth
             // 
@@ -108,6 +109,7 @@
             this._textBoxWidth.Name = "_textBoxWidth";
             this._textBoxWidth.Size = new System.Drawing.Size(100, 22);
             this._textBoxWidth.TabIndex = 6;
+            this._textBoxWidth.MaxLength = 5;
             // 
             // _textBoxHeight
             // 
@@ -115,6 +117,7 @@
             this._textBoxHeight.Name = "_textBoxHeight";
             this._textBoxHeight.Size = new System.Drawing.Size(100, 22);
             this._textBoxHeight.TabIndex = 7;
+            this._textBoxHeight.MaxLength = 5;
             // 
             // _textBoxAngleLengthWidth
             // 
@@ -122,6 +125,7 @@
             this._textBoxAngleLengthWidth.Name = "_textBoxAngleLengthWidth";
             this._textBoxAngleLengthWidth.Size = new System.Drawing.Size(100, 22);
             this._textBoxAngleLengthWidth.TabIndex = 8;
+            this._textBoxAngleLengthWidth.MaxLength = 5;
             // 
             // _textBoxAngleBaseHeight
             // 
@@ -129,6 +133,7 @@
             this._textBoxAngleBaseHeight.Name = "_textBoxAngleBaseHeight";
             this._textBoxAngleBaseHeight.Size = new System.Drawing.Size(100, 22);
             this._textBoxAngleBaseHeight.TabIndex = 9;
+            this._textBoxAngleBaseHeight.MaxLength = 5;
             // 
             // UserControlParallelepiped
             // 
