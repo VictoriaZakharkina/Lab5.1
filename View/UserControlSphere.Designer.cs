@@ -32,23 +32,22 @@
             this._labelRadius = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBoxRadius
+            // _textBoxRadius
             // 
             this._textBoxRadius.Location = new System.Drawing.Point(254, 15);
-            this._textBoxRadius.Name = "textBoxRadius";
+            this._textBoxRadius.Name = "_textBoxRadius";
             this._textBoxRadius.Size = new System.Drawing.Size(100, 22);
             this._textBoxRadius.TabIndex = 7;
             // 
-            // labelRadius
+            // _labelRadius
             // 
             this._labelRadius.AutoSize = true;
             this._labelRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelRadius.Location = new System.Drawing.Point(15, 16);
-            this._labelRadius.Name = "labelRadius";
+            this._labelRadius.Name = "_labelRadius";
             this._labelRadius.Size = new System.Drawing.Size(58, 18);
             this._labelRadius.TabIndex = 6;
             this._labelRadius.Text = "Радиус";
-            this._labelRadius.Visible = false;
             // 
             // UserControlSphere
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,22 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class UserControlSphere : UserControl
+    public partial class UserControlSphere : UserControl, IFigureAddable
     {
         public UserControlSphere()
         {
             InitializeComponent();
+        }
+
+        public FigureBase Figure
+        {
+            get
+            {
+                return new Sphere()
+                {
+                    Radius = Convert.ToDouble(_textBoxRadius.Text),
+                };
+            }
         }
     }
 }

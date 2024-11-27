@@ -82,7 +82,7 @@ namespace View
         private void LoadMainForm(object sender, EventArgs e)
         {
             _figureList = new BindingList<FigureBase>();
-            CreateTable(_figureList, dataGridViewSpace);
+            CreateTable(_figureList, _dataGridViewSpace);
         }
 
         /// <summary>
@@ -116,10 +116,10 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void DeleteButton(object sender, EventArgs e)
         {
-            if (dataGridViewSpace.SelectedCells.Count != 0)
+            if (_dataGridViewSpace.SelectedCells.Count != 0)
             {
                 foreach (DataGridViewRow row in
-                    dataGridViewSpace.SelectedRows)
+                    _dataGridViewSpace.SelectedRows)
                 {
                     if (row.DataBoundItem is FigureBase figure)
                     {
@@ -146,8 +146,8 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void ClearButton(object sender, EventArgs e)
         {
-            dataGridViewSpace.ClearSelection();
-            foreach (DataGridViewRow row in dataGridViewSpace.Rows)
+            _dataGridViewSpace.ClearSelection();
+            foreach (DataGridViewRow row in _dataGridViewSpace.Rows)
             {
                 row.Selected = true;
             }
@@ -227,7 +227,7 @@ namespace View
                         _serializer.Deserialize(file);
                 }
 
-                dataGridViewSpace.DataSource = _figureList;
+                _dataGridViewSpace.DataSource = _figureList;
             }
             catch (Exception)
             {

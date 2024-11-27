@@ -21,6 +21,11 @@ namespace View
         /// </summary>
         public EventHandler FigureAdded;
 
+        /// <summary>
+		/// Список UserControls.
+		/// </summary>
+		private List<IFigureAddable> _figureAddableControls;
+
         public AddForm()
         {
             InitializeComponent();
@@ -31,9 +36,17 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void buttonFigureAdd(object sender, EventArgs e)
+        private void ButtonFigureAdd(object sender, EventArgs e)
         {
+            StartPosition = FormStartPosition.CenterScreen;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
+            _figureAddableControls = new List<IFigureAddable>()
+            {
+                _userControlSphere,
+                _userControlParallelepiped,
+                _userControlPyramid,
+            };
         }
 
         /// <summary>
@@ -43,7 +56,9 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void CheckBoxSphereChanged(object sender, EventArgs e)
         {
-
+            _userControlSphere.Visible = true;
+            _userControlParallelepiped.Visible = false;
+            _userControlPyramid.Visible = false;
         }
 
         /// <summary>
@@ -53,7 +68,9 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void CheckBoxParallelepipedChanged(object sender, EventArgs e)
         {
-
+            _userControlSphere.Visible = false;
+            _userControlParallelepiped.Visible = true;
+            _userControlPyramid.Visible = false;
         }
 
         /// <summary>
@@ -63,9 +80,37 @@ namespace View
         /// <param name="e">Данные о событие.</param>
         private void CheckBoxPyramidChanged(object sender, EventArgs e)
         {
-
+            _userControlSphere.Visible = false;
+            _userControlParallelepiped.Visible = false;
+            _userControlPyramid.Visible = true;
         }
 
+        private void ButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                FigureBase baseFigure = null;
 
+                foreach (var userControl in _figureAddableControls)
+                {
+                    if (((UserControl)userControl).Visible)
+                    {
+                        baseFigure = userControl.Figure;
+                    }
+                }
+
+                FigureAdded?.Invoke(this, new AddVolume(baseFigure));
+            }
+            catch (ArgumentException exeption)
+            {
+                MessageBox.Show($"{exeption.Message}", "Ошибка ввода",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Введите данные.", "Предупреждение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

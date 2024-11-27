@@ -49,7 +49,6 @@
             this._labelLength.Size = new System.Drawing.Size(53, 18);
             this._labelLength.TabIndex = 0;
             this._labelLength.Text = "Длина";
-            this._labelLength.Click += new System.EventHandler(this.labelLength_Click);
             // 
             // labelWidth
             // 
