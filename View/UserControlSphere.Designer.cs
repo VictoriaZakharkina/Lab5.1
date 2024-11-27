@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxRadius = new System.Windows.Forms.TextBox();
-            this.labelRadius = new System.Windows.Forms.Label();
+            this._textBoxRadius = new System.Windows.Forms.TextBox();
+            this._labelRadius = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxRadius
             // 
-            this.textBoxRadius.Location = new System.Drawing.Point(254, 15);
-            this.textBoxRadius.Name = "textBoxRadius";
-            this.textBoxRadius.Size = new System.Drawing.Size(100, 22);
-            this.textBoxRadius.TabIndex = 7;
+            this._textBoxRadius.Location = new System.Drawing.Point(254, 15);
+            this._textBoxRadius.Name = "textBoxRadius";
+            this._textBoxRadius.Size = new System.Drawing.Size(100, 22);
+            this._textBoxRadius.TabIndex = 7;
             // 
             // labelRadius
             // 
-            this.labelRadius.AutoSize = true;
-            this.labelRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelRadius.Location = new System.Drawing.Point(15, 16);
-            this.labelRadius.Name = "labelRadius";
-            this.labelRadius.Size = new System.Drawing.Size(58, 18);
-            this.labelRadius.TabIndex = 6;
-            this.labelRadius.Text = "Радиус";
-            this.labelRadius.Visible = false;
+            this._labelRadius.AutoSize = true;
+            this._labelRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelRadius.Location = new System.Drawing.Point(15, 16);
+            this._labelRadius.Name = "labelRadius";
+            this._labelRadius.Size = new System.Drawing.Size(58, 18);
+            this._labelRadius.TabIndex = 6;
+            this._labelRadius.Text = "Радиус";
+            this._labelRadius.Visible = false;
             // 
             // UserControlSphere
             // 
@@ -56,8 +56,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.textBoxRadius);
-            this.Controls.Add(this.labelRadius);
+            this.Controls.Add(this._textBoxRadius);
+            this.Controls.Add(this._labelRadius);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "UserControlSphere";
             this.Size = new System.Drawing.Size(369, 159);
@@ -67,7 +67,7 @@
         }
 
         #endregion
-        internal System.Windows.Forms.Label labelRadius;
-        internal System.Windows.Forms.TextBox textBoxRadius;
+        internal System.Windows.Forms.Label _labelRadius;
+        internal System.Windows.Forms.TextBox _textBoxRadius;
     }
 }

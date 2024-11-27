@@ -28,56 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxLength = new System.Windows.Forms.TextBox();
-            this.labelAreaOfBase = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelHeight = new System.Windows.Forms.Label();
+            this._textBoxLength = new System.Windows.Forms.TextBox();
+            this._labelAreaOfBase = new System.Windows.Forms.Label();
+            this._textBox1 = new System.Windows.Forms.TextBox();
+            this._labelHeight = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxLength
             // 
-            this.textBoxLength.Location = new System.Drawing.Point(253, 14);
-            this.textBoxLength.Name = "textBoxLength";
-            this.textBoxLength.Size = new System.Drawing.Size(100, 22);
-            this.textBoxLength.TabIndex = 7;
+            this._textBoxLength.Location = new System.Drawing.Point(253, 14);
+            this._textBoxLength.Name = "textBoxLength";
+            this._textBoxLength.Size = new System.Drawing.Size(100, 22);
+            this._textBoxLength.TabIndex = 7;
             // 
             // labelAreaOfBase
             // 
-            this.labelAreaOfBase.AutoSize = true;
-            this.labelAreaOfBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAreaOfBase.Location = new System.Drawing.Point(14, 15);
-            this.labelAreaOfBase.Name = "labelAreaOfBase";
-            this.labelAreaOfBase.Size = new System.Drawing.Size(151, 18);
-            this.labelAreaOfBase.TabIndex = 6;
-            this.labelAreaOfBase.Text = "Площадь основания";
-            this.labelAreaOfBase.Visible = false;
+            this._labelAreaOfBase.AutoSize = true;
+            this._labelAreaOfBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelAreaOfBase.Location = new System.Drawing.Point(14, 15);
+            this._labelAreaOfBase.Name = "labelAreaOfBase";
+            this._labelAreaOfBase.Size = new System.Drawing.Size(151, 18);
+            this._labelAreaOfBase.TabIndex = 6;
+            this._labelAreaOfBase.Text = "Площадь основания";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(253, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 9;
+            this._textBox1.Location = new System.Drawing.Point(253, 42);
+            this._textBox1.Name = "textBox1";
+            this._textBox1.Size = new System.Drawing.Size(100, 22);
+            this._textBox1.TabIndex = 9;
             // 
             // labelHeight
             // 
-            this.labelHeight.AutoSize = true;
-            this.labelHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelHeight.Location = new System.Drawing.Point(14, 43);
-            this.labelHeight.Name = "labelHeight";
-            this.labelHeight.Size = new System.Drawing.Size(61, 18);
-            this.labelHeight.TabIndex = 8;
-            this.labelHeight.Text = "Высота";
-            this.labelHeight.Visible = false;
+            this._labelHeight.AutoSize = true;
+            this._labelHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelHeight.Location = new System.Drawing.Point(14, 43);
+            this._labelHeight.Name = "labelHeight";
+            this._labelHeight.Size = new System.Drawing.Size(61, 18);
+            this._labelHeight.TabIndex = 8;
+            this._labelHeight.Text = "Высота";
             // 
             // UserControlPyramid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.labelHeight);
-            this.Controls.Add(this.textBoxLength);
-            this.Controls.Add(this.labelAreaOfBase);
+            this.Controls.Add(this._textBox1);
+            this.Controls.Add(this._labelHeight);
+            this.Controls.Add(this._textBoxLength);
+            this.Controls.Add(this._labelAreaOfBase);
             this.Name = "UserControlPyramid";
             this.Size = new System.Drawing.Size(369, 159);
             this.ResumeLayout(false);
@@ -86,9 +84,9 @@
         }
 
         #endregion
-        internal System.Windows.Forms.Label labelAreaOfBase;
-        internal System.Windows.Forms.Label labelHeight;
-        internal System.Windows.Forms.TextBox textBoxLength;
-        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.Label _labelAreaOfBase;
+        internal System.Windows.Forms.Label _labelHeight;
+        internal System.Windows.Forms.TextBox _textBoxLength;
+        internal System.Windows.Forms.TextBox _textBox1;
     }
 }

@@ -53,7 +53,7 @@
             // 
             // userControlParallelepiped1
             // 
-            this.userControlParallelepiped1.Location = new System.Drawing.Point(7, 23);
+            this.userControlParallelepiped1.Location = new System.Drawing.Point(8, 23);
             this.userControlParallelepiped1.Name = "userControlParallelepiped1";
             this.userControlParallelepiped1.Size = new System.Drawing.Size(369, 159);
             this.userControlParallelepiped1.TabIndex = 0;

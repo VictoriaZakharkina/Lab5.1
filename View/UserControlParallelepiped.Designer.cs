@@ -28,118 +28,118 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelLength = new System.Windows.Forms.Label();
-            this.labelWidth = new System.Windows.Forms.Label();
-            this.labelHeight = new System.Windows.Forms.Label();
-            this.labelAngleLengthWidth = new System.Windows.Forms.Label();
-            this.labelAngleBaseHeight = new System.Windows.Forms.Label();
-            this.textBoxLength = new System.Windows.Forms.TextBox();
-            this.textBoxWidth = new System.Windows.Forms.TextBox();
-            this.textBoxHeight = new System.Windows.Forms.TextBox();
-            this.textBoxAngleLengthWidth = new System.Windows.Forms.TextBox();
-            this.textBoxAngleBaseHeight = new System.Windows.Forms.TextBox();
+            this._labelLength = new System.Windows.Forms.Label();
+            this._labelWidth = new System.Windows.Forms.Label();
+            this._labelHeight = new System.Windows.Forms.Label();
+            this._labelAngleLengthWidth = new System.Windows.Forms.Label();
+            this._labelAngleBaseHeight = new System.Windows.Forms.Label();
+            this._textBoxLength = new System.Windows.Forms.TextBox();
+            this._textBoxWidth = new System.Windows.Forms.TextBox();
+            this._textBoxHeight = new System.Windows.Forms.TextBox();
+            this._textBoxAngleLengthWidth = new System.Windows.Forms.TextBox();
+            this._textBoxAngleBaseHeight = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelLength
             // 
-            this.labelLength.AutoSize = true;
-            this.labelLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelLength.Location = new System.Drawing.Point(12, 14);
-            this.labelLength.Name = "labelLength";
-            this.labelLength.Size = new System.Drawing.Size(53, 18);
-            this.labelLength.TabIndex = 0;
-            this.labelLength.Text = "Длина";
-            this.labelLength.Click += new System.EventHandler(this.labelLength_Click);
+            this._labelLength.AutoSize = true;
+            this._labelLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelLength.Location = new System.Drawing.Point(12, 14);
+            this._labelLength.Name = "labelLength";
+            this._labelLength.Size = new System.Drawing.Size(53, 18);
+            this._labelLength.TabIndex = 0;
+            this._labelLength.Text = "Длина";
+            this._labelLength.Click += new System.EventHandler(this.labelLength_Click);
             // 
             // labelWidth
             // 
-            this.labelWidth.AutoSize = true;
-            this.labelWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWidth.Location = new System.Drawing.Point(12, 42);
-            this.labelWidth.Name = "labelWidth";
-            this.labelWidth.Size = new System.Drawing.Size(61, 18);
-            this.labelWidth.TabIndex = 1;
-            this.labelWidth.Text = "Ширина";
+            this._labelWidth.AutoSize = true;
+            this._labelWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelWidth.Location = new System.Drawing.Point(12, 42);
+            this._labelWidth.Name = "labelWidth";
+            this._labelWidth.Size = new System.Drawing.Size(61, 18);
+            this._labelWidth.TabIndex = 1;
+            this._labelWidth.Text = "Ширина";
             // 
             // labelHeight
             // 
-            this.labelHeight.AutoSize = true;
-            this.labelHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelHeight.Location = new System.Drawing.Point(12, 70);
-            this.labelHeight.Name = "labelHeight";
-            this.labelHeight.Size = new System.Drawing.Size(61, 18);
-            this.labelHeight.TabIndex = 2;
-            this.labelHeight.Text = "Высота";
+            this._labelHeight.AutoSize = true;
+            this._labelHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelHeight.Location = new System.Drawing.Point(12, 70);
+            this._labelHeight.Name = "labelHeight";
+            this._labelHeight.Size = new System.Drawing.Size(61, 18);
+            this._labelHeight.TabIndex = 2;
+            this._labelHeight.Text = "Высота";
             // 
             // labelAngleLengthWidth
             // 
-            this.labelAngleLengthWidth.AutoSize = true;
-            this.labelAngleLengthWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAngleLengthWidth.Location = new System.Drawing.Point(12, 98);
-            this.labelAngleLengthWidth.Name = "labelAngleLengthWidth";
-            this.labelAngleLengthWidth.Size = new System.Drawing.Size(199, 18);
-            this.labelAngleLengthWidth.TabIndex = 3;
-            this.labelAngleLengthWidth.Text = "Угол м/у длиной и шириной";
+            this._labelAngleLengthWidth.AutoSize = true;
+            this._labelAngleLengthWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelAngleLengthWidth.Location = new System.Drawing.Point(12, 98);
+            this._labelAngleLengthWidth.Name = "labelAngleLengthWidth";
+            this._labelAngleLengthWidth.Size = new System.Drawing.Size(199, 18);
+            this._labelAngleLengthWidth.TabIndex = 3;
+            this._labelAngleLengthWidth.Text = "Угол м/у длиной и шириной";
             // 
             // labelAngleBaseHeight
             // 
-            this.labelAngleBaseHeight.AutoSize = true;
-            this.labelAngleBaseHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAngleBaseHeight.Location = new System.Drawing.Point(12, 126);
-            this.labelAngleBaseHeight.Name = "labelAngleBaseHeight";
-            this.labelAngleBaseHeight.Size = new System.Drawing.Size(233, 18);
-            this.labelAngleBaseHeight.TabIndex = 4;
-            this.labelAngleBaseHeight.Text = "Угол м/у основанием и высотой";
+            this._labelAngleBaseHeight.AutoSize = true;
+            this._labelAngleBaseHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._labelAngleBaseHeight.Location = new System.Drawing.Point(12, 126);
+            this._labelAngleBaseHeight.Name = "labelAngleBaseHeight";
+            this._labelAngleBaseHeight.Size = new System.Drawing.Size(233, 18);
+            this._labelAngleBaseHeight.TabIndex = 4;
+            this._labelAngleBaseHeight.Text = "Угол м/у основанием и высотой";
             // 
             // textBoxLength
             // 
-            this.textBoxLength.Location = new System.Drawing.Point(251, 13);
-            this.textBoxLength.Name = "textBoxLength";
-            this.textBoxLength.Size = new System.Drawing.Size(100, 22);
-            this.textBoxLength.TabIndex = 5;
+            this._textBoxLength.Location = new System.Drawing.Point(251, 13);
+            this._textBoxLength.Name = "textBoxLength";
+            this._textBoxLength.Size = new System.Drawing.Size(100, 22);
+            this._textBoxLength.TabIndex = 5;
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(251, 41);
-            this.textBoxWidth.Name = "textBoxWidth";
-            this.textBoxWidth.Size = new System.Drawing.Size(100, 22);
-            this.textBoxWidth.TabIndex = 6;
+            this._textBoxWidth.Location = new System.Drawing.Point(251, 41);
+            this._textBoxWidth.Name = "textBoxWidth";
+            this._textBoxWidth.Size = new System.Drawing.Size(100, 22);
+            this._textBoxWidth.TabIndex = 6;
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(251, 69);
-            this.textBoxHeight.Name = "textBoxHeight";
-            this.textBoxHeight.Size = new System.Drawing.Size(100, 22);
-            this.textBoxHeight.TabIndex = 7;
+            this._textBoxHeight.Location = new System.Drawing.Point(251, 69);
+            this._textBoxHeight.Name = "textBoxHeight";
+            this._textBoxHeight.Size = new System.Drawing.Size(100, 22);
+            this._textBoxHeight.TabIndex = 7;
             // 
             // textBoxAngleLengthWidth
             // 
-            this.textBoxAngleLengthWidth.Location = new System.Drawing.Point(251, 97);
-            this.textBoxAngleLengthWidth.Name = "textBoxAngleLengthWidth";
-            this.textBoxAngleLengthWidth.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAngleLengthWidth.TabIndex = 8;
+            this._textBoxAngleLengthWidth.Location = new System.Drawing.Point(251, 97);
+            this._textBoxAngleLengthWidth.Name = "textBoxAngleLengthWidth";
+            this._textBoxAngleLengthWidth.Size = new System.Drawing.Size(100, 22);
+            this._textBoxAngleLengthWidth.TabIndex = 8;
             // 
             // textBoxAngleBaseHeight
             // 
-            this.textBoxAngleBaseHeight.Location = new System.Drawing.Point(251, 126);
-            this.textBoxAngleBaseHeight.Name = "textBoxAngleBaseHeight";
-            this.textBoxAngleBaseHeight.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAngleBaseHeight.TabIndex = 9;
+            this._textBoxAngleBaseHeight.Location = new System.Drawing.Point(251, 126);
+            this._textBoxAngleBaseHeight.Name = "textBoxAngleBaseHeight";
+            this._textBoxAngleBaseHeight.Size = new System.Drawing.Size(100, 22);
+            this._textBoxAngleBaseHeight.TabIndex = 9;
             // 
             // UserControlParallelepiped
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBoxAngleBaseHeight);
-            this.Controls.Add(this.textBoxAngleLengthWidth);
-            this.Controls.Add(this.textBoxHeight);
-            this.Controls.Add(this.textBoxWidth);
-            this.Controls.Add(this.textBoxLength);
-            this.Controls.Add(this.labelAngleBaseHeight);
-            this.Controls.Add(this.labelAngleLengthWidth);
-            this.Controls.Add(this.labelHeight);
-            this.Controls.Add(this.labelWidth);
-            this.Controls.Add(this.labelLength);
+            this.Controls.Add(this._textBoxAngleBaseHeight);
+            this.Controls.Add(this._textBoxAngleLengthWidth);
+            this.Controls.Add(this._textBoxHeight);
+            this.Controls.Add(this._textBoxWidth);
+            this.Controls.Add(this._textBoxLength);
+            this.Controls.Add(this._labelAngleBaseHeight);
+            this.Controls.Add(this._labelAngleLengthWidth);
+            this.Controls.Add(this._labelHeight);
+            this.Controls.Add(this._labelWidth);
+            this.Controls.Add(this._labelLength);
             this.Name = "UserControlParallelepiped";
             this.Size = new System.Drawing.Size(369, 159);
             this.ResumeLayout(false);
@@ -149,15 +149,15 @@
 
         #endregion
 
-        internal System.Windows.Forms.Label labelLength;
-        internal System.Windows.Forms.Label labelWidth;
-        internal System.Windows.Forms.Label labelHeight;
-        internal System.Windows.Forms.Label labelAngleLengthWidth;
-        internal System.Windows.Forms.Label labelAngleBaseHeight;
-        internal System.Windows.Forms.TextBox textBoxLength;
-        internal System.Windows.Forms.TextBox textBoxWidth;
-        internal System.Windows.Forms.TextBox textBoxHeight;
-        internal System.Windows.Forms.TextBox textBoxAngleLengthWidth;
-        internal System.Windows.Forms.TextBox textBoxAngleBaseHeight;
+        internal System.Windows.Forms.Label _labelLength;
+        internal System.Windows.Forms.Label _labelWidth;
+        internal System.Windows.Forms.Label _labelHeight;
+        internal System.Windows.Forms.Label _labelAngleLengthWidth;
+        internal System.Windows.Forms.Label _labelAngleBaseHeight;
+        internal System.Windows.Forms.TextBox _textBoxLength;
+        internal System.Windows.Forms.TextBox _textBoxWidth;
+        internal System.Windows.Forms.TextBox _textBoxHeight;
+        internal System.Windows.Forms.TextBox _textBoxAngleLengthWidth;
+        internal System.Windows.Forms.TextBox _textBoxAngleBaseHeight;
     }
 }
