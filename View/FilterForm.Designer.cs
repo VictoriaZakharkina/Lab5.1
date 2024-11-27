@@ -34,6 +34,7 @@
             this._checkBoxPyramid = new System.Windows.Forms.CheckBox();
             this._checkBoxValue = new System.Windows.Forms.CheckBox();
             this._textBoxValue = new System.Windows.Forms.TextBox();
+            this._textBoxValue = new TextBoxExam();
             this._groupBoxFilter.SuspendLayout();
             this.SuspendLayout();
             // 

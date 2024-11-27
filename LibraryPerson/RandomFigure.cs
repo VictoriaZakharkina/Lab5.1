@@ -64,8 +64,8 @@ namespace Library
                 Length = ConvertToDouble(1, 200),
                 Height = ConvertToDouble(1, 350),
                 Width = ConvertToDouble(1, 150),
-                AngleLengthWidth = ConvertToDouble(0, 180),
-                AngleBaseHeight = ConvertToDouble(0, 180)
+                AngleLengthWidth = ConvertToDouble(1, 179),
+                AngleBaseHeight = ConvertToDouble(1, 179)
             };
             return parallelepiped;
         }
