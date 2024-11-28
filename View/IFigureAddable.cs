@@ -12,6 +12,7 @@ namespace View
     /// </summary>
     public interface IFigureAddable
     {
+        //TODO: XML
         FigureBase Figure { get; }
     }
 }

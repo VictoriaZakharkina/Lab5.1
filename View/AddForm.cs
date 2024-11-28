@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 namespace View
 {
     /// <summary>
-    /// 
+    /// //TODO: XML
     /// </summary>
     public partial class AddForm : Form
     {
@@ -25,7 +25,7 @@ namespace View
         /// <summary>
 		/// Список UserControls.
 		/// </summary>
-		private List<IFigureAddable> _figureAddableControls;
+		private Dictionary<RadioButton, UserControl> _figureAddableControls;
 
         /// <summary>
         /// Конструктор класса AddForm.
@@ -36,11 +36,11 @@ namespace View
             StartPosition = FormStartPosition.CenterScreen;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
-            _figureAddableControls = new List<IFigureAddable>()
+            _figureAddableControls = new Dictionary<RadioButton, UserControl>()
             {
-                _userControlSphere,
-                _userControlParallelepiped,
-                _userControlPyramid,
+                { _radioButtonSphere, _userControlSphere },
+                { _radioButtonParallelepiped , _userControlParallelepiped },
+                { _radioButtonPyramid, _userControlPyramid }
             };
         }
 
@@ -49,36 +49,14 @@ namespace View
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
-        private void SphereButtonAdd(object sender, EventArgs e)
+        private void ChangeUserControlVisibility(object sender, EventArgs e)
         {
-            _userControlSphere.Visible = true;
-            _userControlParallelepiped.Visible = false;
-            _userControlPyramid.Visible = false;
+            foreach(var element in _figureAddableControls)
+            {
+                element.Value.Visible = element.Key == sender;
+            }
         }
 
-        /// <summary>
-        /// Загрузка формы данных параллелепипед.
-        /// </summary>
-        /// <param name="sender">Данные.</param>
-        /// <param name="e">Данные о событие.</param>
-        private void ParallelepipedButtonAdd(object sender, EventArgs e)
-        {
-            _userControlSphere.Visible = false;
-            _userControlParallelepiped.Visible = true;
-            _userControlPyramid.Visible = false;
-        }
-
-        /// <summary>
-        /// Загрузка формы данных пирамида.
-        /// </summary>
-        /// <param name="sender">Данные.</param>
-        /// <param name="e">Данные о событие.</param>
-        private void PyramidButtonAdd(object sender, EventArgs e)
-        {
-            _userControlSphere.Visible = false;
-            _userControlParallelepiped.Visible = false;
-            _userControlPyramid.Visible = true;
-        }
 
         /// <summary>
         /// Метод нажатия на кнопку "Добавить".
@@ -89,17 +67,14 @@ namespace View
         {
             try
             {
-                FigureBase baseFigure = null;
-
-                foreach (var userControl in _figureAddableControls)
+                foreach (var element in _figureAddableControls)
                 {
-                    if (((UserControl)userControl).Visible)
+                    if (element.Value.Visible)
                     {
-                        baseFigure = userControl.Figure;
+                        FigureAdded?.Invoke(this, 
+                            new AddVolume(((IFigureAddable)element.Value).Figure));
                     }
-                }
-
-                FigureAdded?.Invoke(this, new AddVolume(baseFigure));
+                }                
             }
             catch (ArgumentException exeption)
             {

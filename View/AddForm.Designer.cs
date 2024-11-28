@@ -77,7 +77,7 @@
             this._radioButtonPyramid.TabIndex = 2;
             this._radioButtonPyramid.Text = "Пирамида";
             this._radioButtonPyramid.UseVisualStyleBackColor = true;
-            this._radioButtonPyramid.CheckedChanged += new System.EventHandler(this.PyramidButtonAdd);
+            this._radioButtonPyramid.CheckedChanged += new System.EventHandler(this.ChangeUserControlVisibility);
             // 
             // _radioButtonParallelepiped
             // 
@@ -90,7 +90,7 @@
             this._radioButtonParallelepiped.TabIndex = 1;
             this._radioButtonParallelepiped.Text = "Параллелепипед";
             this._radioButtonParallelepiped.UseVisualStyleBackColor = true;
-            this._radioButtonParallelepiped.CheckedChanged += new System.EventHandler(this.ParallelepipedButtonAdd);
+            this._radioButtonParallelepiped.CheckedChanged += new System.EventHandler(this.ChangeUserControlVisibility);
             // 
             // _radioButtonSphere
             // 
@@ -103,7 +103,7 @@
             this._radioButtonSphere.TabIndex = 0;
             this._radioButtonSphere.Text = "Шар";
             this._radioButtonSphere.UseVisualStyleBackColor = true;
-            this._radioButtonSphere.CheckedChanged += new System.EventHandler(this.SphereButtonAdd);
+            this._radioButtonSphere.CheckedChanged += new System.EventHandler(this.ChangeUserControlVisibility);
             // 
             // _buttonAdd
             // 
