@@ -132,9 +132,9 @@ namespace Library
         {
             get
             {
-                return Length * Width * Height
+                return Math.Round(Length * Width * Height
                 * Math.Sin(AngleLengthWidth * (Math.PI / 180))
-                * Math.Sin(AngleBaseHeight * (Math.PI / 180));
+                * Math.Sin(AngleBaseHeight * (Math.PI / 180)), 2);
             }
         }
         /// <summary>

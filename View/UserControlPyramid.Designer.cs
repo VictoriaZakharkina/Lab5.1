@@ -40,6 +40,7 @@
             this._textBoxAreaOfBase.Name = "_textBoxAreaOfBase";
             this._textBoxAreaOfBase.Size = new System.Drawing.Size(100, 22);
             this._textBoxAreaOfBase.TabIndex = 7;
+            this._textBoxAreaOfBase.MaxLength = 5;
             // 
             // _labelAreaOfBase
             // 
@@ -57,6 +58,7 @@
             this._textBoxHeight.Name = "_textBoxHeight";
             this._textBoxHeight.Size = new System.Drawing.Size(100, 22);
             this._textBoxHeight.TabIndex = 9;
+            this._textBoxHeight.MaxLength = 5;
             // 
             // _labelHeight
             // 

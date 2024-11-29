@@ -72,7 +72,7 @@ namespace Library
         {
             get
             {
-                return (AreaOfBase * Height) / 3;
+                return Math.Round((AreaOfBase * Height) / 3, 2);
             }
         }
         /// <summary>

@@ -51,7 +51,7 @@ namespace Library
         {
             get
             {
-                return (4 * Math.PI * Math.Pow(Radius, 3)) / 3;
+                return Math.Round((4 * Math.PI * Math.Pow(Radius, 3)) / 3, 2);
             }
         }
         /// <summary>

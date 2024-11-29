@@ -38,6 +38,7 @@
             this._textBoxRadius.Name = "_textBoxRadius";
             this._textBoxRadius.Size = new System.Drawing.Size(100, 22);
             this._textBoxRadius.TabIndex = 7;
+            this._textBoxRadius.MaxLength = 5;
             // 
             // _labelRadius
             // 
