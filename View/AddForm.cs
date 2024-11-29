@@ -12,8 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace View
 {
+    //TODO+: XML
     /// <summary>
-    /// //TODO: XML
+    /// Форма "Добавить фигуру".
     /// </summary>
     public partial class AddForm : Form
     {

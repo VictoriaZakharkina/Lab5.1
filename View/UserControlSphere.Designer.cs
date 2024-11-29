@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._textBoxRadius = new TextBoxExam();
+            this._textBoxRadius = new View.TextBoxExam();
             this._labelRadius = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -45,9 +45,9 @@
             this._labelRadius.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelRadius.Location = new System.Drawing.Point(15, 14);
             this._labelRadius.Name = "_labelRadius";
-            this._labelRadius.Size = new System.Drawing.Size(58, 18);
+            this._labelRadius.Size = new System.Drawing.Size(85, 18);
             this._labelRadius.TabIndex = 6;
-            this._labelRadius.Text = "Радиус";
+            this._labelRadius.Text = "Радиус, см";
             // 
             // UserControlSphere
             // 
@@ -68,6 +68,6 @@
         #endregion
         
         internal System.Windows.Forms.Label _labelRadius;
-        internal System.Windows.Forms.TextBox _textBoxRadius;
+        internal TextBoxExam _textBoxRadius;
     }
 }

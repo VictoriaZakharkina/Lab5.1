@@ -18,7 +18,7 @@ namespace Library
         private static Random _random = new Random();
 
         /// <summary>
-        /// Генерация случайного расчета объема.
+        /// Генерация случайного расчета объема
         /// </summary>
         /// <returns></returns>
         public static FigureBase GetRandomFigure()
@@ -41,9 +41,9 @@ namespace Library
         }
 
         /// <summary>
-        /// Генерация случайной фигуры Шар.
+        /// Генерация случайной фигуры Шар
         /// </summary>
-        /// <returns>Параметры расчета фигуры.</returns>
+        /// <returns>Параметры расчета фигуры</returns>
         public static FigureBase RandomSphere()
         {
             Sphere sphere = new Sphere
@@ -54,9 +54,9 @@ namespace Library
         }
 
         /// <summary>
-        /// Генерация случайной фигуры Параллелепипед.
+        /// Генерация случайной фигуры Параллелепипед
         /// </summary>
-        /// <returns>Параметры расчета фигуры.</returns>
+        /// <returns>Параметры расчета фигуры</returns>
         public static FigureBase RandomParallelepiped()
         {
             Parallelepiped parallelepiped = new Parallelepiped
@@ -71,9 +71,9 @@ namespace Library
         }
 
         /// <summary>
-        /// Генерация случайной фигуры Пирамида.
+        /// Генерация случайной фигуры Пирамида
         /// </summary>
-        /// <returns>Параметры расчета фигуры.</returns>
+        /// <returns>Параметры расчета фигуры</returns>
         public static FigureBase RandomPyramid()
         {
             Pyramid pyramid = new Pyramid
@@ -85,11 +85,11 @@ namespace Library
         }
 
         /// <summary>
-        /// Генерация случайного числа double через int.
+        /// Генерация случайного числа double через int
         /// </summary>
-        /// <param name="minValue">Минимальное значение.</param>
-        /// <param name="maxValue">Максимальное значение.</param>
-        /// <returns>Сгенерированное число типа double.</returns>
+        /// <param name="minValue">Минимальное значение</param>
+        /// <param name="maxValue">Максимальное значение</param>
+        /// <returns>Сгенерированное число типа double</returns>
         public static double ConvertToDouble(int minValue, int maxValue)
         {
             var randomValue = Convert.ToDouble(

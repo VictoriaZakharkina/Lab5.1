@@ -11,13 +11,22 @@ using System.Windows.Forms;
 
 namespace View
 {
+    /// <summary>
+    /// Класс интерфейса Параллелепипед.
+    /// </summary>
     public partial class UserControlParallelepiped : UserControl, IFigureAddable
     {
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
         public UserControlParallelepiped()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Чтение данных.
+        /// </summary>
         public FigureBase Figure
         {
             get

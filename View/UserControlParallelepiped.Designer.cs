@@ -33,11 +33,11 @@
             this._labelHeight = new System.Windows.Forms.Label();
             this._labelAngleLengthWidth = new System.Windows.Forms.Label();
             this._labelAngleBaseHeight = new System.Windows.Forms.Label();
-            this._textBoxLength = new TextBoxExam();
-            this._textBoxWidth = new TextBoxExam();
-            this._textBoxHeight = new TextBoxExam();
-            this._textBoxAngleLengthWidth = new TextBoxExam();
-            this._textBoxAngleBaseHeight = new TextBoxExam();
+            this._textBoxLength = new View.TextBoxExam();
+            this._textBoxWidth = new View.TextBoxExam();
+            this._textBoxHeight = new View.TextBoxExam();
+            this._textBoxAngleLengthWidth = new View.TextBoxExam();
+            this._textBoxAngleBaseHeight = new View.TextBoxExam();
             this.SuspendLayout();
             // 
             // _labelLength
@@ -46,9 +46,9 @@
             this._labelLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelLength.Location = new System.Drawing.Point(14, 14);
             this._labelLength.Name = "_labelLength";
-            this._labelLength.Size = new System.Drawing.Size(53, 18);
+            this._labelLength.Size = new System.Drawing.Size(80, 18);
             this._labelLength.TabIndex = 0;
-            this._labelLength.Text = "Длина";
+            this._labelLength.Text = "Длина, см";
             // 
             // _labelWidth
             // 
@@ -56,9 +56,9 @@
             this._labelWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelWidth.Location = new System.Drawing.Point(14, 42);
             this._labelWidth.Name = "_labelWidth";
-            this._labelWidth.Size = new System.Drawing.Size(61, 18);
+            this._labelWidth.Size = new System.Drawing.Size(88, 18);
             this._labelWidth.TabIndex = 1;
-            this._labelWidth.Text = "Ширина";
+            this._labelWidth.Text = "Ширина, см";
             // 
             // _labelHeight
             // 
@@ -66,9 +66,9 @@
             this._labelHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelHeight.Location = new System.Drawing.Point(14, 70);
             this._labelHeight.Name = "_labelHeight";
-            this._labelHeight.Size = new System.Drawing.Size(61, 18);
+            this._labelHeight.Size = new System.Drawing.Size(88, 18);
             this._labelHeight.TabIndex = 2;
-            this._labelHeight.Text = "Высота";
+            this._labelHeight.Text = "Высота, см";
             // 
             // _labelAngleLengthWidth
             // 
@@ -76,9 +76,9 @@
             this._labelAngleLengthWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelAngleLengthWidth.Location = new System.Drawing.Point(14, 98);
             this._labelAngleLengthWidth.Name = "_labelAngleLengthWidth";
-            this._labelAngleLengthWidth.Size = new System.Drawing.Size(199, 18);
+            this._labelAngleLengthWidth.Size = new System.Drawing.Size(238, 18);
             this._labelAngleLengthWidth.TabIndex = 3;
-            this._labelAngleLengthWidth.Text = "Угол м/у длиной и шириной";
+            this._labelAngleLengthWidth.Text = "Угол м/у длиной и шириной, град";
             // 
             // _labelAngleBaseHeight
             // 
@@ -86,49 +86,49 @@
             this._labelAngleBaseHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelAngleBaseHeight.Location = new System.Drawing.Point(14, 126);
             this._labelAngleBaseHeight.Name = "_labelAngleBaseHeight";
-            this._labelAngleBaseHeight.Size = new System.Drawing.Size(233, 18);
+            this._labelAngleBaseHeight.Size = new System.Drawing.Size(272, 18);
             this._labelAngleBaseHeight.TabIndex = 4;
-            this._labelAngleBaseHeight.Text = "Угол м/у основанием и высотой";
+            this._labelAngleBaseHeight.Text = "Угол м/у основанием и высотой, град";
             // 
             // _textBoxLength
             // 
             this._textBoxLength.Location = new System.Drawing.Point(321, 13);
+            this._textBoxLength.MaxLength = 5;
             this._textBoxLength.Name = "_textBoxLength";
             this._textBoxLength.Size = new System.Drawing.Size(100, 22);
             this._textBoxLength.TabIndex = 5;
-            this._textBoxLength.MaxLength = 5;
             // 
             // _textBoxWidth
             // 
             this._textBoxWidth.Location = new System.Drawing.Point(321, 41);
+            this._textBoxWidth.MaxLength = 5;
             this._textBoxWidth.Name = "_textBoxWidth";
             this._textBoxWidth.Size = new System.Drawing.Size(100, 22);
             this._textBoxWidth.TabIndex = 6;
-            this._textBoxWidth.MaxLength = 5;
             // 
             // _textBoxHeight
             // 
             this._textBoxHeight.Location = new System.Drawing.Point(321, 69);
+            this._textBoxHeight.MaxLength = 5;
             this._textBoxHeight.Name = "_textBoxHeight";
             this._textBoxHeight.Size = new System.Drawing.Size(100, 22);
             this._textBoxHeight.TabIndex = 7;
-            this._textBoxHeight.MaxLength = 5;
             // 
             // _textBoxAngleLengthWidth
             // 
             this._textBoxAngleLengthWidth.Location = new System.Drawing.Point(321, 97);
+            this._textBoxAngleLengthWidth.MaxLength = 5;
             this._textBoxAngleLengthWidth.Name = "_textBoxAngleLengthWidth";
             this._textBoxAngleLengthWidth.Size = new System.Drawing.Size(100, 22);
             this._textBoxAngleLengthWidth.TabIndex = 8;
-            this._textBoxAngleLengthWidth.MaxLength = 5;
             // 
             // _textBoxAngleBaseHeight
             // 
             this._textBoxAngleBaseHeight.Location = new System.Drawing.Point(321, 126);
+            this._textBoxAngleBaseHeight.MaxLength = 5;
             this._textBoxAngleBaseHeight.Name = "_textBoxAngleBaseHeight";
             this._textBoxAngleBaseHeight.Size = new System.Drawing.Size(100, 22);
             this._textBoxAngleBaseHeight.TabIndex = 9;
-            this._textBoxAngleBaseHeight.MaxLength = 5;
             // 
             // UserControlParallelepiped
             // 
@@ -158,10 +158,10 @@
         internal System.Windows.Forms.Label _labelHeight;
         internal System.Windows.Forms.Label _labelAngleLengthWidth;
         internal System.Windows.Forms.Label _labelAngleBaseHeight;
-        internal System.Windows.Forms.TextBox _textBoxLength;
-        internal System.Windows.Forms.TextBox _textBoxWidth;
-        internal System.Windows.Forms.TextBox _textBoxHeight;
-        internal System.Windows.Forms.TextBox _textBoxAngleLengthWidth;
-        internal System.Windows.Forms.TextBox _textBoxAngleBaseHeight;
+        internal TextBoxExam _textBoxLength;
+        internal TextBoxExam _textBoxWidth;
+        internal TextBoxExam _textBoxHeight;
+        internal TextBoxExam _textBoxAngleLengthWidth;
+        internal TextBoxExam _textBoxAngleBaseHeight;
     }
 }

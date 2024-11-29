@@ -21,7 +21,7 @@ namespace View
         }
 
         /// <summary>
-        /// Проверка данных от пользователя в TextBox.
+        /// Проверка данных от пользователя.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>

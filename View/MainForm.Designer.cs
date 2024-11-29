@@ -191,6 +191,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.Text = "Программа";
             this.Load += new System.EventHandler(this.LoadMainForm);
             this._toolStrip.ResumeLayout(false);
             this._toolStrip.PerformLayout();

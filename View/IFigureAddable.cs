@@ -12,7 +12,10 @@ namespace View
     /// </summary>
     public interface IFigureAddable
     {
-        //TODO: XML
+        //TODO+: XML
+        /// <summary>
+        /// Свойство, предоставляющее интерфейс.
+        /// </summary>
         FigureBase Figure { get; }
     }
 }

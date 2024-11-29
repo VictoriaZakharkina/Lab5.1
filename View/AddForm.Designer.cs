@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this._groupBoxParametrs = new System.Windows.Forms.GroupBox();
+            this._userControlSphere = new View.UserControlSphere();
+            this._userControlPyramid = new View.UserControlPyramid();
+            this._userControlParallelepiped = new View.UserControlParallelepiped();
             this._groupBoxFigure = new System.Windows.Forms.GroupBox();
             this._radioButtonPyramid = new System.Windows.Forms.RadioButton();
             this._radioButtonParallelepiped = new System.Windows.Forms.RadioButton();
             this._radioButtonSphere = new System.Windows.Forms.RadioButton();
             this._buttonAdd = new System.Windows.Forms.Button();
             this._buttonClose = new System.Windows.Forms.Button();
-            this._userControlSphere = new View.UserControlSphere();
-            this._userControlPyramid = new View.UserControlPyramid();
-            this._userControlParallelepiped = new View.UserControlParallelepiped();
             this._groupBoxParametrs.SuspendLayout();
             this._groupBoxFigure.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,33 @@
             this._groupBoxParametrs.TabIndex = 1;
             this._groupBoxParametrs.TabStop = false;
             this._groupBoxParametrs.Text = "Параметры (см, град)";
+            // 
+            // _userControlSphere
+            // 
+            this._userControlSphere.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this._userControlSphere.BackColor = System.Drawing.SystemColors.Control;
+            this._userControlSphere.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._userControlSphere.Location = new System.Drawing.Point(6, 22);
+            this._userControlSphere.Name = "_userControlSphere";
+            this._userControlSphere.Size = new System.Drawing.Size(438, 159);
+            this._userControlSphere.TabIndex = 1;
+            this._userControlSphere.Visible = false;
+            // 
+            // _userControlPyramid
+            // 
+            this._userControlPyramid.Location = new System.Drawing.Point(6, 21);
+            this._userControlPyramid.Name = "_userControlPyramid";
+            this._userControlPyramid.Size = new System.Drawing.Size(438, 159);
+            this._userControlPyramid.TabIndex = 2;
+            this._userControlPyramid.Visible = false;
+            // 
+            // _userControlParallelepiped
+            // 
+            this._userControlParallelepiped.Location = new System.Drawing.Point(6, 22);
+            this._userControlParallelepiped.Name = "_userControlParallelepiped";
+            this._userControlParallelepiped.Size = new System.Drawing.Size(438, 159);
+            this._userControlParallelepiped.TabIndex = 0;
+            this._userControlParallelepiped.Visible = false;
             // 
             // _groupBoxFigure
             // 
@@ -108,9 +135,9 @@
             // _buttonAdd
             // 
             this._buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this._buttonAdd.Location = new System.Drawing.Point(12, 274);
+            this._buttonAdd.Location = new System.Drawing.Point(12, 276);
             this._buttonAdd.Name = "_buttonAdd";
-            this._buttonAdd.Size = new System.Drawing.Size(92, 33);
+            this._buttonAdd.Size = new System.Drawing.Size(140, 30);
             this._buttonAdd.TabIndex = 3;
             this._buttonAdd.Text = "Добавить";
             this._buttonAdd.UseVisualStyleBackColor = true;
@@ -119,40 +146,13 @@
             // _buttonClose
             // 
             this._buttonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this._buttonClose.Location = new System.Drawing.Point(116, 274);
+            this._buttonClose.Location = new System.Drawing.Point(323, 276);
             this._buttonClose.Name = "_buttonClose";
-            this._buttonClose.Size = new System.Drawing.Size(92, 33);
+            this._buttonClose.Size = new System.Drawing.Size(140, 30);
             this._buttonClose.TabIndex = 4;
             this._buttonClose.Text = "Закрыть";
             this._buttonClose.UseVisualStyleBackColor = true;
             this._buttonClose.Click += new System.EventHandler(this.CloseButton);
-            // 
-            // _userControlSphere
-            // 
-            this._userControlSphere.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this._userControlSphere.BackColor = System.Drawing.SystemColors.Control;
-            this._userControlSphere.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._userControlSphere.Location = new System.Drawing.Point(6, 22);
-            this._userControlSphere.Name = "_userControlSphere";
-            this._userControlSphere.Size = new System.Drawing.Size(438, 159);
-            this._userControlSphere.TabIndex = 1;
-            this._userControlSphere.Visible = false;
-            // 
-            // _userControlPyramid
-            // 
-            this._userControlPyramid.Location = new System.Drawing.Point(6, 21);
-            this._userControlPyramid.Name = "_userControlPyramid";
-            this._userControlPyramid.Size = new System.Drawing.Size(438, 159);
-            this._userControlPyramid.TabIndex = 2;
-            this._userControlPyramid.Visible = false;
-            // 
-            // _userControlParallelepiped
-            // 
-            this._userControlParallelepiped.Location = new System.Drawing.Point(6, 22);
-            this._userControlParallelepiped.Name = "_userControlParallelepiped";
-            this._userControlParallelepiped.Size = new System.Drawing.Size(438, 159);
-            this._userControlParallelepiped.TabIndex = 0;
-            this._userControlParallelepiped.Visible = false;
             // 
             // AddForm
             // 

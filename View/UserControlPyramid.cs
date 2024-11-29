@@ -11,13 +11,22 @@ using System.Windows.Forms;
 
 namespace View
 {
+    /// <summary>
+    /// Класс интерфейса Пирамида.
+    /// </summary>
     public partial class UserControlPyramid : UserControl, IFigureAddable
     {
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
         public UserControlPyramid()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Чтение данных.
+        /// </summary>
         public FigureBase Figure
         {
             get

@@ -14,7 +14,7 @@ using Library;
 namespace View
 {
     /// <summary>
-    /// Класс основной программы.
+    /// Форма "Программа"
     /// </summary>
     public partial class MainForm : Form
     {

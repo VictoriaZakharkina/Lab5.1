@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._textBoxAreaOfBase = new TextBoxExam();
+            this._textBoxAreaOfBase = new View.TextBoxExam();
             this._labelAreaOfBase = new System.Windows.Forms.Label();
-            this._textBoxHeight = new TextBoxExam();
+            this._textBoxHeight = new View.TextBoxExam();
             this._labelHeight = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -47,9 +47,9 @@
             this._labelAreaOfBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelAreaOfBase.Location = new System.Drawing.Point(14, 14);
             this._labelAreaOfBase.Name = "_labelAreaOfBase";
-            this._labelAreaOfBase.Size = new System.Drawing.Size(151, 18);
+            this._labelAreaOfBase.Size = new System.Drawing.Size(178, 18);
             this._labelAreaOfBase.TabIndex = 6;
-            this._labelAreaOfBase.Text = "Площадь основания";
+            this._labelAreaOfBase.Text = "Площадь основания, см";
             // 
             // _textBoxHeight
             // 
@@ -64,9 +64,9 @@
             this._labelHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._labelHeight.Location = new System.Drawing.Point(14, 42);
             this._labelHeight.Name = "_labelHeight";
-            this._labelHeight.Size = new System.Drawing.Size(61, 18);
+            this._labelHeight.Size = new System.Drawing.Size(88, 18);
             this._labelHeight.TabIndex = 8;
-            this._labelHeight.Text = "Высота";
+            this._labelHeight.Text = "Высота, см";
             // 
             // UserControlPyramid
             // 
@@ -87,7 +87,7 @@
         
         internal System.Windows.Forms.Label _labelAreaOfBase;
         internal System.Windows.Forms.Label _labelHeight;
-        internal System.Windows.Forms.TextBox _textBoxAreaOfBase;
-        internal System.Windows.Forms.TextBox _textBoxHeight;
+        internal TextBoxExam _textBoxAreaOfBase;
+        internal TextBoxExam _textBoxHeight;
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this._groupBoxFilter = new System.Windows.Forms.GroupBox();
+            this._textBoxValue = new View.TextBoxExam();
             this._checkBoxValue = new System.Windows.Forms.CheckBox();
             this._checkBoxPyramid = new System.Windows.Forms.CheckBox();
             this._checkBoxParallelepiped = new System.Windows.Forms.CheckBox();
             this._checkBoxSphere = new System.Windows.Forms.CheckBox();
             this._buttonFoundClick = new System.Windows.Forms.Button();
-            this._textBoxValue = new View.TextBoxExam();
             this._groupBoxFilter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,13 @@
             this._groupBoxFilter.TabIndex = 0;
             this._groupBoxFilter.TabStop = false;
             this._groupBoxFilter.Text = "Параметры фильтрации";
+            // 
+            // _textBoxValue
+            // 
+            this._textBoxValue.Location = new System.Drawing.Point(200, 119);
+            this._textBoxValue.Name = "_textBoxValue";
+            this._textBoxValue.Size = new System.Drawing.Size(100, 22);
+            this._textBoxValue.TabIndex = 4;
             // 
             // _checkBoxValue
             // 
@@ -96,20 +103,13 @@
             // _buttonFoundClick
             // 
             this._buttonFoundClick.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this._buttonFoundClick.Location = new System.Drawing.Point(12, 172);
+            this._buttonFoundClick.Location = new System.Drawing.Point(178, 174);
             this._buttonFoundClick.Name = "_buttonFoundClick";
-            this._buttonFoundClick.Size = new System.Drawing.Size(306, 33);
+            this._buttonFoundClick.Size = new System.Drawing.Size(140, 30);
             this._buttonFoundClick.TabIndex = 1;
             this._buttonFoundClick.Text = "Найти";
             this._buttonFoundClick.UseVisualStyleBackColor = true;
             this._buttonFoundClick.Click += new System.EventHandler(this.ButtonFoundClick);
-            // 
-            // _textBoxValue
-            // 
-            this._textBoxValue.Location = new System.Drawing.Point(200, 119);
-            this._textBoxValue.Name = "_textBoxValue";
-            this._textBoxValue.Size = new System.Drawing.Size(100, 22);
-            this._textBoxValue.TabIndex = 4;
             // 
             // FilterForm
             // 
@@ -121,7 +121,7 @@
             this.MaximizeBox = false;
             this.Name = "FilterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Фильтер";
+            this.Text = "Фильтр";
             this._groupBoxFilter.ResumeLayout(false);
             this._groupBoxFilter.PerformLayout();
             this.ResumeLayout(false);

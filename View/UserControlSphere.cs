@@ -11,13 +11,22 @@ using System.Windows.Forms;
 
 namespace View
 {
+    /// <summary>
+    /// Класс интерфейса Шар.
+    /// </summary>
     public partial class UserControlSphere : UserControl, IFigureAddable
     {
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
         public UserControlSphere()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Чтение данных.
+        /// </summary>
         public FigureBase Figure
         {
             get

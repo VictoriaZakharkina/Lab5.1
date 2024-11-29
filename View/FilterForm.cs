@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace View
 {
     /// <summary>
-    /// 
+    /// Форма "Фильтр".
     /// </summary>
     public partial class FilterForm : Form
     {
@@ -77,7 +77,7 @@ namespace View
         }
 
         /// <summary>
-        /// Активация поля ввода объема..
+        /// Активация поля ввода объема.
         /// </summary>
         /// <param name="sender">Данные.</param>
         /// <param name="e">Данные о событие.</param>
