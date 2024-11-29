@@ -144,7 +144,7 @@ namespace Library
         {
             get
             {
-                return $"Длина = {Length}, ширина = {Width}, высота = {Height}," +
+                return $"Длина = {Length}, ширина = {Width}, высота = {Height}, " +
                     $"угол м/у длиной и шириной = {AngleLengthWidth}, угол м/у основанием и высотой = {AngleBaseHeight}";
             }
         }

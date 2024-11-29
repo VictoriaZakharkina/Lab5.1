@@ -82,7 +82,7 @@ namespace Library
         {
             get
             {
-                return $"Площадь основания = {AreaOfBase}, высота = {Height}";
+                return $"Площадь основания = {AreaOfBase},\nвысота = {Height}";
             }
         }
         /// <summary>
