@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._textBoxAreaOfBase = new System.Windows.Forms.TextBox();
             this._textBoxAreaOfBase = new TextBoxExam();
             this._labelAreaOfBase = new System.Windows.Forms.Label();
-            this._textBoxHeight = new System.Windows.Forms.TextBox();
             this._textBoxHeight = new TextBoxExam();
             this._labelHeight = new System.Windows.Forms.Label();
             this.SuspendLayout();

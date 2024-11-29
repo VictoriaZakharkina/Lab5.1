@@ -163,7 +163,9 @@
             this.Controls.Add(this._buttonAdd);
             this.Controls.Add(this._groupBoxFigure);
             this.Controls.Add(this._groupBoxParametrs);
+            this.MaximizeBox = false;
             this.Name = "AddForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление";
             this._groupBoxParametrs.ResumeLayout(false);
             this._groupBoxFigure.ResumeLayout(false);

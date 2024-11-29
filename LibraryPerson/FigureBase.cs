@@ -42,7 +42,7 @@ namespace Library
         /// <exception cref="ArgumentException">Некорректный ввод</exception>
         protected static double CheckNumber(double number)
         {
-            if (number <= 0)
+            if (number <= 0 || double.IsNaN(number))
             {
                 throw new ArgumentException("Число должно быть положительным!");
             }
@@ -59,7 +59,7 @@ namespace Library
         /// <exception cref="ArgumentException">Некорректный ввод</exception>
         protected static double CheckNumberAngle(double number)
         {
-            if (number <= 0 || number >= 180)
+            if (number <= 0 || number >= 180 || double.IsNaN(number))
             {
                 throw new ArgumentException("Угол должен быть от 0 до 180 град");
             }

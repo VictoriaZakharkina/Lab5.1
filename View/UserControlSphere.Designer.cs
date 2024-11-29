@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._textBoxRadius = new System.Windows.Forms.TextBox();
             this._textBoxRadius = new TextBoxExam();
             this._labelRadius = new System.Windows.Forms.Label();
             this.SuspendLayout();

@@ -33,15 +33,10 @@
             this._labelHeight = new System.Windows.Forms.Label();
             this._labelAngleLengthWidth = new System.Windows.Forms.Label();
             this._labelAngleBaseHeight = new System.Windows.Forms.Label();
-            this._textBoxLength = new System.Windows.Forms.TextBox();
             this._textBoxLength = new TextBoxExam();
-            this._textBoxWidth = new System.Windows.Forms.TextBox();
             this._textBoxWidth = new TextBoxExam();
-            this._textBoxHeight = new System.Windows.Forms.TextBox();
             this._textBoxHeight = new TextBoxExam();
-            this._textBoxAngleLengthWidth = new System.Windows.Forms.TextBox();
             this._textBoxAngleLengthWidth = new TextBoxExam();
-            this._textBoxAngleBaseHeight = new System.Windows.Forms.TextBox();
             this._textBoxAngleBaseHeight = new TextBoxExam();
             this.SuspendLayout();
             // 

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this._groupBoxFilter = new System.Windows.Forms.GroupBox();
-            this._textBoxValue = new System.Windows.Forms.TextBox();
             this._checkBoxValue = new System.Windows.Forms.CheckBox();
             this._checkBoxPyramid = new System.Windows.Forms.CheckBox();
             this._checkBoxParallelepiped = new System.Windows.Forms.CheckBox();
             this._checkBoxSphere = new System.Windows.Forms.CheckBox();
             this._buttonFoundClick = new System.Windows.Forms.Button();
+            this._textBoxValue = new View.TextBoxExam();
             this._groupBoxFilter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,13 +51,6 @@
             this._groupBoxFilter.TabIndex = 0;
             this._groupBoxFilter.TabStop = false;
             this._groupBoxFilter.Text = "Параметры фильтрации";
-            // 
-            // _textBoxValue
-            // 
-            this._textBoxValue.Location = new System.Drawing.Point(200, 119);
-            this._textBoxValue.Name = "_textBoxValue";
-            this._textBoxValue.Size = new System.Drawing.Size(100, 22);
-            this._textBoxValue.TabIndex = 4;
             // 
             // _checkBoxValue
             // 
@@ -111,6 +104,13 @@
             this._buttonFoundClick.UseVisualStyleBackColor = true;
             this._buttonFoundClick.Click += new System.EventHandler(this.ButtonFoundClick);
             // 
+            // _textBoxValue
+            // 
+            this._textBoxValue.Location = new System.Drawing.Point(200, 119);
+            this._textBoxValue.Name = "_textBoxValue";
+            this._textBoxValue.Size = new System.Drawing.Size(100, 22);
+            this._textBoxValue.TabIndex = 4;
+            // 
             // FilterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -120,6 +120,7 @@
             this.Controls.Add(this._groupBoxFilter);
             this.MaximizeBox = false;
             this.Name = "FilterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Фильтер";
             this._groupBoxFilter.ResumeLayout(false);
             this._groupBoxFilter.PerformLayout();
@@ -134,7 +135,7 @@
         internal System.Windows.Forms.CheckBox _checkBoxParallelepiped;
         internal System.Windows.Forms.CheckBox _checkBoxPyramid;
         internal System.Windows.Forms.CheckBox _checkBoxValue;
-        internal System.Windows.Forms.TextBox _textBoxValue;
         internal System.Windows.Forms.Button _buttonFoundClick;
+        internal TextBoxExam _textBoxValue;
     }
 }
