@@ -217,7 +217,7 @@ namespace View
                 }
             }
         }
-
+#if DEBUG
         /// <summary>
         /// Метод нажатия на кнопку "Рандомайзер".
         /// </summary>
@@ -227,8 +227,7 @@ namespace View
         {
             _figureList.Add(RandomFigure.GetRandomFigure());
         }
-
-        /// <summary>
+#endif        /// <summary>
         /// Метод нажатия на кнопку "Сброс фильтра".
         /// </summary>
         /// <param name="sender">Данные.</param>
@@ -252,9 +251,10 @@ namespace View
                 !_filterFormOpen;
 
             _toolStripDropDownButton.Enabled = !_filter;
-
+#if DEBUG
             _randomButton.Enabled = !_filterFormOpen &&
                 _toolStripDropDownButton.Enabled;
+#endif
         }
 
         /// <summary>

@@ -33,7 +33,9 @@
             this._toolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this._saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+#if DEBUG
             this._randomButton = new System.Windows.Forms.Button();
+#endif
             this._groupBoxCalculation = new System.Windows.Forms.GroupBox();
             this._dataGridViewSpace = new System.Windows.Forms.DataGridView();
             this._groupBoxEdit = new System.Windows.Forms.GroupBox();
@@ -84,6 +86,7 @@
             this._openToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this._openToolStripMenuItem.Text = "Загрузить";
             this._openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem);
+#if DEBUG
             // 
             // _randomButton
             // 
@@ -94,6 +97,7 @@
             this._randomButton.Text = "Рандомайзер";
             this._randomButton.UseVisualStyleBackColor = true;
             this._randomButton.Click += new System.EventHandler(this.RandomButton);
+#endif
             // 
             // _groupBoxCalculation
             // 
@@ -186,7 +190,9 @@
             this.ClientSize = new System.Drawing.Size(760, 425);
             this.Controls.Add(this._groupBoxEdit);
             this.Controls.Add(this._groupBoxCalculation);
+#if DEBUG
             this.Controls.Add(this._randomButton);
+#endif
             this.Controls.Add(this._toolStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -203,9 +209,10 @@
 
         }
 
-        #endregion
-      
+#endregion
+#if DEBUG
         private System.Windows.Forms.Button _randomButton;
+#endif
         private System.Windows.Forms.GroupBox _groupBoxCalculation;
         private System.Windows.Forms.GroupBox _groupBoxEdit;
         private System.Windows.Forms.Button _filterButton;
