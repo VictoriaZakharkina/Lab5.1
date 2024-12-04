@@ -314,6 +314,11 @@ namespace View
                 }
 
                 _dataGridViewSpace.DataSource = _figureList;
+
+                _dataGridViewSpace.CurrentCell = null; 
+                MessageBox.Show("Файл загружен.",
+                    "Загрузка завершена", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
