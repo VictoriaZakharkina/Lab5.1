@@ -12,7 +12,6 @@ namespace View
     /// </summary>
     public interface IFigureAddable
     {
-        //TODO+: XML
         /// <summary>
         /// Свойство, предоставляющее интерфейс.
         /// </summary>
